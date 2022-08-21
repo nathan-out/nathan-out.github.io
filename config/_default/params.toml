@@ -1,0 +1,16 @@
+# ce fichier est prioritaire par rapport à celui situé dans lesndex du blog sources du thème
+colorScheme = "fire"
+autoSwitchAppearance = false
+defaultAppearance = "dark" # valid options: light or dark
+enableCodeCopy = true
+enableSearch = true
+
+paginate = 10
+list.showSummary = true
+
+footer.showThemeAttribution = false
+footer.showAppearanceSwitcher = true
+footer.showScrollTop = true
+
+homepage.layout = "profile"
+homepage.showRecent = "true"

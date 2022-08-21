@@ -1,0 +1,15 @@
+title = "nathan.out - mon blog"
+
+languageCode = "fr"
+languageName = "Français"
+displayName = "FR"
+isoCode = "fr"
+
+[author]
+name = "nathan.out"
+image = "img/author.jpg"
+headline = "A tout problème, il existe un script Python"
+bio = ""
+links = [
+  { github = "https://github.com/nathan-out" }
+]

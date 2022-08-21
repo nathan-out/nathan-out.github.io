@@ -1,0 +1,11 @@
+baseURL = 'https://nathan-out.github.io/'
+languageCode = 'fr-fr'
+defaultContentLanguage = 'fr'
+theme = "congo"
+list.showSummary = true
+summaryLength = 10
+outputs.home = ["HTML", "RSS", "JSON"]
+[markup]
+	[markup.goldmark]
+		[markup.goldmark.renderer]
+			unsafe = true
