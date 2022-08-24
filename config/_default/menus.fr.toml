@@ -1,5 +1,5 @@
 [[main]]
-	name = "Mes articles"
+	name = "Articles"
 	pageRef = "posts"
 	url = "/posts/"
 	weight = 1
