@@ -7,6 +7,10 @@ enableSearch = true
 
 paginate = 10
 list.showSummary = true
+list.showBreadcrumbs = true
+
+article.showBreadcrumbs = true
+article.showTableOfContents = true
 
 footer.showThemeAttribution = false
 footer.showAppearanceSwitcher = true
