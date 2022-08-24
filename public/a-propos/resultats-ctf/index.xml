@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Resultats CTF on nathan.out - mon blog</title>
+    <title>Resultats CTF on nathan.out</title>
     <link>https://nathan-out.github.io/a-propos/resultats-ctf/</link>
-    <description>Recent content in Resultats CTF on nathan.out - mon blog</description>
+    <description>Recent content in Resultats CTF on nathan.out</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <lastBuildDate>Fri, 05 Aug 2022 23:59:10 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/a-propos/resultats-ctf/index.xml" rel="self" type="application/rss+xml" />

@@ -1,39 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on nathan.out</title>
-    <link>https://nathan-out.github.io/</link>
-    <description>Recent content in Blog on nathan.out</description>
+    <title>Le Hack 2022 on nathan.out</title>
+    <link>https://nathan-out.github.io/posts/lehack2022/</link>
+    <description>Recent content in Le Hack 2022 on nathan.out</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
-    <lastBuildDate>Fri, 05 Aug 2022 21:37:39 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>404 CTF 2022</title>
-      <link>https://nathan-out.github.io/a-propos/resultats-ctf/4042022/</link>
-      <pubDate>Sat, 06 Aug 2022 00:07:33 +0200</pubDate>
-      
-      <guid>https://nathan-out.github.io/a-propos/resultats-ctf/4042022/</guid>
-      <description>Le 404CTF est une compétition organisé par Télécom Sud-Paris en partenariat avec la DGSE.</description>
-    </item>
-    
-    <item>
-      <title>FCSC 2022</title>
-      <link>https://nathan-out.github.io/a-propos/resultats-ctf/fcsc2022/</link>
-      <pubDate>Sat, 06 Aug 2022 00:00:48 +0200</pubDate>
-      
-      <guid>https://nathan-out.github.io/a-propos/resultats-ctf/fcsc2022/</guid>
-      <description>Pour mon tout premier CTF, je n&amp;rsquo;ai pas commencé par le plus simple&amp;hellip;</description>
-    </item>
-    
-    <item>
-      <title>J&#39;ai créé un bot Instagram 100% légal et totalement automatisé</title>
-      <link>https://nathan-out.github.io/posts/jai-cree-un-bot-instagram-100-pourcent-legal-et-totalement-automatise/</link>
-      <pubDate>Fri, 05 Aug 2022 21:30:44 +0200</pubDate>
-      
-      <guid>https://nathan-out.github.io/posts/jai-cree-un-bot-instagram-100-pourcent-legal-et-totalement-automatise/</guid>
-      <description>Instagram regorge de bots (ou robots), la plateforme leur mène une guerre totale avec des moyens colossaux et des technologies d&amp;rsquo;analyse du comportement poussées pour déterminer si un compte est managé par un robot ou non.</description>
-    </item>
-    
+    <lastBuildDate>Thu, 30 Jun 2022 13:53:43 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/posts/lehack2022/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>L&#39;OSINT dans la Red Team</title>
       <link>https://nathan-out.github.io/posts/lehack2022/osint/osint-red-team/</link>
@@ -123,33 +96,6 @@ Objectif : accéder au SDMS (scientist data managment system).</description>
       <guid>https://nathan-out.github.io/posts/lehack2022/osint/judiciariser-losint/</guid>
       <description>Lieutenant Yann Derweduwen (C3N)
 Le ComCyberGend communique beaucoup avec d&amp;rsquo;autres organismes nationaux comme l&amp;rsquo;ANSSI les assureurs ou encore la Police Judiciaire.</description>
-    </item>
-    
-    <item>
-      <title>La Plus Grosse Faille De La Décennie Log4shell</title>
-      <link>https://nathan-out.github.io/posts/la-plus-grosse-faille-de-la-decennie-log4shell/</link>
-      <pubDate>Fri, 17 Dec 2021 13:49:02 +0200</pubDate>
-      
-      <guid>https://nathan-out.github.io/posts/la-plus-grosse-faille-de-la-decennie-log4shell/</guid>
-      <description>Je vais vous expliquer simplement comment cette faille, découverte le 10 décembre 2021, est en mesure de mettre à feu et à sang l’écrasante majorité des systèmes informatiques.</description>
-    </item>
-    
-    <item>
-      <title>Stuxnet : Infiltrer Et Compromettre Une Centrale Nucleaire</title>
-      <link>https://nathan-out.github.io/posts/stuxnet-infiltrer-et-compromettre-une-centrale-nucleaire/</link>
-      <pubDate>Sun, 21 Nov 2021 10:51:19 +0200</pubDate>
-      
-      <guid>https://nathan-out.github.io/posts/stuxnet-infiltrer-et-compromettre-une-centrale-nucleaire/</guid>
-      <description>Comment les centrales nucléaires iraniennes on-t-elles été infiltrées et sabotées par un programme informatique ?</description>
-    </item>
-    
-    <item>
-      <title>RSA Ou Comment Vos Cours De 4eme Vous Permettent De Proteger Vos Codes Bancaires</title>
-      <link>https://nathan-out.github.io/posts/rsa-ou-comment-vos-cours-de-4eme-vous-permettent-de-proteger-vos-codes-bancaires/</link>
-      <pubDate>Sat, 21 Nov 2020 14:06:22 +0200</pubDate>
-      
-      <guid>https://nathan-out.github.io/posts/rsa-ou-comment-vos-cours-de-4eme-vous-permettent-de-proteger-vos-codes-bancaires/</guid>
-      <description>Ce titre n’est (presque) pas une blague. VOUS avez le niveau pour comprendre comment vos données en ligne sont protégées.</description>
     </item>
     
   </channel>
