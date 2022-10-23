@@ -18,6 +18,7 @@ Il faut push sur les deux branches :
 
 ```
 $ git add .
+$ git commit -m "message de commit"
 $ git checkout main
 $ git push
 $ git checkout gh-pages
