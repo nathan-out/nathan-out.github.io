@@ -24,5 +24,7 @@ $ git checkout master
 $ git push
 $ git checkout gh-pages
 $ git pull
+$ git add .
+$ git commit -m ""
 $ git push
 ```
