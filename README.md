@@ -17,6 +17,7 @@ Il faut push sur les deux branches :
 - `gh-pages` qui contient les html générés
 
 ```
+$ hugo # génère les pages html
 $ git add .
 $ git commit -m "message de commit"
 $ git checkout master
