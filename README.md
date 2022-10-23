@@ -23,5 +23,6 @@ $ git commit -m "message de commit"
 $ git checkout master
 $ git push
 $ git checkout gh-pages
+$ git pull
 $ git push
 ```
