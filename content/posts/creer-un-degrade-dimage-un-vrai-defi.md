@@ -185,11 +185,35 @@ L'implémentation que j'ai trouvée de cet algorithme est optimisée mais on res
 
 Certes, il existe encore des imperfections (au début), l'algorithme n'est pas parfait mais peut-être est-ce à cause de ma moyenne pondérée. J'ai tenté d'autres approches mais aucune n'a donné un résultat aussi propre que celle-là. On observe que les divergences locales ont disparues ! C'est une réussite sur ce point là !
 
-## Optimisation
+## Optimisations
 
-Le programme total est assez lent sur mon ordinateur, pour les images ci-dessus, comptez plusieurs minutes. La partie la plus longue est assurément le calcul de clustering ; pour une image de 600 * 800 px il me faut environ 50 secondes pour ce calcul. J'ai essayé d'optimiser cela en essayant de **multiprocesser** (utiliser toutes la puissance disponible du processeur) cette partie, mais il s'est avéré que la librairie derrière le faisait déjà (pas étonnant !), inutile de multiprocesser quelque-chose qui l'est déjà. On pourrait cependant redimensionner les images avant calcul pour limiter le coût. En vérité la librairie le fait déjà mais je ne sais pas dans quelle mesure. **Il est inutile de faire passer une image en 4K, le résultat sera similaire à cette même image réduite**.
+Le programme total est assez lent sur mon ordinateur, pour les images ci-dessus, comptez plusieurs minutes. La partie la plus longue est assurément le calcul de clustering ; pour une image de 600 * 800 px il me faut environ 50 secondes pour ce calcul. Est-il possible d'aller plus vite ? Oui, et pour cela il faut faire des tests.
 
-On peut également diminuer le nombre de cluster (couleur dominante) à calculer. On pourrait passer à 4 ou 3 mais le tris en serait impacté. On peut également réduire le nombre d'itération (par défaut 300) du clustering, je ne pense pas que cela impacte significativement la pertinence du tris. Enfin, on pourrait créer un fichier JSON qui contiendrait les valeurs de clustering pour chaque hash d'image. Puisqu'un hash est unique, il suffirait de hasher l'image, regarder si ce hash se trouve dans le fichier, et si c'est le cas utiliser les valeurs déjà calculées précédemment. Le gain dépend de la façon dont on utilise le programme.
+### Retour sur le clustering
+
+On l'a vu, le clustering consiste à répéter des calculs pour aboutir à plusieurs valeurs. En creusant un peu, on s'apperçoit que la librairie utilisée fait par défaut 300 itérations. Que se passe-t-il si on diminue ? Surtout, est-ce que nos valeurs de couleurs dominantes sont encore précises ?
+
+| nombre itérations | temps de calcul (s) | pourcentage de temps économisé (%) | résultat du clustering
+|-------------------|-----------| ----------------------------------------- | ------------------------- |
+| 300               | 57        | -   | [[36, 37, 28, 22], [26, 140, 99, 43], [24, 96, 62, 25], [7, 0, 0, 0], [4, 200, 164, 115]]
+| 150               | 52        | 9   | [[36, 37, 28, 22], [26, 140, 99, 43], [24, 96, 62, 25], [7, 0, 0, 0], [4, 199, 163, 114]]
+| 50                | 37        | 35  | [[36, 37, 28, 22], [27, 139, 98, 42], [24, 96, 62, 25], [7, 0, 0, 0], [4, 199, 163, 114]]
+| 10                | 31        | 46  | [[36, 37, 28, 22], [26, 140, 99, 43], [24, 96, 62, 25], [7, 0, 0, 0], [4, 200, 163, 114]]
+| 2                 | 25        | 56  | [[36, 38, 29, 22], [26, 139, 99, 42], [24, 98, 64, 25], [7, 0, 0, 0], [5, 196, 159, 110]]
+
+On voit ici qu'on peut descendre jusqu'à **2 itérations** sans que nos résultats de calculs soient impactés de façon significatives, on a déjà gagné 56% de temps de calcul environ. Pour garder de la marge, j'ai choisis d'effectuer 5 itérations.
+
+{{< alert >}}
+L'estimation du temps de calcul a été fait à partir du module `time`. C'est une méthode de mesure largement imparfaite lorsqu'on veut être précis ou mesurer de petites différences. L'idée ici est de "sentir" les ordres de grandeur.
+{{< /alert >}}
+
+On peut également diminuer le nombre de cluster (couleur dominante) à calculer. Cependant, diminuser le nombre de couleurs dominantes c'est perdre en précision pour des impacts sur la performance qui sont minimes. Pour 4 clusters et 5 itérations on est à 25 secondes, 3 clusters et 5 itérations : 23 secondes et enfin 2 clusters et 5 itérations : 10 secondes. Perdre ne serait-ce qu'une couleur va impacter la pertinence du tris, ça n'est pas acceptable.
+
+Une troisième idée est celle de réduire la taille des images seulement pour le calcul. Juste avant le calcul du clustering, on redimensionne l'image ce qui engendre une forte réduction du volume de donnée à calculer. En effet, **pour une image deux fois plus petite on divise par 4 son nombre de pixels**. La question reste toujours la même, jusqu'à quand peut-on réduire la taille d'une image sans que cela n'impacte trop la pertinence du tris ? J'ai fais quelques tests et la solution qui me semble être optimale dans mon cas est de fixer une taille maximale à mon image. En effet, si on divise systématiquement la taille de l'image par deux avant le clustering, notre programme ne sera pas adapté à de petites et à des très grandes images. Pour les premières il n'y aura plus assez de pixels et pour les secondes il y en aura encore bien trop.
+
+En fixant une largeur maximale de **2000 pixels** (la hauteur est calculée pour garder les proportions de l'image), j'observe que mes résultats ne bougent que très peu pour un gain important. Pour une image de 1.6Mo, avec les optimisations évoquées ci-dessus, on arrive à presque **85% de temps de calcul en moins**.
+
+Enfin, on pourrait créer un fichier JSON qui contiendrait les valeurs de clustering pour chaque hash d'image. Puisqu'un hash est unique, il suffirait de hasher l'image, regarder si ce hash se trouve dans le fichier, et si c'est le cas utiliser les valeurs déjà calculées précédemment. Le gain dépend de la façon dont on utilise le programme. En effet, si on veut par exemple construire un beau dégradé, on va souvent traiter les mêmes images en ajoutant quelques nouvelles ; inutile de calculer ce qui a déjà était fait auparavant.
 
 ## Conclusion
 
