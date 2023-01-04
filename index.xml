@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on nathan.out</title>
+    <link>https://nathan-out.github.io/</link>
+    <description>Recent content in Blog on nathan.out</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <lastBuildDate>Fri, 05 Aug 2022 21:37:39 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Créer un dégradé d&#39;image : un vrai défi</title>
+      <link>https://nathan-out.github.io/posts/creer-un-degrade-dimage-un-vrai-defi/</link>
+      <pubDate>Sun, 23 Oct 2022 09:45:36 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/creer-un-degrade-dimage-un-vrai-defi/</guid>
+      <description>Trier des images pour les classer en dégradé de couleur, voilà quelque chose qui paraît trivial et sans intérêt au premier abord, et si c&amp;rsquo;était en réalité beaucoup plus difficle et intéressant que ça ?</description>
+    </item>
+    
+    <item>
+      <title>A Propos De La Guerre en Ukraine : Geographie Et Histoire</title>
+      <link>https://nathan-out.github.io/posts/a-propos-de-la-guerre-en-ukraine-geographie-et-histoire/</link>
+      <pubDate>Sun, 02 Oct 2022 22:25:27 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/a-propos-de-la-guerre-en-ukraine-geographie-et-histoire/</guid>
+      <description>Café stratégique du 27 septembre 2022
+Conférencier : Roger DUBURG, Ancien directeur adjoint de la Délégation aux Affaires Stratégiques du ministère de la défense.</description>
+    </item>
+    
+    <item>
+      <title>404 CTF 2022</title>
+      <link>https://nathan-out.github.io/a-propos/resultats-ctf/4042022/</link>
+      <pubDate>Sat, 06 Aug 2022 00:07:33 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/a-propos/resultats-ctf/4042022/</guid>
+      <description>Le 404CTF est une compétition organisé par Télécom Sud-Paris en partenariat avec la DGSE.</description>
+    </item>
+    
+    <item>
+      <title>FCSC 2022</title>
+      <link>https://nathan-out.github.io/a-propos/resultats-ctf/fcsc2022/</link>
+      <pubDate>Sat, 06 Aug 2022 00:00:48 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/a-propos/resultats-ctf/fcsc2022/</guid>
+      <description>Pour mon tout premier CTF, je n&amp;rsquo;ai pas commencé par le plus simple&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>J&#39;ai créé un bot Instagram 100% légal et totalement automatisé</title>
+      <link>https://nathan-out.github.io/posts/jai-cree-un-bot-instagram-100-pourcent-legal-et-totalement-automatise/</link>
+      <pubDate>Fri, 05 Aug 2022 21:30:44 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/jai-cree-un-bot-instagram-100-pourcent-legal-et-totalement-automatise/</guid>
+      <description>Instagram regorge de bots (ou robots), la plateforme leur mène une guerre totale avec des moyens colossaux et des technologies d&amp;rsquo;analyse du comportement poussées pour déterminer si un compte est managé par un robot ou non.</description>
+    </item>
+    
+    <item>
+      <title>L&#39;OSINT dans la Red Team</title>
+      <link>https://nathan-out.github.io/posts/lehack2022/osint/osint-red-team/</link>
+      <pubDate>Thu, 30 Jun 2022 13:56:32 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/lehack2022/osint/osint-red-team/</guid>
+      <description>Epios
+Objectif : : compromettre une organisation. On utilisera par exemple du crochetage, de l&amp;rsquo;USB dropping&amp;hellip; La cyber kill chain est la suite d&amp;rsquo;étape permettant de compromettre une organisation.</description>
+    </item>
+    
+    <item>
+      <title>Cactées et succulentes, anatomie de la désinformation (Qactus)</title>
+      <link>https://nathan-out.github.io/posts/lehack2022/osint/desinformation-en-ligne/</link>
+      <pubDate>Thu, 30 Jun 2022 13:56:22 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/lehack2022/osint/desinformation-en-ligne/</guid>
+      <description>Open Facto fédérer l&amp;rsquo;OSINT français
+Qactus : site de désinformation français proche de la mouvance Qanon (USA), les thématiques abordées sont les complots en tout genre, l&amp;rsquo;antivaccination, l&amp;rsquo;antisémitisme&amp;hellip; Il s&amp;rsquo;est fait connaître durant la crise du COVID.</description>
+    </item>
+    
+    <item>
+      <title>Dissecting and comparing different binaries to malware analysis</title>
+      <link>https://nathan-out.github.io/posts/lehack2022/conferences-techniques/malware-analysis/</link>
+      <pubDate>Thu, 30 Jun 2022 13:56:22 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/lehack2022/conferences-techniques/malware-analysis/</guid>
+      <description>Filipi Pires
+En rédigeant ce retex, je suis tombé sur un article du conférencier qui explique une conférence identique qu&amp;rsquo;il a tenue : Malware Analysis Dissecting PDF File</description>
+    </item>
+    
+    <item>
+      <title>Honeypot in ICS environment</title>
+      <link>https://nathan-out.github.io/posts/lehack2022/conferences-techniques/honeypot-industriel/</link>
+      <pubDate>Thu, 30 Jun 2022 13:56:22 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/lehack2022/conferences-techniques/honeypot-industriel/</guid>
+      <description>CyberSec ICS
+Honeypot :
+service volontairement exposé sur le net pour faire de l&amp;rsquo;analyse de le menace.</description>
+    </item>
+    
+    <item>
+      <title>How to become the socket puppets master ?</title>
+      <link>https://nathan-out.github.io/posts/lehack2022/conferences-techniques/puppet-master/</link>
+      <pubDate>Thu, 30 Jun 2022 13:56:22 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/lehack2022/conferences-techniques/puppet-master/</guid>
+      <description>Palenath Megadose
+La conférence parle essentiellement de la création gratuite et facile de numéros de téléphone, utiles dans le cadre de la création de faux comptes de réseaux sociaux.</description>
+    </item>
+    
+    <item>
+      <title>Logic flaws, what are we missing in web application</title>
+      <link>https://nathan-out.github.io/posts/lehack2022/conferences-techniques/web-logic-flaw/</link>
+      <pubDate>Thu, 30 Jun 2022 13:56:22 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/lehack2022/conferences-techniques/web-logic-flaw/</guid>
+      <description>Mirza Burhan Baig
+Logic flaw : traduit en &amp;ldquo;faille logique&amp;rdquo; dans ce retex, est une faille qui vient d&amp;rsquo;un manquement de l&amp;rsquo;application à vérifier son comportement lorsque l&amp;rsquo;utilisateur effectue des actions innatendues.</description>
+    </item>
+    
+    <item>
+      <title>So you hacked a wifi router and now what ?</title>
+      <link>https://nathan-out.github.io/posts/lehack2022/conferences-techniques/hacked-wifi-router/</link>
+      <pubDate>Thu, 30 Jun 2022 13:56:22 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/lehack2022/conferences-techniques/hacked-wifi-router/</guid>
+      <description>Damien Cauquil
+Le conférencier veut nous inviter à aller plus loin que l&amp;rsquo;accès root.</description>
+    </item>
+    
+    <item>
+      <title>Swapping aspirin formulas with MDMA while red teaming a billion dollar pharmaceutical</title>
+      <link>https://nathan-out.github.io/posts/lehack2022/conferences-techniques/red-team-aspirin-mdma/</link>
+      <pubDate>Thu, 30 Jun 2022 13:56:22 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/lehack2022/conferences-techniques/red-team-aspirin-mdma/</guid>
+      <description>Aman Sachdev
+Objectif : accéder au SDMS (scientist data managment system).</description>
+    </item>
+    
+    <item>
+      <title>OSINT et les investigations judiciaires</title>
+      <link>https://nathan-out.github.io/posts/lehack2022/osint/judiciariser-losint/</link>
+      <pubDate>Thu, 30 Jun 2022 13:56:10 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/lehack2022/osint/judiciariser-losint/</guid>
+      <description>Lieutenant Yann Derweduwen (C3N)
+Le ComCyberGend communique beaucoup avec d&amp;rsquo;autres organismes nationaux comme l&amp;rsquo;ANSSI les assureurs ou encore la Police Judiciaire.</description>
+    </item>
+    
+    <item>
+      <title>La Plus Grosse Faille De La Décennie Log4shell</title>
+      <link>https://nathan-out.github.io/posts/la-plus-grosse-faille-de-la-decennie-log4shell/</link>
+      <pubDate>Fri, 17 Dec 2021 13:49:02 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/la-plus-grosse-faille-de-la-decennie-log4shell/</guid>
+      <description>Je vais vous expliquer simplement comment cette faille, découverte le 10 décembre 2021, est en mesure de mettre à feu et à sang l’écrasante majorité des systèmes informatiques.</description>
+    </item>
+    
+    <item>
+      <title>Stuxnet : Infiltrer Et Compromettre Une Centrale Nucleaire</title>
+      <link>https://nathan-out.github.io/posts/stuxnet-infiltrer-et-compromettre-une-centrale-nucleaire/</link>
+      <pubDate>Sun, 21 Nov 2021 10:51:19 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/stuxnet-infiltrer-et-compromettre-une-centrale-nucleaire/</guid>
+      <description>Comment les centrales nucléaires iraniennes on-t-elles été infiltrées et sabotées par un programme informatique ?</description>
+    </item>
+    
+    <item>
+      <title>RSA Ou Comment Vos Cours De 4eme Vous Permettent De Proteger Vos Codes Bancaires</title>
+      <link>https://nathan-out.github.io/posts/rsa-ou-comment-vos-cours-de-4eme-vous-permettent-de-proteger-vos-codes-bancaires/</link>
+      <pubDate>Sat, 21 Nov 2020 14:06:22 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/rsa-ou-comment-vos-cours-de-4eme-vous-permettent-de-proteger-vos-codes-bancaires/</guid>
+      <description>Ce titre n’est (presque) pas une blague. VOUS avez le niveau pour comprendre comment vos données en ligne sont protégées.</description>
+    </item>
+    
+  </channel>
+</rss>

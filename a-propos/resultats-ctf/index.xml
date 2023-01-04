@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resultats CTF on nathan.out</title>
+    <link>https://nathan-out.github.io/a-propos/resultats-ctf/</link>
+    <description>Recent content in Resultats CTF on nathan.out</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <lastBuildDate>Fri, 05 Aug 2022 23:59:10 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/a-propos/resultats-ctf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>404 CTF 2022</title>
+      <link>https://nathan-out.github.io/a-propos/resultats-ctf/4042022/</link>
+      <pubDate>Sat, 06 Aug 2022 00:07:33 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/a-propos/resultats-ctf/4042022/</guid>
+      <description>Le 404CTF est une compétition organisé par Télécom Sud-Paris en partenariat avec la DGSE.</description>
+    </item>
+    
+    <item>
+      <title>FCSC 2022</title>
+      <link>https://nathan-out.github.io/a-propos/resultats-ctf/fcsc2022/</link>
+      <pubDate>Sat, 06 Aug 2022 00:00:48 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/a-propos/resultats-ctf/fcsc2022/</guid>
+      <description>Pour mon tout premier CTF, je n&amp;rsquo;ai pas commencé par le plus simple&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>
