@@ -6,15 +6,15 @@ Mon blog GoHugo. La branche `gh-pages` contient les sources du site, la branche 
 
 `hugo new posts/my-first-post.md`
 
-## Créer les pages HTML
+## Build le site
 
 `hugo`
 
 ## Mettre à jour le site
 
-Il faut push sur les deux branches :
-- `main` qui contient les sources
-- `gh-pages` qui contient les html générés
+- build le site `hugo`
+- ajouter les nouveaux fichiers `git add .`
+- commit & push
 
 ```
 $ hugo # génère les pages html
