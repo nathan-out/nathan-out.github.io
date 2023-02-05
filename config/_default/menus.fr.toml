@@ -5,12 +5,6 @@
 	weight = 1
 
 [[main]]
-	name = "Projets"
-	pageRef = "projets"
-	url = "/projets/"
-	weight = 2
-
-[[main]]
 	name = "A propos"
 	pageRef = "a-propos"
 	url = "/a-propos/"

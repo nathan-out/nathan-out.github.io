@@ -1,7 +1,21 @@
 /*Ma feuille de style personnalisée doc : https://jpanther.github.io/congo/docs/advanced-customisation/#overriding-the-stylesheet*/
 
 /*un peu plus de largeur pour le contenu pour l'article*/
-.max-w-prose{
+/*.max-w-prose{
 	max-width: 100ch;
+}*/
+
+/*justifier le texte*/
+.max-w-prose{
 	text-align: justify;
+}
+
+
+/*affichage du sommaire*/
+#TableOfContents li a{
+	padding:5px;
+}
+
+#TableOfContents li a:hover{
+	color:white;
 }

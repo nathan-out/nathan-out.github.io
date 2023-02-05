@@ -8,6 +8,15 @@
     <language>fr</language>
     <lastBuildDate>Fri, 05 Aug 2022 21:37:39 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Voir l&#39;influence et détecter la manipulation de l&#39;information</title>
+      <link>https://nathan-out.github.io/posts/fakenews/</link>
+      <pubDate>Sun, 08 Jan 2023 18:10:23 +0100</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/fakenews/</guid>
+      <description>Article de blog écrit à la suite du Tournois de Renseignement et d&amp;rsquo;Analyse de CentraleSupélec (TRACS) édition 2022.</description>
+    </item>
+    
+    <item>
       <title>Créer un dégradé d&#39;image : un vrai défi</title>
       <link>https://nathan-out.github.io/posts/creer-un-degrade-dimage-un-vrai-defi/</link>
       <pubDate>Sun, 23 Oct 2022 09:45:36 +0200</pubDate>
