@@ -29,7 +29,7 @@ $ git commit -m ""
 $ git push
 ```
 
-## Modifier le style
+## Modifier le style
 
 Ma feuille de style personnalisée : `assets/css/custom.css`
 doc : https://jpanther.github.io/congo/docs/advanced-customisation/#overriding-the-stylesheet
