@@ -107,7 +107,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "2467"
+    "wordCount": "2478"
   }]
   </script>
 
@@ -338,7 +338,7 @@
       
       <div class="min-w-0 min-h-0 max-w-prose">
         <p><em>Article de blog écrit à la suite du <a href="https://tracs.viarezo.fr/">Tournois de Renseignement et d&rsquo;Analyse de CentraleSupélec (TRACS)</a> édition 2022. En quelques mots, ce tournois a été l&rsquo;occasion de concourir sur des thématiques diverses comme la data science, la cybersécurité ou encore la cryptanalyse.</em></p>
-<p><em>Cet article reprend le challenge &ldquo;Fakenews&rdquo; de cette compétition et apporte la solution (writeup) que mon équipe et moi-même avons élaborés.</em></p>
+<p><em>Cet article reprend le challenge &ldquo;Fakenews&rdquo; de cette compétition et apporte la solution (writeup) que mon équipe et moi-même avons élaborés. Il se base sur un scénario fictif détaillé ci-dessous.</em></p>
 <h2 id="le-contexte-et-le-challenge" class="relative group">Le contexte et le challenge <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#le-contexte-et-le-challenge" aria-label="Ancre">#</a></span></h2>
 <p>Le sujet du challenge pose le ton :</p>
 <blockquote>
@@ -396,10 +396,10 @@
 <p>Un très petit nombre de compte, du contenu dupliqué, à priori on est en présence de robots qui publient beaucoup. Pour en être certain nous allons faire un peu de statistiques.</p>
 <p>Premièrement, on peut s&rsquo;intéresser au nombre moyen de tweets publiés par compte :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span>average <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>mean()</span></span></code></pre></div>
-<p>En moyenne un compte publie <strong>903 tweets</strong>. On pourrait penser que c&rsquo;est énorme et pourtant cet indicateur est limité. En effet, une petite population de compte sur une longue période pourraient produire le même résultat sans pour autant héberger des robots. Plutôt que de s&rsquo;intéresser à la durée de la capture des tweets, on va plutôt regarder si des comptes tweets beaucoup tandis que d&rsquo;autres non.</p>
-<p>Pour cela on va utiliser <strong>l&rsquo;écart type</strong> qui mesure l&rsquo;écart à la moyenne, vous trouverez plus d&rsquo;information ici : <a href="https://fr.wikipedia.org/wiki/%C3%89cart_type">Wikipédia : Écart type</a>. Pour résumer il va nous indiquer si des comptes tweets beaucoup, tandis que d&rsquo;autres moins. Un écart type important va indiquer une grande disparité d&rsquo;activité entre les comptes et inversement.</p>
+<p>En moyenne un compte publie <strong>903 tweets</strong>. On pourrait penser que c&rsquo;est énorme et pourtant cet indicateur est limité. En effet, une petite population de compte sur une longue période pourraient produire le même résultat sans pour autant héberger des robots. Plutôt que de s&rsquo;intéresser à la durée de la capture des tweets, on va plutôt regarder si des comptes postent beaucoup tandis que d&rsquo;autres non.</p>
+<p>Pour cela on va utiliser <strong>l&rsquo;écart type</strong> qui mesure l&rsquo;écart à la moyenne, vous trouverez plus d&rsquo;information ici : <a href="https://fr.wikipedia.org/wiki/%C3%89cart_type">Wikipédia : Écart type</a>. Pour résumer il va nous indiquer si des comptes publient beaucoup, tandis que d&rsquo;autres moins. Un écart type important va indiquer une grande disparité d&rsquo;activité entre les comptes et inversement.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span>average <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>std()</span></span></code></pre></div>
-<p>Le résultat confirme l&rsquo;intuition ; l&rsquo;écart type est de <strong>4088</strong>. Cela signifie que certains compte tweets <strong>énormément</strong> par rapport à d&rsquo;autre. Un écart type de 50 ou 100 aurait été la marque d&rsquo;un réseau plus homogène, potentiellement composé exclusivement d&rsquo;humains.</p>
+<p>Le résultat confirme l&rsquo;intuition ; l&rsquo;écart type est de <strong>4088</strong>. Cela signifie que certains compte postent <strong>énormément</strong> par rapport à d&rsquo;autre. Un écart type de 50 ou 100 aurait été la marque d&rsquo;un réseau plus homogène, potentiellement composé exclusivement d&rsquo;humains.</p>
 <p>Si on affiche les 20 comptes les plus actifs, on se rend clairement compte qu&rsquo;une grosse partie du traffic n&rsquo;est pas naturelle :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span>number_of_tweet_by_pseudo <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;username&#39;</span>]<span style="color:#f92672">.</span>value_counts()
 </span></span><span style="display:flex;"><span>number_of_tweet_by_pseudo<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">20</span>)</span></span></code></pre></div>
@@ -510,7 +510,7 @@
 </span></span><span style="display:flex;"><span>RT @WallEX2008 Numquam quiquia sed dolor.
 </span></span><span style="display:flex;"><span>RT @GoldorakX1975 Dolore porro quiquia tempora.
 </span></span><span style="display:flex;"><span>RT @GoldorakX1975 Quisquam neque modi ipsum magnam est porro amet.</span></span></code></pre></div>
-<p>On observe qu&rsquo;ils tweet tous&hellip; en latin. Les comptes plus naturels, eux, restent en anglais. Cependant, il semblerait quand dans les tweets que nous avons mis au jour, il y ait beaucoup de retweet (RT). De plus, ces RT concernent systématiquement d&rsquo;autres membres du réseau. <strong>En clair, ils se retweet entre-eux.</strong> Passons outre le latin et intéressons-nous un peu à ce comportement.</p>
+<p>On observe qu&rsquo;ils produisent tous du contenu&hellip; en latin. Les comptes plus naturels, eux, restent en anglais. Cependant, il semblerait quand dans les tweets que nous avons mis au jour, il y ait beaucoup de retweet (RT). De plus, ces RT concernent systématiquement d&rsquo;autres membres du réseau. <strong>En clair, ils se retweet entre-eux.</strong> Passons outre le latin et intéressons-nous un peu à ce comportement.</p>
 <h2 id="réseautage-et-amplification" class="relative group">Réseautage et amplification <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#r%c3%a9seautage-et-amplification" aria-label="Ancre">#</a></span></h2>
 <p>Manifestement, la solution se trouve dans ces 11 comptes. La supposition peut sembler infondée et plus tenir de l&rsquo;intuition que d&rsquo;une méthode rigoureuse, j&rsquo;y reviendrai à la fin de l&rsquo;article.</p>
 <p>Si l&rsquo;on considère ces 11 comptes comme faisant partie d&rsquo;un réseau, on peut étudier les relations en son sein. Quelles sont les relations entre ces comptes ? Que font-ils exactement ?</p>

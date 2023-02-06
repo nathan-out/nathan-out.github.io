@@ -6,7 +6,7 @@ draft: false
 
 *Article de blog écrit à la suite du [Tournois de Renseignement et d'Analyse de CentraleSupélec (TRACS)](https://tracs.viarezo.fr/) édition 2022. En quelques mots, ce tournois a été l'occasion de concourir sur des thématiques diverses comme la data science, la cybersécurité ou encore la cryptanalyse.*
 
-*Cet article reprend le challenge "Fakenews" de cette compétition et apporte la solution (writeup) que mon équipe et moi-même avons élaborés.*
+*Cet article reprend le challenge "Fakenews" de cette compétition et apporte la solution (writeup) que mon équipe et moi-même avons élaborés. Il se base sur un scénario fictif détaillé ci-dessous.*
 
 ## Le contexte et le challenge
 
@@ -76,15 +76,15 @@ Premièrement, on peut s'intéresser au nombre moyen de tweets publiés par comp
 average = df.mean()
 {{< /highlight >}}
 
-En moyenne un compte publie **903 tweets**. On pourrait penser que c'est énorme et pourtant cet indicateur est limité. En effet, une petite population de compte sur une longue période pourraient produire le même résultat sans pour autant héberger des robots. Plutôt que de s'intéresser à la durée de la capture des tweets, on va plutôt regarder si des comptes tweets beaucoup tandis que d'autres non.
+En moyenne un compte publie **903 tweets**. On pourrait penser que c'est énorme et pourtant cet indicateur est limité. En effet, une petite population de compte sur une longue période pourraient produire le même résultat sans pour autant héberger des robots. Plutôt que de s'intéresser à la durée de la capture des tweets, on va plutôt regarder si des comptes postent beaucoup tandis que d'autres non.
 
-Pour cela on va utiliser **l'écart type** qui mesure l'écart à la moyenne, vous trouverez plus d'information ici : [Wikipédia : Écart type](https://fr.wikipedia.org/wiki/%C3%89cart_type). Pour résumer il va nous indiquer si des comptes tweets beaucoup, tandis que d'autres moins. Un écart type important va indiquer une grande disparité d'activité entre les comptes et inversement.
+Pour cela on va utiliser **l'écart type** qui mesure l'écart à la moyenne, vous trouverez plus d'information ici : [Wikipédia : Écart type](https://fr.wikipedia.org/wiki/%C3%89cart_type). Pour résumer il va nous indiquer si des comptes publient beaucoup, tandis que d'autres moins. Un écart type important va indiquer une grande disparité d'activité entre les comptes et inversement.
 
 {{< highlight python3 >}}
 average = df.std()
 {{< /highlight >}}
 
-Le résultat confirme l'intuition ; l'écart type est de **4088**. Cela signifie que certains compte tweets **énormément** par rapport à d'autre. Un écart type de 50 ou 100 aurait été la marque d'un réseau plus homogène, potentiellement composé exclusivement d'humains.
+Le résultat confirme l'intuition ; l'écart type est de **4088**. Cela signifie que certains compte postent **énormément** par rapport à d'autre. Un écart type de 50 ou 100 aurait été la marque d'un réseau plus homogène, potentiellement composé exclusivement d'humains.
 
 Si on affiche les 20 comptes les plus actifs, on se rend clairement compte qu'une grosse partie du traffic n'est pas naturelle :
 
@@ -212,7 +212,7 @@ RT @GoldorakX1975 Dolore porro quiquia tempora.
 RT @GoldorakX1975 Quisquam neque modi ipsum magnam est porro amet.
 {{< /highlight >}}
 
-On observe qu'ils tweet tous... en latin. Les comptes plus naturels, eux, restent en anglais. Cependant, il semblerait quand dans les tweets que nous avons mis au jour, il y ait beaucoup de retweet (RT). De plus, ces RT concernent systématiquement d'autres membres du réseau. **En clair, ils se retweet entre-eux.** Passons outre le latin et intéressons-nous un peu à ce comportement.
+On observe qu'ils produisent tous du contenu... en latin. Les comptes plus naturels, eux, restent en anglais. Cependant, il semblerait quand dans les tweets que nous avons mis au jour, il y ait beaucoup de retweet (RT). De plus, ces RT concernent systématiquement d'autres membres du réseau. **En clair, ils se retweet entre-eux.** Passons outre le latin et intéressons-nous un peu à ce comportement.
 
 ## Réseautage et amplification
 
