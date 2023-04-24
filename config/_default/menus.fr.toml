@@ -9,3 +9,9 @@
 	pageRef = "a-propos"
 	url = "/a-propos/"
 	weight = 3
+
+[[main]]
+	name = "Write-up"
+	pageRef = "write-up"
+	url = "/write-up/"
+	weitght = "2"
