@@ -8,6 +8,15 @@
     <language>fr</language>
     <lastBuildDate>Mon, 24 Apr 2023 21:10:39 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/write-up/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Cyberdefenders · Digital Forensics · NintendoHunt</title>
+      <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-nintendohunt/</link>
+      <pubDate>Wed, 03 May 2023 13:20:01 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-nintendohunt/</guid>
+      <description>This is my proposed solution for the cyberdefenders’s challenge NintendoHunt (difficult) published on April 27, 2023.</description>
+    </item>
+    
+    <item>
       <title>Cyberdefenders · Digital Forensics · Azurepot</title>
       <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-azurepot/</link>
       <pubDate>Mon, 24 Apr 2023 21:14:19 +0200</pubDate>
