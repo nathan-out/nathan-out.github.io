@@ -1,6 +1,8 @@
 # nathan-out.github.io
 
-Mon blog GoHugo. La branche `gh-pages` contient les sources du site, la branche `master` tout le projet GoHugo.
+Mon blog GoHugo.
+
+**Note : problème avec la dernière versio, impossible de build le site. Version fonctionnelle : 0.110.0.**
 
 ## Ajouter un article
 

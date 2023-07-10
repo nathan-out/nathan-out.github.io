@@ -1,10 +1,5 @@
 title = "nathan.out"
 
-languageCode = "fr"
-languageName = "Français"
-displayName = "FR"
-isoCode = "fr"
-
 [author]
 name = "nathan.out"
 image = "img/author.jpg"

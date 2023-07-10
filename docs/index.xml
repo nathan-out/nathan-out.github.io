@@ -5,8 +5,17 @@
     <link>https://nathan-out.github.io/</link>
     <description>Recent content in Blog on nathan.out</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>fr</language>
+    <language>fr-fr</language>
     <lastBuildDate>Fri, 05 Aug 2022 21:37:39 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automatiser la détection de la manipulation de l&#39;information en cas réel</title>
+      <link>https://nathan-out.github.io/posts/automatiser-la-detection-de-la-manipulation-de-linformation-en-cas-reel/</link>
+      <pubDate>Mon, 10 Jul 2023 14:53:25 +0300</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/automatiser-la-detection-de-la-manipulation-de-linformation-en-cas-reel/</guid>
+      <description>Nathan DUNAND (auteur) - Jean SEVAUX - Clément LAISNÉ - Corentin HUVELIN</description>
+    </item>
+    
     <item>
       <title>Cyberdefenders · Digital Forensics · NintendoHunt</title>
       <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-nintendohunt/</link>
