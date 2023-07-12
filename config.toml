@@ -11,3 +11,6 @@ publishDir = "docs"
 		[markup.goldmark.renderer]
 			unsafe = true
 [site]
+
+
+googleAnalytics = "G-BBL7SF6XW6"
