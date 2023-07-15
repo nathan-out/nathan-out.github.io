@@ -107,7 +107,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "4159"
+    "wordCount": "4192"
   }]
   </script>
 
@@ -553,6 +553,7 @@ sonataz45,0,0.0,15,15.0,15,15,,1,2,2.0,2,2,,0,0.0,0,0,,113,113.0,113,113,,0.0,0.
   
 
 </p>
+<figcaption>Représentation des utilisateurs les plus polyglottes. Chaque rectangle est un utilisateur dont la taille est proportionnelle aux nombres de langues parlées.</figcaption>
 <p>Cette représentation est intéressante ; on comprend que nous sommes en présence de comptes qui parlent beaucoup de langues (rectangles les plus gros). En passant le curseur sur un rectangle, on obtient le nombre de langues parlées (42 pour le rectangle tout en haut à gauche) et son pseudo. Les rectangles situés vers le bord en bas à droite sont des utilisateurs qui n&rsquo;utilisent qu&rsquo;une seule langue dans tous leurs tweets. Des utilisateurs avec de nombreuses langues parlées peuvent être des acteurs de la désinformation.</p>
 <p>Cependant, il ne serait pas prudent de les classer comme tels à partir de ce seul indicateur mais cela n&rsquo;est pas la vocation d&rsquo;une représentation <strong>globale</strong>. Une investigation plus fine est à prévoir lorsque cette première étape remonte des informations intéressantes.</p>
 <h3 id="approche-fine-sur-un-indicateur--lutilisation-des-hashtags" class="relative group">Approche fine sur un indicateur : l&rsquo;utilisation des hashtags <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#approche-fine-sur-un-indicateur--lutilisation-des-hashtags" aria-label="Ancre">#</a></span></h3>
@@ -571,6 +572,7 @@ sonataz45,0,0.0,15,15.0,15,15,,1,2,2.0,2,2,,0,0.0,0,0,,113,113.0,113,113,,0.0,0.
   
 
 </p>
+<figcaption>Tableau de bord centré sur les hashtags.</figcaption>
 <p>Nous souhaitons que l&rsquo;analyste ait une vue globale rapidement. C&rsquo;est pourquoi nous avons coloré en rouge (la couleur est indépendante de la valeur) trois cases. De gauche à droite : l&rsquo;écart-type (ET) de la somme des hashtags de chaque compte, l&rsquo;ET du nombre moyen d&rsquo;hashtags par compte et l&rsquo;ET de l&rsquo;ET des hashtags pour chaque compte. <strong>En d&rsquo;autres termes, ces données nous indiquent la disparité de l&rsquo;utilisation des hashtags par les utilisateurs de notre dataset.</strong></p>
 <p>Des chiffres importants, comme c&rsquo;est le cas ici, indiquent que des comptes utilisent beaucoup de hashtags, tandis que d&rsquo;autres en utilisent peu. Par exemple la case en bas à gauche montre un ET de <strong>114 366%</strong> il y a donc des comptes qui utilisent énormément plus de hashtags que d&rsquo;autres. Cependant, cet indicateur n&rsquo;est pas suffisant car on peut imaginer des comptes automatiques mais pour autant légitimes (information en continue par exemple) qui twitteraient beaucoup en utilisant des hashtags. Pour équilibrer cet indicateur, on peut regarder celui à sa droite qui renseigne sur la proportion de hashtags par tweet. On observe un ET de 40% qui suggère que des comptes utilisent plus de hashtags par tweets que d&rsquo;autres.</p>
 <p>Enfin, le graphique nous indique les utilisateurs les plus prolifiques en utilisation d&rsquo;hashtags. C&rsquo;est en quelque sorte une équivalence graphique de la partie gauche du tableau de bord. On observe effectivement que quelques comptes sont à l&rsquo;origine de la plupart des hashtags. On peut également obtenir les pseudos des comptes. <code>Kibana</code> offre la possibilité de cliquer sur un pseudo pour obtenir des informations qui lui sont propres. Ainsi, avec un dashboard adapté, il serait possible d&rsquo;investiguer directement, à partir d&rsquo;un seul dashboard, sur un compte précis.</p>
@@ -603,6 +605,7 @@ sonataz45,0,0.0,15,15.0,15,15,,1,2,2.0,2,2,,0,0.0,0,0,,113,113.0,113,113,,0.0,0.
   
 
 </p>
+<figcaption>Comparaison entre les trois datasets.</figcaption>
 <p>Cette représentation est pour nous la plus intéressante car elle permet de critiquer les indicateurs :</p>
 <ul>
 <li>
