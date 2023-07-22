@@ -6,13 +6,13 @@ draft: false
 
 The Scenario:
 
-> "As a member of the Security Blue team, your assignment is to analyze a memory dump using Redline and Volatility tools. Your goal is to trace the steps taken by the attacker on the compromised machine and determine how they managed to bypass the Network Intrusion Detection System "NIDS". Your investigation will involve identifying the specific malware family employed in the attack, along with its characteristics. Additionally, your task is to identify and mitigate any traces or footprints left by the attacker."
+> As a member of the Security Blue team, your assignment is to analyze a memory dump using Redline and Volatility tools. Your goal is to trace the steps taken by the attacker on the compromised machine and determine how they managed to bypass the Network Intrusion Detection System "NIDS". Your investigation will involve identifying the specific malware family employed in the attack, along with its characteristics. Additionally, your task is to identify and mitigate any traces or footprints left by the attacker.
 
 Tools:
 
 - Volatility2 & 3
 
-## Abstract
+## Abstract
 
 This Blue Team challenge writeup involves analyzing a suspicious process found in memory using the volatility framework. The process name is "oneetx.exe" and exhibits a suspicious behavior with the memory protection set to "PAGE_EXECUTE_READWRITE," which can evade antivirus detection. 
 
@@ -20,7 +20,7 @@ Further investigation reveals a child process named "rundll32.exe" associated wi
 
 Additionally, the URL of the PHP file visited by the attacker is found on VirusTotal, as well as by analyzing the process memory, resulting in the complete URL. Finally, the full path of the malicious executable, "oneetx.exe," is obtained through process memory analysis.
 
-## 1. What is the name of the suspicious process? 
+## 1. What is the name of the suspicious process? 
 
 ```
 vol.py -f <file> imageinfo
@@ -41,7 +41,7 @@ Flags: PrivateMemory: 1, Protection: 6
 
 PAGE_EXECUTE_READWRITE allows the program to modify its code or be modified by another process during execution. This could help to evade antivirus detection. When `malfind` found something, it's likely a bad new as it scan the image to find injected code blocks.
 
-## 2. What is the child process name of the suspicious process?
+## 2. What is the child process name of the suspicious process?
 
 ```
 pstree
@@ -54,11 +54,11 @@ pstree
 
 Fount with `malfind`.
 
-## 4. What is the name of the process responsible for the VPN connection?
+## 4. What is the name of the process responsible for the VPN connection?
 
 A program looks different as it's not a Windows default: Outline.exe. Searching this name on internet allows you to know that this a VPN program.
 
-## 5. What is the attacker's IP address? 
+## 5. What is the attacker's IP address? 
 
 Surprisingly, Volatility2 was not able to retrieve this information. When I tried to perform `netscan`, the connection was marked as close and I can't get the remode IP address.
 
@@ -71,11 +71,11 @@ Offset	Proto	LocalAddr	LocalPort	ForeignAddr	ForeignPort	State	PID	Owner	Created
 0xad818de4aa20.0TCPv4	10.0.85.2DB scan55462fin 77.91.124.20    80             CLOSED	5896	oneetx.exe	2023-05-21 23:01:22.000000
 ```
 
-## 6. Based on the previous artifacts. What is the name of the malware family? 
+## 6. Based on the previous artifacts. What is the name of the malware family? 
 
 We have few IOCs, the most usefull one is probably the IP address. Using VirusTotal, in the details section, on the Google results part, you will see that is a **RedLine Stealer**.
 
-## 7. What is the full URL of the PHP file that the attacker visited? 
+## 7. What is the full URL of the PHP file that the attacker visited? 
 
 You can retrieve this information on VirusTotal too. But, you can also dump the process memory and search on it:
 
@@ -91,7 +91,7 @@ grep -i 'http://77.91.124.20' strings_5896
 
 You will find the complete path.
 
-## 8. What is the full path of the malicious executable? 
+## 8. What is the full path of the malicious executable? 
 
 Using the same file, you can look up for the file name and retrieve is location:
 
