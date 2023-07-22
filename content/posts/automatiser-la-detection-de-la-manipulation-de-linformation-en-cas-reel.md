@@ -292,7 +292,7 @@ Enfin, un travail sur la visualisation de donnée est obligatoire pour améliore
 
 ## Remerciements
 
-Nous tenons à remercier notre professeur encadrant, M Guillet qui nous a accompagné tout au long de cette année. Il nous a permis de remettre en question certains de nos choix et à fait preuve d'exigence à notre égard. Nous tenons également à remercier chaleureusement l'équipe d'expert qui a eu la gentillesse de prendre le temps de nous recevoir pour répondre à nos questions. Ce projet n'aurait pas la même saveur sans toutes les personnes qui nous ont accompagnées.
+Nous tenons à remercier notre professeur encadrant, M Guillet qui nous a accompagné tout au long de cette année. Il nous a permis de remettre en question certains de nos choix et à fait preuve d'exigence à notre égard. Nous tenons également à remercier chaleureusement l'équipe d'expert de la DGA-MI qui a eu la gentillesse de prendre le temps de nous recevoir pour répondre à nos questions. Ce projet n'aurait pas la même saveur sans toutes les personnes qui nous ont accompagnées.
 
 ## Bibliographie
 
