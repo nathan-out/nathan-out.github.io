@@ -109,7 +109,7 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "694"
+    "wordCount": "697"
   }]
   </script>
 
@@ -355,6 +355,21 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
 <ul>
 <li>Volatility2 &amp; 3</li>
 </ul>
+<p>
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="/img/write-up/cyberdefenders-digital-forensics-redline/redline.png" alt="RedLine Telegram channel." />
+      
+    </figure>
+  
+
+</p>
+<figcaption>RedLine Telegram channel.</figcaption>
 <h2 id="abstract" class="relative group">Abstract <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#abstract" aria-label="Ancre">#</a></span></h2>
 <p>This Blue Team challenge writeup involves analyzing a suspicious process found in memory using the volatility framework. The process name is &ldquo;oneetx.exe&rdquo; and exhibits a suspicious behavior with the memory protection set to &ldquo;PAGE_EXECUTE_READWRITE,&rdquo; which can evade antivirus detection.</p>
 <p>Further investigation reveals a child process named &ldquo;rundll32.exe&rdquo; associated with the suspicious process. The investigation also identifies the presence of a VPN program named &ldquo;Outline.exe,&rdquo; which might be responsible for the attacker&rsquo;s VPN connection. However, the attacker&rsquo;s IP address cannot be retrieved using Volatility2, but Volatility3 successfully extracts the IP address as &ldquo;77.91.124.20.&rdquo; By cross-referencing this IP address on VirusTotal, it is determined that the malware belongs to the &ldquo;RedLine Stealer&rdquo; family.</p>

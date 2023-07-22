@@ -12,6 +12,10 @@ Tools:
 
 - Volatility2 & 3
 
+![RedLine Telegram channel.](/img/write-up/cyberdefenders-digital-forensics-redline/redline.png)
+
+<figcaption>RedLine Telegram channel.</figcaption>
+
 ## Abstract
 
 This Blue Team challenge writeup involves analyzing a suspicious process found in memory using the volatility framework. The process name is "oneetx.exe" and exhibits a suspicious behavior with the memory protection set to "PAGE_EXECUTE_READWRITE," which can evade antivirus detection. 
