@@ -8,6 +8,16 @@
     <language>fr-fr</language>
     <lastBuildDate>Fri, 05 Aug 2022 21:37:39 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Cyberdefenders · Digital Forensics · Seized</title>
+      <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-seized/</link>
+      <pubDate>Wed, 02 Aug 2023 21:59:01 +0300</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-seized/</guid>
+      <description>The Scenario:
+Using Volatility, utilize your memory analysis skills as a security blue team analyst to Investigate the provided Linux memory snapshots and figure out attack details.</description>
+    </item>
+    
+    <item>
       <title>Cyberdefenders · Digital Forensics · Redline</title>
       <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-redline/</link>
       <pubDate>Sat, 22 Jul 2023 16:23:52 +0300</pubDate>
@@ -215,6 +225,26 @@ Le ComCyberGend communique beaucoup avec d&amp;rsquo;autres organismes nationaux
       
       <guid>https://nathan-out.github.io/posts/rsa-ou-comment-vos-cours-de-4eme-vous-permettent-de-proteger-vos-codes-bancaires/</guid>
       <description>Ce titre n’est (presque) pas une blague. VOUS avez le niveau pour comprendre comment vos données en ligne sont protégées.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://nathan-out.github.io/write-up/wu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/wu/</guid>
+      <description>Seized # The Scenario:
+Using Volatility, utilize your memory analysis skills as a security blue team analyst to Investigate the provided Linux memory snapshots and figure out attack details.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://nathan-out.github.io/write-up/wu2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/wu2/</guid>
+      <description>LGDroid # The Scenario:
+Our IR team took a disk dump of the android phone.</description>
     </item>
     
   </channel>

