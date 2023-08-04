@@ -41,6 +41,10 @@ The Scenario:
 
 I used this online tool to open SQL database : [Sqliteviewer](https://sqliteviewer.app/).
 
+![1896 phone.](/img/write-up/old_phone.jpg)
+
+<figcaption>1896 phone.</figcaption>
+
 ## Abstract
 
 To complete the challenge, you have to browse all the given files. Be curious, take the time to understand how the data is organized and use a tool like `grep`.
