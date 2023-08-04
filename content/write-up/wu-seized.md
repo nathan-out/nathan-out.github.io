@@ -1,5 +1,9 @@
 # Seized
 
+[X] écriture
+[ ] abstract
+[ ] post linkedin
+
 The Scenario:
 
 > Using Volatility, utilize your memory analysis skills as a security blue team analyst to Investigate the provided Linux memory snapshots and figure out attack details.
