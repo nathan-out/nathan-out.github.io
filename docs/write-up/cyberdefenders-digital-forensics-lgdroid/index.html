@@ -1,0 +1,660 @@
+
+
+<!DOCTYPE html>
+<html
+  lang="fr-fr"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="fr-fr" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Cyberdefenders · Digital Forensics · Lgdroid &middot; nathan.out</title>
+    <meta name="title" content="Cyberdefenders · Digital Forensics · Lgdroid &middot; nathan.out" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-lgdroid/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.3be096bcd7d4e68dd376b85e8c0157153f5ad62d1d8da3aa541971bdc763082a2357c4f56750b40c029adc50e54e156d1535c7d6a4cfe2f9fe7b128da3507509.css"
+    integrity="sha512-O&#43;CWvNfU5o3TdrhejAFXFT9a1i0djaOqVBlxvcdjCCojV8T1Z1C0DAKa3FDlThVtFTXH1qTP4vn&#43;exKNo1B1CQ=="
+  />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.badab316c9287a5a42a843e4eb45da65bb3d194a5a0f5fa4a3e516160e67df0b8c65f4f19a8e146436e29d583699e6cb41d6bbe99e05e1dbaa877763bad9f8e2.js" integrity="sha512-utqzFskoelpCqEPk60XaZbs9GUpaD1&#43;ko&#43;UWFg5n3wuMZfTxmo4UZDbinVg2mebLQda76Z4F4duqh3djutn44g=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+    
+    <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.15ae6e2c9b1ac24a9ccf40003fa689efb1a18db1ee9b73d780b01a6c31b150441415862513e93184f68fe385759e4698b8763cba6a0f79493c1fed99ad5868d4.js" integrity="sha512-Fa5uLJsawkqcz0AAP6aJ77GhjbHum3PXgLAabDGxUEQUFYYlE&#43;kxhPaP44V1nkaYuHY8umoPeUk8H&#43;2ZrVho1A==" data-copy="Copier" data-copied="Copié"></script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Cyberdefenders · Digital Forensics · Lgdroid" />
+<meta property="og:description" content="The Scenario:
+Our IR team took a disk dump of the android phone." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-lgdroid/" /><meta property="article:section" content="write-up" />
+<meta property="article:published_time" content="2023-08-04T18:34:55+03:00" />
+<meta property="article:modified_time" content="2023-08-04T18:34:55+03:00" /><meta property="og:site_name" content="nathan.out" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cyberdefenders · Digital Forensics · Lgdroid"/>
+<meta name="twitter:description" content="The Scenario:
+Our IR team took a disk dump of the android phone."/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Write-up",
+    "name": "Cyberdefenders · Digital Forensics · Lgdroid",
+    "headline": "Cyberdefenders · Digital Forensics · Lgdroid",
+    
+    "abstract": "The Scenario:\nOur IR team took a disk dump of the android phone.",
+    "inLanguage": "fr-fr",
+    "url" : "https:\/\/nathan-out.github.io\/write-up\/cyberdefenders-digital-forensics-lgdroid\/",
+    "author" : {
+      "@type": "Person",
+      "name": "nathan.out"
+    },
+    "copyrightYear": "2023",
+    "dateCreated": "2023-08-04T18:34:55\u002b03:00",
+    "datePublished": "2023-08-04T18:34:55\u002b03:00",
+    
+    "dateModified": "2023-08-04T18:34:55\u002b03:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "635"
+  }]
+  </script>
+
+
+  
+  <meta name="author" content="nathan.out" />
+  
+    
+      <link href="https://github.com/nathan-out" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 dark:bg-neutral-600 focus:translate-y-0"
+        href="#main-content"
+        ><span class="font-bold ltr:pr-2 rtl:pl-2 text-primary-600 dark:text-primary-400"
+          >&darr;</span
+        >Aller au contenu</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold sm:py-10 text-neutral-900 dark:text-neutral print:hidden">
+  <nav class="flex justify-between">
+    
+    <div>
+      
+        <a
+          class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+          rel="me"
+          href="/"
+          >nathan.out</a
+        >
+      
+
+    </div>
+    
+    
+      <ul class="flex flex-col list-none ltr:text-right rtl:text-left sm:flex-row">
+        
+          
+            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                href="/posts/"
+                title="Mes articles"
+                >Articles</a
+              >
+            </li>
+          
+            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                href="/a-propos/"
+                title="A Propos"
+                >A propos</a
+              >
+            </li>
+          
+            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                href="/write-up/"
+                title="Write-up"
+                >Write-up</a
+              >
+            </li>
+          
+        
+        
+          <li class="ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+            <button
+              id="search-button"
+              class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+              title="Rechercher (/)"
+            >
+              
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+          </li>
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/write-up/"
+      >Write-up</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/write-up/cyberdefenders-digital-forensics-lgdroid/"
+      >Cyberdefenders · Digital Forensics · Lgdroid</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Cyberdefenders · Digital Forensics · Lgdroid
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2023-08-04 18:34:55 &#43;0300 EEST">4 août 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Temps de lecture">3 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+      </div>
+    </header>
+    <section class="flex flex-col max-w-full mt-0 prose lg:flex-row dark:prose-invert">
+      
+        <div class="order-first px-0 lg:max-w-xs ltr:lg:pl-8 rtl:lg:pr-8 lg:order-last">
+          <div class="ltr:pl-5 rtl:pr-5 toc lg:sticky lg:top-10 print:hidden">
+            <details open class="mt-0 overflow-hidden rounded-lg rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5 text-neutral-800 dark:text-neutral-100 lg:hidden bg-neutral-100 dark:bg-neutral-700"
+  >
+    Sommaire
+  </summary>
+  <div
+    class="py-2 border-dotted ltr:border-l rtl:border-r rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5 border-neutral-300 dark:border-neutral-600"
+  >
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#abstract">Abstract</a></li>
+    <li><a href="#q1-what-is-the-email-address-of-zoe-washburne">Q1. What is the email address of Zoe Washburne?</a></li>
+    <li><a href="#q2-what-was-the-device-time-in-utc-at-the-time-of-acquisition-hhmmss">Q2. What was the device time in UTC at the time of acquisition? (hh:mm:ss)</a></li>
+    <li><a href="#q3-what-time-was-tor-browser-downloaded-in-utc-hhmmss">Q3. What time was Tor Browser downloaded in UTC? (hh:mm:ss)</a></li>
+    <li><a href="#q4-what-time-did-the-phone-charge-to-100-after-the-last-reset-hhmmss">Q4. What time did the phone charge to 100% after the last reset? (hh:mm:ss)</a></li>
+    <li><a href="#q5-what-is-the-password-for-the-most-recently-connected-wifi-access-point">Q5. What is the password for the most recently connected WIFI access point?</a></li>
+    <li><a href="#q6-what-app-was-the-user-focused-on-at-2021-05-20-141327">Q6. What app was the user focused on at 2021-05-20 14:13:27?</a></li>
+    <li><a href="#q7-how-much-time-did-the-suspect-watch-youtube-on-2021-05-20-hhmmss">Q7. How much time did the suspect watch Youtube on 2021-05-20? (hh:mm:ss)</a></li>
+    <li><a href="#q8-suspiciousjpg-what-is-the-structural-similarity-metric-for-this-image-compared-to-a-visually-similar-image-taken-with-the-mobile-phone">Q8. &ldquo;suspicious.jpg: What is the structural similarity metric for this image compared to a visually similar image taken with the mobile phone?</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+          </div>
+        </div>
+      
+      <div class="min-w-0 min-h-0 max-w-prose">
+        <p>The Scenario:</p>
+<blockquote>
+<p>Our IR team took a disk dump of the android phone. As a soc analyst, analyze the dump and answer the provided questions.</p>
+</blockquote>
+<p>I used this online tool to open SQL database : <a href="https://sqliteviewer.app/">Sqliteviewer</a>.</p>
+<p>
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="/img/write-up/old_phone.jpg" alt="1896 phone." />
+      
+    </figure>
+  
+
+</p>
+<figcaption>1896 phone.</figcaption>
+<h2 id="abstract" class="relative group">Abstract <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#abstract" aria-label="Ancre">#</a></span></h2>
+<p>To complete the challenge, you have to browse all the given files. Be curious, take the time to understand how the data is organized and use a tool like <code>grep</code>. It&rsquo;s a good challenge to show how sensitive smartphones are. Companies focuses on the protection of computer and server but not smartphone, while they contain very personnal and sensitive datas. Here what you can found in a smartphone:</p>
+<ul>
+<li>
+<p>contacts informations (mail, phone number, names&hellip;)</p>
+</li>
+<li>
+<p>downloads timestamps and application informations</p>
+</li>
+<li>
+<p>personnal usage information like:</p>
+<ul>
+<li>
+<p>battery cycles</p>
+</li>
+<li>
+<p>applications used, when and for how long</p>
+</li>
+</ul>
+</li>
+<li>
+<p>secrets like WiFi password</p>
+</li>
+<li>
+<p>medias (photos, videos, music&hellip;)</p>
+</li>
+</ul>
+<p>And surrely many other personnal datas such as applications informations, passwords, messages&hellip;</p>
+<h2 id="q1-what-is-the-email-address-of-zoe-washburne" class="relative group">Q1. What is the email address of Zoe Washburne? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q1-what-is-the-email-address-of-zoe-washburne" aria-label="Ancre">#</a></span></h2>
+<p><code>AgentData &gt; contacts3.db</code></p>
+<p>This file seems to contains the contact datas: <code>zoewash@0x42.null</code>. <code>AgentData</code> directory seems interesting as it contains general informations.</p>
+<h2 id="q2-what-was-the-device-time-in-utc-at-the-time-of-acquisition-hhmmss" class="relative group">Q2. What was the device time in UTC at the time of acquisition? (hh:mm:ss) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q2-what-was-the-device-time-in-utc-at-the-time-of-acquisition-hhmmss" aria-label="Ancre">#</a></span></h2>
+<p><code>LiveData &gt; device_datetime_utc.txt</code></p>
+<p>The <code>LiveData</code> directory seems to contains general system information related.</p>
+<p>answer: 18:17:56</p>
+<h2 id="q3-what-time-was-tor-browser-downloaded-in-utc-hhmmss" class="relative group">Q3. What time was Tor Browser downloaded in UTC? (hh:mm:ss) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q3-what-time-was-tor-browser-downloaded-in-utc-hhmmss" aria-label="Ancre">#</a></span></h2>
+<p><code>AgentData &gt; downloads.db</code></p>
+<p>The lastmod column provide a timestamp, convert it to UTC format: 1619725346000 = 2021-04-29 19:42:26 UTC.</p>
+<h2 id="q4-what-time-did-the-phone-charge-to-100-after-the-last-reset-hhmmss" class="relative group">Q4. What time did the phone charge to 100% after the last reset? (hh:mm:ss) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q4-what-time-did-the-phone-charge-to-100-after-the-last-reset-hhmmss" aria-label="Ancre">#</a></span></h2>
+<p>There is an interesting file here : <code>Live Data &gt; Dumpsys Data &gt; batterystats.txt</code>.</p>
+<p>This file logs battery events, we can see the last reset time, and bellow when the battery was fully charged:</p>
+<pre tabindex="0"><code class="language-logs" data-lang="logs">RESET:TIME: 2021-05-21-13-12-19
+...
++5m01s459ms (3) 100 status=full charge=2665
+</code></pre><p>Adding 5m01s to 13:12:19 gives the answer: 13:17:20.</p>
+<h2 id="q5-what-is-the-password-for-the-most-recently-connected-wifi-access-point" class="relative group">Q5. What is the password for the most recently connected WIFI access point? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q5-what-is-the-password-for-the-most-recently-connected-wifi-access-point" aria-label="Ancre">#</a></span></h2>
+<p>I didn&rsquo;t found the answer. Thanks to this WU <a href="https://forensicskween.com/ctf/cyberdefenders/lgdroid/">CyberDefenders: LGDroid</a>, I discovered a usefull ressource, the <a href="https://www.sans.org/posters/dfir-advanced-smartphone-forensics/">SANS Smartphone Cheatsheet</a>. According to the poster, username and passwords can be found here: <code>/data/com.android.providers.settings/</code>. The <code>PreSharedKey</code> tag provides the answer: ThinkingForest!.</p>
+<h2 id="q6-what-app-was-the-user-focused-on-at-2021-05-20-141327" class="relative group">Q6. What app was the user focused on at 2021-05-20 14:13:27? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q6-what-app-was-the-user-focused-on-at-2021-05-20-141327" aria-label="Ancre">#</a></span></h2>
+<p>The question seems to insinuate that the app was running during the acquisition. That&rsquo;s why I searched on &ldquo;14:13:27&rdquo; in <code>Live Data &gt; usage_stats.txt</code> and found Youtube.</p>
+<pre tabindex="0"><code class="language-logs" data-lang="logs">    time=&#34;2021-05-20 14:13:27&#34; type=MOVE_TO_BACKGROUND package=com.lge.launcher3 class=com.lge.launcher3.LauncherExtension flags=0x0 
+    time=&#34;2021-05-20 14:13:27&#34; type=STANDBY_BUCKET_CHANGED package=com.google.android.youtube standbyBucket=10 reason=u-si flags=0x0 
+    time=&#34;2021-05-20 14:13:27&#34; type=MOVE_TO_FOREGROUND package=com.google.android.youtube class=com.google.android.apps.youtube.app.application.Shell_HomeActivity flags=0x0 
+    time=&#34;2021-05-20 14:13:27&#34; type=MOVE_TO_BACKGROUND package=com.google.android.youtube class=com.google.android.apps.youtube.app.application.Shell_HomeActivity flags=0x0 
+    time=&#34;2021-05-20 14:13:27&#34; type=MOVE_TO_FOREGROUND package=com.google.android.youtube class=com.google.android.apps.youtube.app.watchwhile.WatchWhileActivity flags=0x0 
+</code></pre><h2 id="q7-how-much-time-did-the-suspect-watch-youtube-on-2021-05-20-hhmmss" class="relative group">Q7. How much time did the suspect watch Youtube on 2021-05-20? (hh:mm:ss) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q7-how-much-time-did-the-suspect-watch-youtube-on-2021-05-20-hhmmss" aria-label="Ancre">#</a></span></h2>
+<p>Always in <code>Live Data &gt; usages_stats.txt</code>, I searched for <code>package=com.google.android.youtube</code> and I found data like this :</p>
+<pre tabindex="0"><code class="language-logs" data-lang="logs"> In-memory weekly stats
+  timeRange=&#34;5/20/2021, 11:16 AM ??5/21/2021, 1:17 PM&#34; 
+    packages
+      package=com.hy.system.fontserver totalTime=&#34;00:00&#34; lastTime=&#34;1969-12-31 18:00:00&#34; appLaunchCount=0 
+      package=com.android.LGSetupWizard totalTime=&#34;00:00&#34; lastTime=&#34;1969-12-31 18:00:00&#34; appLaunchCount=0 
+      package=com.google.android.youtube totalTime=&#34;8:34:29&#34; lastTime=&#34;2021-05-20 22:47:57&#34; appLaunchCount=1 
+</code></pre><p>Unfortunately, 08:34:29 is not the answer. I supposed a rounded error, tried 08:34:<strong>30</strong>, and it worked. I checked the advice provided by the challenge and the attended method was to check the date of the last <code>MOVE_TO_FOREGROUND</code> activity and last <code>MOVE_TO_BACKGROUND</code> and substract:</p>
+<p>MOVE_TO_FOREGROUND package=com.google.android.youtube -&gt; 14:13:27</p>
+<p>MOVE_TO_BACKGROUND package=com.google.android.youtube -&gt; 22:47:57</p>
+<p>We find 08:34:30, but quite a tricky question, as the field <code>totalTime</code> is filled.</p>
+<h2 id="q8-suspiciousjpg-what-is-the-structural-similarity-metric-for-this-image-compared-to-a-visually-similar-image-taken-with-the-mobile-phone" class="relative group">Q8. &ldquo;suspicious.jpg: What is the structural similarity metric for this image compared to a visually similar image taken with the mobile phone? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q8-suspiciousjpg-what-is-the-structural-similarity-metric-for-this-image-compared-to-a-visually-similar-image-taken-with-the-mobile-phone" aria-label="Ancre">#</a></span></h2>
+<p>The first challenge here is to understand the question. You have to found the second image, it is located in <code>sdcard &gt; DCIM &gt; Camera</code>. The structural similarity metric is used to measure visual similarity between two images, this online tool allows me to calculate it: <a href="http://darosh.github.io/image-ms-ssim-js/test/browser_test.html">http://darosh.github.io/image-ms-ssim-js/test/browser_test.html</a>. I found a SSIM of <strong>0.99</strong> which is consisent, as both images are similars.</p>
+
+      </div>
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  <div class="flex">
+    
+      
+      
+        
+        <img
+          class="w-24 h-24 !mt-0 !mb-0 ltr:mr-4 rtl:ml-4 rounded-full"
+          width="96"
+          height="96"
+          alt="nathan.out"
+          src="/img/author_hu00bba01d950a59fc7877b060fc60a3bd_21567_192x192_fill_q75_box_smart1.jpg"
+        />
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-500 dark:text-neutral-400 uppercase">
+          Auteur
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          nathan.out
+        </div>
+      
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/nathan-out"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group" href="/write-up/cyberdefenders-digital-forensics-seized/">
+              <span
+                class="mr-3 ltr:inline rtl:hidden text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 ltr:hidden rtl:inline text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Cyberdefenders · Digital Forensics · Seized</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2023-08-02 21:59:01 &#43;0300 EEST">2 août 2023</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+          <div
+            class="absolute top-[100vh] ltr:right-0 rtl:left-0 w-12 pointer-events-none bottom-0"
+          >
+            <a
+              href="#the-top"
+              class="w-12 h-12 sticky pointer-events-auto top-[calc(100vh-5.5rem)] bg-neutral/50 dark:bg-neutral-800/50 backdrop-blur rounded-full text-xl flex items-center justify-center text-neutral-700 dark:text-neutral hover:text-primary-600 dark:hover:text-primary-400"
+              aria-label="Faire défiler jusqu&#39;au bas de la page"
+              title="Faire défiler jusqu&#39;au bas de la page"
+            >
+              &uarr;
+            </a>
+          </div>
+        
+      </main><footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2023
+            nathan.out
+        </p>
+      
+      
+      
+    </div>
+    
+    
+      <div
+        class="text-sm cursor-pointer text-neutral-700 dark:text-neutral hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-14 rtl:ml-14"
+      >
+        <button
+          id="appearance-switcher"
+          class="w-12 h-12 "
+          type="button"
+          title="Passer au thème sombre"
+        >
+          <span class="inline dark:hidden">
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+</span>
+          <span class="hidden dark:inline">
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+</span>
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="fixed inset-0 z-50 flex flex-col p-4 sm:p-6 md:p-[10vh] lg:p-[12vh] w-screen h-screen cursor-default bg-neutral-500/50 backdrop-blur-sm dark:bg-neutral-900/50 invisible"
+  data-url="https://nathan-out.github.io/"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg border-neutral-200 top-20 bg-neutral dark:bg-neutral-800 dark:border-neutral-700"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-transparent focus:outline-2"
+          placeholder="Rechercher"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 dark:text-neutral hover:text-primary-600 dark:hover:text-primary-400"
+        title="Fermer (Esc)"
+      >
+        
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+</html>
