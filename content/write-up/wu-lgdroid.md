@@ -1,5 +1,40 @@
 # LGDroid 
 
+- [X] écriture
+- [X] abstract
+- [ ] publication
+- [~] post linkedin
+
+📱 Cyber-investigation sur Smartphone : Prenez Conscience de Vos Données 🕵️‍♂️
+
+Dans notre récente enquête "LGDroid," notre équipe d'intervention en cas d'incident (IR) a analysé une sauvegarde disque d'un smartphone Android. L'objectif était de mettre en lumière la quantité impressionnante de données sensibles pouvant être extraites d'un smartphone.
+
+🔍 Voici ce que nous avons découvert :
+
+Informations de Contacts : Des détails personnels tels que les adresses e-mail, les numéros de téléphone et les noms étaient stockés dans l'appareil.
+
+Téléchargements et Applications : Les horodatages et les informations sur les applications ont révélé l'historique des téléchargements et les préférences d'applications de l'utilisateur.
+
+Données d'Utilisation Personnelle : Les cycles de la batterie, les habitudes d'utilisation des applications et la durée des sessions d'applications ont été enregistrés.
+
+Mots de Passe WiFi : Étonnamment, nous avons découvert que les mots de passe WiFi étaient stockés dans les fichiers système.
+
+Fichiers Média : Photos, vidéos et musiques faisaient partie des divers fichiers multimédias accessibles depuis la sauvegarde.
+
+... et bien plus encore !
+
+🤔 La Conclusion : Cette enquête démontre comment les smartphones stockent une quantité considérable d'informations personnelles. En tant qu'utilisateurs de smartphones, nous devons rester vigilants quant aux données stockées sur nos appareils et prendre des mesures proactives pour protéger notre vie privée.
+
+🔒 Protégez Vos Données : Passez régulièrement en revue et supprimez les données inutiles, utilisez des codes d'accès solides, évitez les connexions à des réseaux WiFi non sécurisés et soyez prudents quant aux applications que vous téléchargez.
+
+🔍 Restez Informés : La sensibilisation est essentielle pour protéger nos vies numériques. Comprendre les risques potentiels peut nous aider à prendre des décisions éclairées et à rester un pas en avant des menaces cybernétiques.
+
+#CyberSécurité #ConsciencePrivée #EnquêteSmartphone #ProtectionDesDonnées
+
+🔗 Lien vers le Rapport Complet
+
+---
+
 The Scenario:
 
 > Our IR team took a disk dump of the android phone. As a soc analyst, analyze the dump and answer the provided questions.
