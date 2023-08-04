@@ -2,6 +2,7 @@
 
 - [X] écriture
 - [ ] abstract
+- [ ] publication
 - [ ] post linkedin
 
 The Scenario:
