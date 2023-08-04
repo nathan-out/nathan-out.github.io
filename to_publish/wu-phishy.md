@@ -5,13 +5,13 @@
 - [ ] publication
 - [~] post linkedin
 
-🛡️ Write-Up Blue Team - Phishing ciblé 🛡️
+🔍🛡 [Write-Up #BlueTeam - Phishing ciblé] 🎣
 
-Ce WU détaille les étapes d'une compromission d'un compte utilisateur via du phishing ciblé par WhatsApp et un document infecté.
+Ce WU détaille les étapes d'une compromission d'un compte utilisateur via du phishing ciblé par WhatsApp et un document infecté qui télécharge un malware développé grâce au framework Metasploit.
 
 L'objectif est de désobfusquer les macros, d'analyser la charge et de reconstruire les actions de l'utilisateur pour récupérer des IoCs et comprendre la compromission.
 
-#Cybersecurite #AnalysteSOC #Phishing #Autopsy
+#Cybersecurite #AnalysteSOC #Phishing #Autopsy #Metasploit
 
 The scenario:
 

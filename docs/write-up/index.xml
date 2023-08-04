@@ -8,16 +8,6 @@
     <language>fr-fr</language>
     <lastBuildDate>Mon, 24 Apr 2023 21:10:39 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/write-up/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Cyberdefenders · Digital Forensics · Lgdroid</title>
-      <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-lgdroid/</link>
-      <pubDate>Fri, 04 Aug 2023 18:34:55 +0300</pubDate>
-      
-      <guid>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-lgdroid/</guid>
-      <description>The Scenario:
-Our IR team took a disk dump of the android phone.</description>
-    </item>
-    
-    <item>
       <title>Cyberdefenders · Digital Forensics · Seized</title>
       <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-seized/</link>
       <pubDate>Wed, 02 Aug 2023 21:59:01 +0300</pubDate>

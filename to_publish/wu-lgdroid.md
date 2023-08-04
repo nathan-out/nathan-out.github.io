@@ -3,7 +3,7 @@
 - [X] écriture
 - [X] abstract
 - [X] publication
-- [~] post linkedin
+- [X] post linkedin
 
 📱🔍 [Quelles données dans un smartphone ?] 🕵️‍♂️
 
@@ -23,7 +23,7 @@ Dans ce write-up issu du challenge "LGDroid" de la plateforme Cyberdefenders, j'
 
 ... il y aurait sûrement d'autres données à découvrir !
 
-🤔 La Conclusion : we write-up démontre comment les smartphones stockent une quantité considérable d'informations personnelles. En tant qu'utilisateurs de smartphones, nous devons rester vigilants quant aux données stockées sur nos appareils et prendre des mesures proactives pour protéger notre vie privée.
+🤔 La Conclusion : ce write-up démontre comment les smartphones stockent une quantité considérable d'informations personnelles. En tant qu'utilisateurs de smartphones, nous devons rester vigilants quant aux données stockées sur nos appareils et prendre des mesures proactives pour protéger notre vie privée.
 
 🔒 Protégez Vos Données : Passez régulièrement en revue et supprimez les données inutiles, utilisez des codes d'accès solides, évitez les connexions à des réseaux WiFi non sécurisés et soyez prudents quant aux applications que vous téléchargez.
 
@@ -31,7 +31,7 @@ Dans ce write-up issu du challenge "LGDroid" de la plateforme Cyberdefenders, j'
 
 #CyberSécurité #ConsciencePrivée #EnquêteSmartphone #ProtectionDesDonnées #Smartphone #BlueTeam
 
-🔗 Lien vers le Rapport Complet : 
+🔗 Lien vers le Rapport Complet : https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-lgdroid/
 
 ---
 

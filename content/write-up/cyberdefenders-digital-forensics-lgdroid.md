@@ -1,6 +1,6 @@
 ---
 title: "Cyberdefenders · Digital Forensics · Lgdroid"
-date: 2023-08-04T18:34:55+03:00
+date: 2023-08-07T18:34:55+03:00
 draft: false
 ---
 
