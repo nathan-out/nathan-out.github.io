@@ -1,8 +1,8 @@
 # Seized
 
-[X] écriture
-[ ] abstract
-[ ] post linkedin
+- [X] écriture
+- [ ] abstract
+- [ ] post linkedin
 
 The Scenario:
 
