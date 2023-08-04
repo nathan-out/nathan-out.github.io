@@ -1,6 +1,6 @@
 ---
 title: "Cyberdefenders · Digital Forensics · Phishy"
-date: 2023-08-12T19:16:00+03:00
+date: 2023-08-4T19:16:00+03:00
 draft: false
 ---
 
