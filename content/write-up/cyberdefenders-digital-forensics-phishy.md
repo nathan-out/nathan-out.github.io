@@ -135,7 +135,7 @@ Thanks to the answer pattern you can easily identifie the correct one. Otherwise
 
 I was stucked on this question for a while. I found the history database located at `C:\Users\<username>\AppData\Roaming\Mozilla\Firefox\Profiles\<profile folder>\places.sqlite` into the `moz_places` table but when I wanted to open it with a SQLite viewer I didn't see the answer. I saw a weird domain named `https://for1.q21.ctfsecurinets.com` and when I opened the **same** file with Autopsy I saw the answer: `http://appIe.competitions.com/login.php`.
 
-I don't know why both software didn't see the same data, maybe it's because Autopsy process the `places.sqlite` with other files but it's still weird because with Autopsy I don't see `https://for1.q21.ctfsecurinets.com`.
+Thanks to [@0xHasanM](https://cyberdefenders.org/p/0xHasanM#overview), I finally understood the problem. It was because of the WAL file, used to ensure data integrity in the database. Some datas are contained in `places.sqlite-wal`, like the answer. That's why Autopsy retrieved the flag, because it also used the WAL with the SQLite file, and that's why my online viewer couldn't retrieve the login page URL.
 
 ## Q11. What is the password the user submitted to the login page?
 
