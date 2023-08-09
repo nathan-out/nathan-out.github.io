@@ -12,6 +12,10 @@ Throughout the investigation, Autopsy serves as a central hub for extracting and
 
 In sum, Autopsy emerges as an indispensable digital forensic tool. Its comprehensive features, and inherent ability to handle various data artifacts make it an asset for analysts and investigators.
 
+![Autopsy software interface.](img/write-up/hireme/autopsy-interface.png]
+
+<figcaption>Autopsy software interface.</figcaption>
+
 ---
 
 First, mount the image using [FTK Imager](https://www.exterro.com/ftk-imager) (Windows) or command lines tools (Linux), follow this very good tutorial: [Guide: mounting challenge disk image on Linux.](https://bwiggs.com/posts/2021-07-25-cyberdefenders-hacked/).
