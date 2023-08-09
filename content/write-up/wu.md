@@ -30,10 +30,6 @@ First, mount the image using [FTK Imager](https://www.exterro.com/ftk-imager) (W
 
 4. Data ingestion should now works :)
 
-## Abstract
-
-Autopsy <3
-
 ## Q1. What is the administrator's username?
 
 To see users just open `Users` directory you will see all the user. Hopefully there is only one user, Karen. To confirm, I have two methods:
