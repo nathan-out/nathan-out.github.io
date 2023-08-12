@@ -8,6 +8,36 @@
     <language>fr-fr</language>
     <lastBuildDate>Fri, 05 Aug 2022 21:37:39 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Cyberdefenders · Digital Forensic · African Falls</title>
+      <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensic-african-falls/</link>
+      <pubDate>Sat, 12 Aug 2023 11:22:06 +0300</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensic-african-falls/</guid>
+      <description>The scenario:
+John Doe was accused of doing illegal activities. A disk image of his laptop was taken.</description>
+    </item>
+    
+    <item>
+      <title>Cyberdefenders · Digital Forensic · Hacked</title>
+      <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensic-hacked/</link>
+      <pubDate>Sat, 12 Aug 2023 11:20:47 +0300</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensic-hacked/</guid>
+      <description>The scenario:
+A soc analyst has been called to analyze a compromised Linux web server.</description>
+    </item>
+    
+    <item>
+      <title>Cyberdefenders · Digital Forensic · Hireme</title>
+      <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensic-hireme/</link>
+      <pubDate>Sat, 12 Aug 2023 11:18:44 +0300</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensic-hireme/</guid>
+      <description>The scenario:
+Karen is a security professional looking for a new job.</description>
+    </item>
+    
+    <item>
       <title>Cyberdefenders · Digital Forensics · Phishy</title>
       <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-phishy/</link>
       <pubDate>Fri, 04 Aug 2023 19:16:00 +0300</pubDate>

@@ -109,7 +109,7 @@ A company’s employee joined a fake iPhone giveaway. Our team took a disk image
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "1133"
+    "wordCount": "1161"
   }]
   </script>
 
@@ -462,7 +462,7 @@ End Sub
 <p>Thanks to the answer pattern you can easily identifie the correct one. Otherwise, a string extraction should provides IP addresses too.</p>
 <h2 id="q10-the-fake-giveaway-used-a-login-page-to-collect-user-information-provide-the-full-url-of-the-login-page" class="relative group">Q10. The fake giveaway used a login page to collect user information. Provide the full URL of the login page? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q10-the-fake-giveaway-used-a-login-page-to-collect-user-information-provide-the-full-url-of-the-login-page" aria-label="Ancre">#</a></span></h2>
 <p>I was stucked on this question for a while. I found the history database located at <code>C:\Users\&lt;username&gt;\AppData\Roaming\Mozilla\Firefox\Profiles\&lt;profile folder&gt;\places.sqlite</code> into the <code>moz_places</code> table but when I wanted to open it with a SQLite viewer I didn&rsquo;t see the answer. I saw a weird domain named <code>https://for1.q21.ctfsecurinets.com</code> and when I opened the <strong>same</strong> file with Autopsy I saw the answer: <code>http://appIe.competitions.com/login.php</code>.</p>
-<p>I don&rsquo;t know why both software didn&rsquo;t see the same data, maybe it&rsquo;s because Autopsy process the <code>places.sqlite</code> with other files but it&rsquo;s still weird because with Autopsy I don&rsquo;t see <code>https://for1.q21.ctfsecurinets.com</code>.</p>
+<p>Thanks to <a href="https://cyberdefenders.org/p/0xHasanM#overview">@0xHasanM</a>, I finally understood the problem. It was because of the WAL file, used to ensure data integrity in the database. Some datas are contained in <code>places.sqlite-wal</code>, like the answer. That&rsquo;s why Autopsy retrieved the flag, because it also used the WAL with the SQLite file, and that&rsquo;s why my online viewer couldn&rsquo;t retrieve the login page URL.</p>
 <h2 id="q11-what-is-the-password-the-user-submitted-to-the-login-page" class="relative group">Q11. What is the password the user submitted to the login page? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q11-what-is-the-password-the-user-submitted-to-the-login-page" aria-label="Ancre">#</a></span></h2>
 <p>I used <a href="https://www.nirsoft.net/utils/passwordfox.html">PasswordFox</a>, selected the profile folder and opened it with the tool, the password is displayed on the screen.</p>
 
@@ -558,6 +558,28 @@ End Sub
           
         </span>
         <span>
+          
+            <a class="flex text-right group" href="/write-up/cyberdefenders-digital-forensic-hireme/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Cyberdefenders · Digital Forensic · Hireme</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2023-08-12 11:18:44 &#43;0300 EEST">12 août 2023</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 ltr:inline rtl:hidden text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 ltr:hidden rtl:inline text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
           
         </span>
       </div>
