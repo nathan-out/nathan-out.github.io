@@ -1,5 +1,5 @@
 ---
-title: "Cyberdefenders Acoustic"
+title: "Cyberdefenders · Digital Forensic · Acoustic"
 date: 2023-09-03T22:08:20+02:00
 draft: false
 ---

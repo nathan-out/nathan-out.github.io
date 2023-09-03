@@ -15,8 +15,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Cyberdefenders Acoustic &middot; nathan.out</title>
-    <meta name="title" content="Cyberdefenders Acoustic &middot; nathan.out" />
+  <title>Cyberdefenders · Digital Forensic · Acoustic &middot; nathan.out</title>
+    <meta name="title" content="Cyberdefenders · Digital Forensic · Acoustic &middot; nathan.out" />
   
   
   
@@ -71,7 +71,7 @@
   
   
   
-  <meta property="og:title" content="Cyberdefenders Acoustic" />
+  <meta property="og:title" content="Cyberdefenders · Digital Forensic · Acoustic" />
 <meta property="og:description" content="The scenario:
 This challenge takes you into the world of voice communications on the internet." />
 <meta property="og:type" content="article" />
@@ -80,7 +80,7 @@ This challenge takes you into the world of voice communications on the internet.
 <meta property="article:modified_time" content="2023-09-03T22:08:20+02:00" /><meta property="og:site_name" content="nathan.out" />
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Cyberdefenders Acoustic"/>
+<meta name="twitter:title" content="Cyberdefenders · Digital Forensic · Acoustic"/>
 <meta name="twitter:description" content="The scenario:
 This challenge takes you into the world of voice communications on the internet."/>
 
@@ -90,8 +90,8 @@ This challenge takes you into the world of voice communications on the internet.
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Write-up",
-    "name": "Cyberdefenders Acoustic",
-    "headline": "Cyberdefenders Acoustic",
+    "name": "Cyberdefenders · Digital Forensic · Acoustic",
+    "headline": "Cyberdefenders · Digital Forensic · Acoustic",
     
     "abstract": "The scenario:\nThis challenge takes you into the world of voice communications on the internet.",
     "inLanguage": "fr-fr",
@@ -109,7 +109,7 @@ This challenge takes you into the world of voice communications on the internet.
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "1166"
+    "wordCount": "1196"
   }]
   </script>
 
@@ -257,7 +257,7 @@ This challenge takes you into the world of voice communications on the internet.
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/write-up/cyberdefenders-acoustic/"
-      >Cyberdefenders Acoustic</a
+      >Cyberdefenders · Digital Forensic · Acoustic</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -266,7 +266,7 @@ This challenge takes you into the world of voice communications on the internet.
 
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Cyberdefenders Acoustic
+        Cyberdefenders · Digital Forensic · Acoustic
       </h1>
       <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -331,6 +331,19 @@ This challenge takes you into the world of voice communications on the internet.
   <ul>
     <li><a href="#abstract">Abstract</a></li>
     <li><a href="#q1-what-is-the-transport-protocol-being-used">Q1. What is the transport protocol being used?</a></li>
+    <li><a href="#q2-the-attacker-used-a-bunch-of-scanning-tools-that-belong-to-the-same-suite-provide-the-name-of-the-suite">Q2. The attacker used a bunch of scanning tools that belong to the same suite. Provide the name of the suite.</a></li>
+    <li><a href="#q3-what-is-the-user-agent-of-the-victim-system">Q3. What is the User-Agent of the victim system?</a></li>
+    <li><a href="#q4-which-tool-was-only-used-against-the-following-extensions-100101102103-and-111">Q4. Which tool was only used against the following extensions: 100,101,102,103, and 111?</a></li>
+    <li><a href="#q5-which-extension-on-the-honeypot-does-not-require-authentication">Q5. Which extension on the honeypot does NOT require authentication?</a></li>
+    <li><a href="#q6-how-many-extensions-were-scanned-in-total">Q6. How many extensions were scanned in total?</a></li>
+    <li><a href="#q7-there-is-a-trace-for-a-real-sip-client-what-is-the-corresponding-user-agent-two-words-once-space-in-between">Q7. There is a trace for a real SIP client. What is the corresponding user-agent? (two words, once space in between)</a></li>
+    <li><a href="#q8-multiple-real-world-phone-numbers-were-dialed-provide-the-first-11-digits-of-the-number-dialed-from-extension-101">Q8. Multiple real-world phone numbers were dialed. Provide the first 11 digits of the number dialed from extension 101?</a></li>
+    <li><a href="#q9-what-are-the-default-credentials-used-in-the-attempted-basic-authentication-format-is-usernamepassword">Q9. What are the default credentials used in the attempted basic authentication? (format is username:password)</a></li>
+    <li><a href="#q11-which-codec-does-the-rtp-stream-use-3-words-2-spaces-in-between">Q11. Which codec does the RTP stream use? (3 words, 2 spaces in between)</a></li>
+    <li><a href="#q12-how-long-is-the-sampling-time-in-milliseconds">Q12. How long is the sampling time (in milliseconds)?</a></li>
+    <li><a href="#q13-what-was-the-password-for-the-account-with-username-555">Q13. What was the password for the account with username 555?</a></li>
+    <li><a href="#q14-which-rtp-packet-header-field-can-be-used-to-reorder-out-of-sync-rtp-packets-in-the-correct-sequence">Q14. Which RTP packet header field can be used to reorder out of sync RTP packets in the correct sequence?</a></li>
+    <li><a href="#q15-the-trace-includes-a-secret-hidden-message-can-you-hear-it">Q15. The trace includes a secret hidden message. Can you hear it?</a></li>
   </ul>
 </nav>
   </div>
@@ -373,7 +386,7 @@ This challenge takes you into the world of voice communications on the internet.
   
   
     <figure>
-      <img class="my-0 rounded-md" src="statistics.png" alt="Capture overview." />
+      <img class="my-0 rounded-md" src="/img/write-up/acoustic/statistics.png" alt="Capture overview." />
       
     </figure>
   
@@ -385,7 +398,7 @@ This challenge takes you into the world of voice communications on the internet.
 <p>SIP is designed to be independent of the underlying transport layer protocol and can be used with the User Datagram Protocol (UDP), the Transmission Control Protocol (TCP), and the Stream Control Transmission Protocol (SCTP).</p>
 </blockquote>
 <p>In the statistics, we can see that <code>SIP</code> is under <code>UDP</code>.</p>
-<p>## Q2. The attacker used a bunch of scanning tools that belong to the same suite. Provide the name of the suite.</p>
+<h2 id="q2-the-attacker-used-a-bunch-of-scanning-tools-that-belong-to-the-same-suite-provide-the-name-of-the-suite" class="relative group">Q2. The attacker used a bunch of scanning tools that belong to the same suite. Provide the name of the suite. <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q2-the-attacker-used-a-bunch-of-scanning-tools-that-belong-to-the-same-suite-provide-the-name-of-the-suite" aria-label="Ancre">#</a></span></h2>
 <p>I used the log file:</p>
 <pre tabindex="0"><code>OPTIONS sip:100@honey.pot.IP.removed SIP/2.0
 Via: SIP/2.0/UDP 127.0.0.1:5061;branch=z9hG4bK-2159139916;rport
@@ -403,7 +416,7 @@ Max-Forwards: 70
 <p>Also known as friendly-scanner, it is freely available to help pentesters, security teams and developers quickly test their SIP systems.</p>
 </blockquote>
 <p>From: <a href="https://www.enablesecurity.com/sipvicious/oss/">SIPVicious OSS - open-source tools for testing VoIP security</a>.</p>
-<p>## Q3. What is the User-Agent of the victim system?</p>
+<h2 id="q3-what-is-the-user-agent-of-the-victim-system" class="relative group">Q3. What is the User-Agent of the victim system? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q3-what-is-the-user-agent-of-the-victim-system" aria-label="Ancre">#</a></span></h2>
 <p>Thanks to the hit, I have to check SIP packets. Filter this protocol by typing &lsquo;sip&rsquo; in the Wireshark&rsquo;s search bar. Then, follow a conversation (right-click &gt; follow &gt; UDP stream) and you will see this kind of datas:</p>
 <pre tabindex="0"><code>OPTIONS sip:100@172.25.105.40 SIP/2.0
 Via: SIP/2.0/UDP 127.0.1.1:5060;branch=z9hG4bK-1453809699;rport
@@ -429,7 +442,7 @@ Supported: replaces, timer
 Contact: &lt;sip:172.25.105.40&gt;
 Accept: application/sdp
 Content-Length: 0
-</code></pre><p>## Q4. Which tool was only used against the following extensions: 100,101,102,103, and 111?</p>
+</code></pre><h2 id="q4-which-tool-was-only-used-against-the-following-extensions-100101102103-and-111" class="relative group">Q4. Which tool was only used against the following extensions: 100,101,102,103, and 111? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q4-which-tool-was-only-used-against-the-following-extensions-100101102103-and-111" aria-label="Ancre">#</a></span></h2>
 <p>SIP Vicious contains few tools:</p>
 <ul>
 <li>
@@ -455,16 +468,16 @@ Content-Length: 0
 </span></span><span style="display:flex;"><span>    auth<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, localtag<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, compact<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, contact<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;sip:123@1.1.1.1&#39;</span>, accept<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;application/sdp&#39;</span>, contentlength<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>,
 </span></span><span style="display:flex;"><span>    localport<span style="color:#f92672">=</span><span style="color:#ae81ff">5060</span>, extension<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, contenttype<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, body<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, useragent<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;friendly-scanner&#39;</span>, requesturi<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
 </span></span></code></pre></div><p>Because of the <code>useragent</code> variable, which match logged user-agent inside <code>log.txt</code>, we can answer <code>svcrack.py</code>.</p>
-<p>## Q5. Which extension on the honeypot does NOT require authentication?</p>
+<h2 id="q5-which-extension-on-the-honeypot-does-not-require-authentication" class="relative group">Q5. Which extension on the honeypot does NOT require authentication? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q5-which-extension-on-the-honeypot-does-not-require-authentication" aria-label="Ancre">#</a></span></h2>
 <p>I searched on <code>log.txt</code>, in this file you can find some <code>Authorization</code> header:</p>
 <pre tabindex="0"><code>Authorization: Digest username=&#34;101&#34;,realm=&#34;localhost&#34;,nonce=&#34;3711809134&#34;,uri=&#34;sip:honey.pot.IP.removed&#34;,response=&#34;MD5_hash_removedXXXXXXXXXXXXXXXX&#34;,algorithm=MD5
 </code></pre><p>It looks like an authentication, and, in this case, for user 101. I&rsquo;ve looked for the same header for user 100, 101, 102 and 103, and the only one that doesn&rsquo;t have this header is 100.</p>
-<p>## Q6. How many extensions were scanned in total?</p>
-<p>&hellip;</p>
-<p>## Q7. There is a trace for a real SIP client. What is the corresponding user-agent? (two words, once space in between)</p>
+<h2 id="q6-how-many-extensions-were-scanned-in-total" class="relative group">Q6. How many extensions were scanned in total? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q6-how-many-extensions-were-scanned-in-total" aria-label="Ancre">#</a></span></h2>
+<p>I wasn&rsquo;t able to find the answer, I found something close to the answer but I haven&rsquo;t been able to find the answer. Please refer to another write-up for an explaination.</p>
+<h2 id="q7-there-is-a-trace-for-a-real-sip-client-what-is-the-corresponding-user-agent-two-words-once-space-in-between" class="relative group">Q7. There is a trace for a real SIP client. What is the corresponding user-agent? (two words, once space in between) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q7-there-is-a-trace-for-a-real-sip-client-what-is-the-corresponding-user-agent-two-words-once-space-in-between" aria-label="Ancre">#</a></span></h2>
 <p>Use a grep regex to find all the User-Agent:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep -Ei <span style="color:#e6db74">&#39;User-Agent:&#39;</span> log.txt|uniq
-</span></span></code></pre></div><p>## Q8. Multiple real-world phone numbers were dialed. Provide the first 11 digits of the number dialed from extension 101?</p>
+</span></span></code></pre></div><h2 id="q8-multiple-real-world-phone-numbers-were-dialed-provide-the-first-11-digits-of-the-number-dialed-from-extension-101" class="relative group">Q8. Multiple real-world phone numbers were dialed. Provide the first 11 digits of the number dialed from extension 101? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q8-multiple-real-world-phone-numbers-were-dialed-provide-the-first-11-digits-of-the-number-dialed-from-extension-101" aria-label="Ancre">#</a></span></h2>
 <p>As I don&rsquo;t know anything about SIP, I asked to ChatGPT how to find a dialed phone number. It answered me that you have to check <code>INVITE</code> request type. This command search for extension 101 with INVITE type.</p>
 <pre tabindex="0"><code class="language-grep" data-lang="grep">grep -Ei &#39;From: &#34;Unknown&#34;&lt;sip:101&#39; log.txt -B8|grep INVITE
 </code></pre><p>It returns 3 matchs:</p>
@@ -472,18 +485,18 @@ Content-Length: 0
 INVITE sip:00112322228XXXX@honey.pot.IP.removed;transport=UDP SIP/2.0
 INVITE sip:00112524021XXXX@honey.pot.IP.removed;transport=UDP SIP/2.0
 </code></pre><p>We can forget the first one because it&rsquo;s not 11 digit long. I don&rsquo;t know why it&rsquo;s the last one, both of them have an INVITE request for extension 101. Maybe I forget something?</p>
-<p>## Q9. What are the default credentials used in the attempted basic authentication? (format is username:password)</p>
+<h2 id="q9-what-are-the-default-credentials-used-in-the-attempted-basic-authentication-format-is-usernamepassword" class="relative group">Q9. What are the default credentials used in the attempted basic authentication? (format is username:password) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q9-what-are-the-default-credentials-used-in-the-attempted-basic-authentication-format-is-usernamepassword" aria-label="Ancre">#</a></span></h2>
 <p>Search for &lsquo;password&rsquo; in Wireshark: Edit &gt; Find a packet (don&rsquo;t forget to search for a <strong>string</strong>). In the HTTP paquets, you will find the credentials.</p>
-<p>## Q11. Which codec does the RTP stream use? (3 words, 2 spaces in between)</p>
+<h2 id="q11-which-codec-does-the-rtp-stream-use-3-words-2-spaces-in-between" class="relative group">Q11. Which codec does the RTP stream use? (3 words, 2 spaces in between) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q11-which-codec-does-the-rtp-stream-use-3-words-2-spaces-in-between" aria-label="Ancre">#</a></span></h2>
 <p>Filter the capture on <code>RTP</code> packet type and open one of them. There is no codec field but there is <code>payload type</code>, searching on &ldquo;rtp codec&rdquo; I found this page: <a href="https://en.wikipedia.org/wiki/RTP_payload_formats">RTP payload formats - Wikipedia</a>. In fact, the RTP payload format is related to the codec used:</p>
 <blockquote>
 <p>ITU-T G.711 PCM A-Law audio 64 kbit/s</p>
 </blockquote>
 <p>It looks like a codec, we found it!</p>
-<p>## Q12. How long is the sampling time (in milliseconds)?</p>
+<h2 id="q12-how-long-is-the-sampling-time-in-milliseconds" class="relative group">Q12. How long is the sampling time (in milliseconds)? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q12-how-long-is-the-sampling-time-in-milliseconds" aria-label="Ancre">#</a></span></h2>
 <p>Not really a DFIR question^^.</p>
 <p>Go to <a href="https://en.wikipedia.org/wiki/G.711">G.711 - Wikipedia</a>, you will find that the sampling frequency is <strong>8kHz</strong>, 8000 times per second. To get the time between two samples, just calculate 1/8000 = 0.000125. As we want millisecond, multiply it by 1000 = <strong>0.125</strong>.</p>
-<p>## Q13. What was the password for the account with username 555?</p>
+<h2 id="q13-what-was-the-password-for-the-account-with-username-555" class="relative group">Q13. What was the password for the account with username 555? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q13-what-was-the-password-for-the-account-with-username-555" aria-label="Ancre">#</a></span></h2>
 <p>The capture contains HTTP packets which seems related to the VoIP system interface. I extracted the HTTP objects but without find the answer.</p>
 <p>The hint &rsquo;take a look at sip_custom.conf&rsquo; helped me a lot. I found packet number 1287 which contains many informations such as passwords:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;section_form&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;?file=sip_custom.conf&#34;</span>&gt;
@@ -498,7 +511,7 @@ INVITE sip:00112524021XXXX@honey.pot.IP.removed;transport=UDP SIP/2.0
 </span></span><span style="display:flex;"><span>type=friend
 </span></span><span style="display:flex;"><span>username=555
 </span></span><span style="display:flex;"><span>secret=1234
-</span></span></code></pre></div><p>## Q14. Which RTP packet header field can be used to reorder out of sync RTP packets in the correct sequence?</p>
+</span></span></code></pre></div><h2 id="q14-which-rtp-packet-header-field-can-be-used-to-reorder-out-of-sync-rtp-packets-in-the-correct-sequence" class="relative group">Q14. Which RTP packet header field can be used to reorder out of sync RTP packets in the correct sequence? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q14-which-rtp-packet-header-field-can-be-used-to-reorder-out-of-sync-rtp-packets-in-the-correct-sequence" aria-label="Ancre">#</a></span></h2>
 <p>I found two header field:</p>
 <ul>
 <li>
@@ -509,7 +522,7 @@ INVITE sip:00112524021XXXX@honey.pot.IP.removed;transport=UDP SIP/2.0
 </li>
 </ul>
 <p>I tried both, the answer is Timestamp, maybe Sequence number can be used for this feature too.</p>
-<p>## Q15. The trace includes a secret hidden message. Can you hear it?</p>
+<h2 id="q15-the-trace-includes-a-secret-hidden-message-can-you-hear-it" class="relative group">Q15. The trace includes a secret hidden message. Can you hear it? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q15-the-trace-includes-a-secret-hidden-message-can-you-hear-it" aria-label="Ancre">#</a></span></h2>
 <p>Wireshark has the tool, go to : <code>Telephony &gt; RTP &gt; RTP Player</code>.</p>
 
       </div>

@@ -358,7 +358,6 @@ Spotlight is a MAC OS image forensics challenge where you can evaluate your DFIR
 <blockquote>
 <p>Spotlight is a MAC OS image forensics challenge where you can evaluate your DFIR skills against an OS you usually encounter in today&rsquo;s case investigations as a security blue team member.</p>
 </blockquote>
-<p>I tried to extract files with FTKImager then perform analysis with Autopsy (you can find more detailed steps in my previous WU) but unfortunately it can&rsquo;t parse many artifacts. It&rsquo;s maybe possible to setup Autopsy to process macOS images but I wanted to learn a new tool: <a href="https://github.com/ydkhatri/mac_apt">mac_apt</a>.</p>
 <p>
 
 
@@ -378,6 +377,8 @@ Spotlight is a MAC OS image forensics challenge where you can evaluate your DFIR
 <p>The article presents a MAC OS image forensics challenge known as &ldquo;Spotlight.&rdquo; The challenge assesses digital forensics and incident response (DFIR) skills in dealing with macOS systems. I documents my exploration using various tools, including FTKImager, Autopsy, and mac_apt, while tackling a series of questions related to the challenge.</p>
 <p>The questions cover a range of topics such as identifying the macOS version, extracting information from image files, examining Safari bookmarks, retrieving data from Notes, obtaining network information, investigating quarantined items, identifying app installations, tracking permission changes, uncovering steganography, accessing user history, and finding user UUIDs.</p>
 <p>The article showcases my problem-solving approach, tool utilization, and detailed steps to answer each question, offering insights into macOS forensics challenges and methodologies.</p>
+<hr>
+<p>I tried to extract files with FTKImager then perform analysis with Autopsy (you can find more detailed steps in my previous WU) but unfortunately it can&rsquo;t parse many artifacts. It&rsquo;s maybe possible to setup Autopsy to process macOS images but I wanted to learn a new tool: <a href="https://github.com/ydkhatri/mac_apt">mac_apt</a>.</p>
 <h2 id="q1-what-version-of-macos-is-running-on-this-image" class="relative group">Q1. What version of macOS is running on this image? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q1-what-version-of-macos-is-running-on-this-image" aria-label="Ancre">#</a></span></h2>
 <p>I wanted to run all the <code>mac_apt</code> plugins using this command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; ios_apt.exe -i APFS<span style="color:#ae81ff">\\</span>Vol4<span style="color:#ae81ff">\\</span>root -o ios_apt_output<span style="color:#ae81ff">\\</span>fsevents ALL
@@ -721,7 +722,7 @@ Users/sneaky/Downloads/GoodExample.jpg
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Cyberdefenders Acoustic</span
+                  >Cyberdefenders · Digital Forensic · Acoustic</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
