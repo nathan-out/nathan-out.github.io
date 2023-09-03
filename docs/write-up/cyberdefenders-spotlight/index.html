@@ -1,0 +1,870 @@
+
+
+<!DOCTYPE html>
+<html
+  lang="fr-fr"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"
+><head>
+  <meta charset="utf-8" />
+  
+    <meta http-equiv="content-language" content="fr-fr" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Cyberdefenders · Digital Forensic · Spotlight &middot; nathan.out</title>
+    <meta name="title" content="Cyberdefenders · Digital Forensic · Spotlight &middot; nathan.out" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://nathan-out.github.io/write-up/cyberdefenders-spotlight/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.3be096bcd7d4e68dd376b85e8c0157153f5ad62d1d8da3aa541971bdc763082a2357c4f56750b40c029adc50e54e156d1535c7d6a4cfe2f9fe7b128da3507509.css"
+    integrity="sha512-O&#43;CWvNfU5o3TdrhejAFXFT9a1i0djaOqVBlxvcdjCCojV8T1Z1C0DAKa3FDlThVtFTXH1qTP4vn&#43;exKNo1B1CQ=="
+  />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.badab316c9287a5a42a843e4eb45da65bb3d194a5a0f5fa4a3e516160e67df0b8c65f4f19a8e146436e29d583699e6cb41d6bbe99e05e1dbaa877763bad9f8e2.js" integrity="sha512-utqzFskoelpCqEPk60XaZbs9GUpaD1&#43;ko&#43;UWFg5n3wuMZfTxmo4UZDbinVg2mebLQda76Z4F4duqh3djutn44g=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+    
+    <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.15ae6e2c9b1ac24a9ccf40003fa689efb1a18db1ee9b73d780b01a6c31b150441415862513e93184f68fe385759e4698b8763cba6a0f79493c1fed99ad5868d4.js" integrity="sha512-Fa5uLJsawkqcz0AAP6aJ77GhjbHum3PXgLAabDGxUEQUFYYlE&#43;kxhPaP44V1nkaYuHY8umoPeUk8H&#43;2ZrVho1A==" data-copy="Copier" data-copied="Copié"></script>
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Cyberdefenders · Digital Forensic · Spotlight" />
+<meta property="og:description" content="The scenario:
+Spotlight is a MAC OS image forensics challenge where you can evaluate your DFIR skills against an OS you usually encounter in today&rsquo;s case investigations as a security blue team member." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nathan-out.github.io/write-up/cyberdefenders-spotlight/" /><meta property="article:section" content="write-up" />
+<meta property="article:published_time" content="2023-09-03T22:05:39+02:00" />
+<meta property="article:modified_time" content="2023-09-03T22:05:39+02:00" /><meta property="og:site_name" content="nathan.out" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cyberdefenders · Digital Forensic · Spotlight"/>
+<meta name="twitter:description" content="The scenario:
+Spotlight is a MAC OS image forensics challenge where you can evaluate your DFIR skills against an OS you usually encounter in today&rsquo;s case investigations as a security blue team member."/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Write-up",
+    "name": "Cyberdefenders · Digital Forensic · Spotlight",
+    "headline": "Cyberdefenders · Digital Forensic · Spotlight",
+    
+    "abstract": "The scenario:\nSpotlight is a MAC OS image forensics challenge where you can evaluate your DFIR skills against an OS you usually encounter in today\u0026rsquo;s case investigations as a security blue team member.",
+    "inLanguage": "fr-fr",
+    "url" : "https:\/\/nathan-out.github.io\/write-up\/cyberdefenders-spotlight\/",
+    "author" : {
+      "@type": "Person",
+      "name": "nathan.out"
+    },
+    "copyrightYear": "2023",
+    "dateCreated": "2023-09-03T22:05:39\u002b02:00",
+    "datePublished": "2023-09-03T22:05:39\u002b02:00",
+    
+    "dateModified": "2023-09-03T22:05:39\u002b02:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1885"
+  }]
+  </script>
+
+
+  
+  <meta name="author" content="nathan.out" />
+  
+    
+      <link href="https://github.com/nathan-out" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 bg-neutral text-neutral-900 sm:px-14 md:px-24 lg:px-32 dark:bg-neutral-800 dark:text-neutral max-w-7xl"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 dark:bg-neutral-600 focus:translate-y-0"
+        href="#main-content"
+        ><span class="font-bold ltr:pr-2 rtl:pl-2 text-primary-600 dark:text-primary-400"
+          >&darr;</span
+        >Aller au contenu</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold sm:py-10 text-neutral-900 dark:text-neutral print:hidden">
+  <nav class="flex justify-between">
+    
+    <div>
+      
+        <a
+          class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+          rel="me"
+          href="/"
+          >nathan.out</a
+        >
+      
+
+    </div>
+    
+    
+      <ul class="flex flex-col list-none ltr:text-right rtl:text-left sm:flex-row">
+        
+          
+            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                href="/posts/"
+                title="Mes articles"
+                >Articles</a
+              >
+            </li>
+          
+            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                href="/a-propos/"
+                title="A Propos"
+                >A propos</a
+              >
+            </li>
+          
+            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+              <a
+                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                href="/write-up/"
+                title="Write-up"
+                >Write-up</a
+              >
+            </li>
+          
+        
+        
+          <li class="ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+            <button
+              id="search-button"
+              class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+              title="Rechercher (/)"
+            >
+              
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+          </li>
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+        <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/write-up/"
+      >Write-up</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/write-up/cyberdefenders-spotlight/"
+      >Cyberdefenders · Digital Forensic · Spotlight</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Cyberdefenders · Digital Forensic · Spotlight
+      </h1>
+      <div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2023-09-03 22:05:39 &#43;0200 CEST">3 septembre 2023</time><span class="px-2 text-primary-500">&middot;</span><span title="Temps de lecture">9 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+      </div>
+    </header>
+    <section class="flex flex-col max-w-full mt-0 prose lg:flex-row dark:prose-invert">
+      
+        <div class="order-first px-0 lg:max-w-xs ltr:lg:pl-8 rtl:lg:pr-8 lg:order-last">
+          <div class="ltr:pl-5 rtl:pr-5 toc lg:sticky lg:top-10 print:hidden">
+            <details open class="mt-0 overflow-hidden rounded-lg rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5 text-neutral-800 dark:text-neutral-100 lg:hidden bg-neutral-100 dark:bg-neutral-700"
+  >
+    Sommaire
+  </summary>
+  <div
+    class="py-2 border-dotted ltr:border-l rtl:border-r rtl:pr-5 ltr:pl-5 ltr:-ml-5 rtl:-mr-5 border-neutral-300 dark:border-neutral-600"
+  >
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#abstract">Abstract</a></li>
+    <li><a href="#q1-what-version-of-macos-is-running-on-this-image">Q1. What version of macOS is running on this image?</a></li>
+    <li><a href="#q2-what-competitive-advantage-did-hansel-lie-about-in-the-file-anotherexamplejpg-two-words">Q2. What &ldquo;competitive advantage&rdquo; did Hansel lie about in the file AnotherExample.jpg? (two words)</a></li>
+    <li><a href="#q3-how-many-bookmarks-are-registered-in-safari">Q3. How many bookmarks are registered in safari?</a></li>
+    <li><a href="#q4-whats-the-content-of-the-note-titled-passwords">Q4. What&rsquo;s the content of the note titled &ldquo;Passwords&rdquo;?</a></li>
+    <li><a href="#q5-provide-the-mac-address-of-the-ethernet-adapter-for-this-machine">Q5. Provide the MAC address of the ethernet adapter for this machine.</a></li>
+    <li><a href="#q6-name-the-data-url-of-the-quarantined-item">Q6. Name the data URL of the quarantined item.</a></li>
+    <li><a href="#q7-what-app-did-the-user-sneaky-try-to-install-via-a-dmg-file-one-word">Q7. What app did the user &ldquo;sneaky&rdquo; try to install via a .dmg file? (one word)</a></li>
+    <li><a href="#q8-what-was-the-file-examplestegjpg-renamed-to">Q8. What was the file &lsquo;Examplesteg.jpg&rsquo; renamed to?</a></li>
+    <li><a href="#q9-how-much-time-was-spent-on-mailzohocom-on-4202020">Q9. How much time was spent on mail.zoho.com on 4/20/2020?</a></li>
+    <li><a href="#q10-whats-hanselapricots-password-hint-two-words">Q10. What&rsquo;s hansel.apricot&rsquo;s password hint? (two words)</a></li>
+    <li><a href="#q11-the-main-file-that-stores-hansels-imessages-had-a-few-permissions-changes-how-many-times-did-the-permissions-change">Q11. The main file that stores Hansel&rsquo;s iMessages had a few permissions changes. How many times did the permissions change?</a></li>
+    <li><a href="#q12-whats-the-uid-of-the-user-who-is-responsible-for-connecting-mobile-devices">Q12. What&rsquo;s the UID of the user who is responsible for connecting mobile devices?</a></li>
+    <li><a href="#q13-find-the-flag-in-the-goodexamplejpg-image-its-hidden-with-better-tools">Q13. Find the flag in the GoodExample.jpg image. It&rsquo;s hidden with better tools.</a></li>
+    <li><a href="#q14-what-was-exactly-typed-in-the-spotlight-search-bar-on-4202020-020948">Q14. What was exactly typed in the Spotlight search bar on 4/20/2020 02:09:48</a></li>
+    <li><a href="#q15-what-is-hanselapricots-open-directory-user-uuid">Q15. What is hansel.apricot&rsquo;s Open Directory user UUID?</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+          </div>
+        </div>
+      
+      <div class="min-w-0 min-h-0 max-w-prose">
+        <p>The scenario:</p>
+<blockquote>
+<p>Spotlight is a MAC OS image forensics challenge where you can evaluate your DFIR skills against an OS you usually encounter in today&rsquo;s case investigations as a security blue team member.</p>
+</blockquote>
+<p>I tried to extract files with FTKImager then perform analysis with Autopsy (you can find more detailed steps in my previous WU) but unfortunately it can&rsquo;t parse many artifacts. It&rsquo;s maybe possible to setup Autopsy to process macOS images but I wanted to learn a new tool: <a href="https://github.com/ydkhatri/mac_apt">mac_apt</a>.</p>
+<p>
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="/img/write-up/spotlight/macos-catalina.jpg" alt="MacOSX Catalina - the version in this case." />
+      
+    </figure>
+  
+
+</p>
+<figcaption>MacOSX Catalina - the version in this forensic case.</figcaption>
+<h2 id="abstract" class="relative group">Abstract <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#abstract" aria-label="Ancre">#</a></span></h2>
+<p>The article presents a MAC OS image forensics challenge known as &ldquo;Spotlight.&rdquo; The challenge assesses digital forensics and incident response (DFIR) skills in dealing with macOS systems. I documents my exploration using various tools, including FTKImager, Autopsy, and mac_apt, while tackling a series of questions related to the challenge.</p>
+<p>The questions cover a range of topics such as identifying the macOS version, extracting information from image files, examining Safari bookmarks, retrieving data from Notes, obtaining network information, investigating quarantined items, identifying app installations, tracking permission changes, uncovering steganography, accessing user history, and finding user UUIDs.</p>
+<p>The article showcases my problem-solving approach, tool utilization, and detailed steps to answer each question, offering insights into macOS forensics challenges and methodologies.</p>
+<h2 id="q1-what-version-of-macos-is-running-on-this-image" class="relative group">Q1. What version of macOS is running on this image? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q1-what-version-of-macos-is-running-on-this-image" aria-label="Ancre">#</a></span></h2>
+<p>I wanted to run all the <code>mac_apt</code> plugins using this command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; ios_apt.exe -i APFS<span style="color:#ae81ff">\\</span>Vol4<span style="color:#ae81ff">\\</span>root -o ios_apt_output<span style="color:#ae81ff">\\</span>fsevents ALL
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Output path was : ios_apt_output<span style="color:#ae81ff">\f</span>sevents
+</span></span><span style="display:flex;"><span>MAIN-INFO-Started iOS Artifact Parsing Tool, version 1.5.8.dev <span style="color:#f92672">(</span>20230617<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>MAIN-INFO-Dates and times are in UTC unless the specific artifact being parsed saves it as local time!
+</span></span><span style="display:flex;"><span>MAIN-INFO-Python version <span style="color:#f92672">=</span> 3.10.7 <span style="color:#f92672">(</span>tags/v3.10.7:6cc6b13, Sep  <span style="color:#ae81ff">5</span> 2022, 14:08:36<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>MSC v.1933 <span style="color:#ae81ff">64</span> bit <span style="color:#f92672">(</span>AMD64<span style="color:#f92672">)]</span>
+</span></span><span style="display:flex;"><span>MAIN-INFO-Pytsk  version <span style="color:#f92672">=</span> <span style="color:#ae81ff">20221228</span>
+</span></span><span style="display:flex;"><span>MAIN-INFO-Pyewf  version <span style="color:#f92672">=</span> <span style="color:#ae81ff">20230212</span>
+</span></span><span style="display:flex;"><span>MAIN-INFO-Pyvmdk version <span style="color:#f92672">=</span> <span style="color:#ae81ff">20221124</span>
+</span></span><span style="display:flex;"><span>MAIN-INFO-PyAFF4 version <span style="color:#f92672">=</span> 0.31
+</span></span><span style="display:flex;"><span>MAIN.HELPERS.MACINFO-INFO-iOS version detected is: Mac OS X <span style="color:#f92672">(</span>10.15<span style="color:#f92672">)</span> Build<span style="color:#f92672">=</span>19A583
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>The output provides lot of informations but at the top there is the Mac OS version.</p>
+<h2 id="q2-what-competitive-advantage-did-hansel-lie-about-in-the-file-anotherexamplejpg-two-words" class="relative group">Q2. What &ldquo;competitive advantage&rdquo; did Hansel lie about in the file AnotherExample.jpg? (two words) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q2-what-competitive-advantage-did-hansel-lie-about-in-the-file-anotherexamplejpg-two-words" aria-label="Ancre">#</a></span></h2>
+<p>It&rsquo;s more like a CTF question than a Blue Team one.</p>
+<p>If you are familiar with Unix/MacOs filesystem you will easily find <code>AnotherExample.jpg</code> (<code>APFS\Data\root\Users\Shared</code>). First, I thought that the advantage was &lsquo;Futur Phone&rsquo;, as it&rsquo;s written on the image. Instead, you had to extracts strings from the file and you will find the answer inside.</p>
+<h2 id="q3-how-many-bookmarks-are-registered-in-safari" class="relative group">Q3. How many bookmarks are registered in safari? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q3-how-many-bookmarks-are-registered-in-safari" aria-label="Ancre">#</a></span></h2>
+<p>Autopsy can parse few things from the dump and bookmarks are part of it! Or, you can find this information here: <code>macOS Catalina - Data [volume_0]/root/Users/hansel.apricot/Library/Safari/Bookmarks.plist</code>.</p>
+<h2 id="q4-whats-the-content-of-the-note-titled-passwords" class="relative group">Q4. What&rsquo;s the content of the note titled &ldquo;Passwords&rdquo;? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q4-whats-the-content-of-the-note-titled-passwords" aria-label="Ancre">#</a></span></h2>
+<p>I tried to recursively search for a filename named &ldquo;Passwords&rdquo; but it&rsquo;s located in a db file, as you will see bellow. Googling where notes are located in MacOs I found this path: <code>~/Library/Containers/com.apple.Notes/Data/Library/Notes</code>.</p>
+<p>Open <code>NoteStore.sqlite</code> with your favorite tool and you will find in the <code>ZICCLOUDSYNINOBJECT</code> table, in the <code>ZTITLE1</code> column, a note named <code>Passwords</code>. The <code>ZSNIPPET</code> does not show anything, maybe because the note is empty.</p>
+<h2 id="q5-provide-the-mac-address-of-the-ethernet-adapter-for-this-machine" class="relative group">Q5. Provide the MAC address of the ethernet adapter for this machine. <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q5-provide-the-mac-address-of-the-ethernet-adapter-for-this-machine" aria-label="Ancre">#</a></span></h2>
+<p>I found this very useful website: <a href="https://davidkoepi.wordpress.com/2013/07/06/macforensics4/">MAC FORENSICS PART 4 (MOUNTAIN LION 10.8 – SYSTEM FILE ARTIFACTS)</a>, it provides the path to see MAC address: <code>/private/var/log/daily.out</code>. In this file we can see some reports about the system, included network informations:</p>
+<pre tabindex="0"><code>Network interface status:
+Name       Mtu   Network       Address            Ipkts Ierrs    Opkts Oerrs  Coll
+lo0   16384 &lt;Link#1&gt;                          1072     0     1072     0     0
+lo0   16384 127           localhost           1072     -     1072     -     -
+lo0   16384 localhost   ::1                   1072     -     1072     -     -
+lo0   16384 fe80::1%lo0 fe80:1::1             1072     -     1072     -     -
+gif0* 1280  &lt;Link#2&gt;                             0     0        0     0     0
+stf0* 1280  &lt;Link#3&gt;                             0     0        0     0     0
+en0   1500  &lt;Link#4&gt;    00:0c:29:c4:65:77   372733     0    73025     0     0
+</code></pre><h2 id="q6-name-the-data-url-of-the-quarantined-item" class="relative group">Q6. Name the data URL of the quarantined item. <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q6-name-the-data-url-of-the-quarantined-item" aria-label="Ancre">#</a></span></h2>
+<p>By using Powhershell to recursively search for filename I found this location:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>&gt;  Get-Childitem .\APFS\ *quarantine* -Recurse
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>\APFS\Data\root\Users\sneaky\Library\Preferences
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Mode                LastWriteTime         Length Name
+</span></span><span style="display:flex;"><span>----                -------------         ------ ----
+</span></span><span style="display:flex;"><span>------        <span style="color:#ae81ff">4</span>/<span style="color:#ae81ff">20</span>/<span style="color:#ae81ff">2020</span>   <span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">58</span> AM          <span style="color:#ae81ff">20480</span> com.apple.LaunchServices.QuarantineEventsV2
+</span></span></code></pre></div><p>This is a SQLite database, open it, the column <code>LSQuarantineDataURLString</code> contains the URL where the quarantined file was downloaded: <code>https://futureboy.us/stegano/encode.pl</code>.</p>
+<h2 id="q7-what-app-did-the-user-sneaky-try-to-install-via-a-dmg-file-one-word" class="relative group">Q7. What app did the user &ldquo;sneaky&rdquo; try to install via a .dmg file? (one word) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q7-what-app-did-the-user-sneaky-try-to-install-via-a-dmg-file-one-word" aria-label="Ancre">#</a></span></h2>
+<p>Once again, I used powershell to find all the dmg file (disk image file to store compressed software installer on Mac):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>&gt;  Get-Childitem .\APFS\ *.dmg -Recurse
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Directory<span style="color:#960050;background-color:#1e0010">:</span> APFS\Data\root\Users\sneaky\.Trash
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Mode                LastWriteTime         Length Name
+</span></span><span style="display:flex;"><span>----                -------------         ------ ----
+</span></span><span style="display:flex;"><span>------        <span style="color:#ae81ff">4</span>/<span style="color:#ae81ff">20</span>/<span style="color:#ae81ff">2020</span>   <span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">30</span> AM       <span style="color:#ae81ff">26633714</span> silenteye-<span style="color:#ae81ff">0.4</span>.1b-snowleopard.dmg
+</span></span></code></pre></div><p>Silenteye is a software used for steganography; hidding information into files like pictures or sound.</p>
+<h2 id="q8-what-was-the-file-examplestegjpg-renamed-to" class="relative group">Q8. What was the file &lsquo;Examplesteg.jpg&rsquo; renamed to? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q8-what-was-the-file-examplestegjpg-renamed-to" aria-label="Ancre">#</a></span></h2>
+<p>I had some troubles with <code>mac_apt</code>, for technical reasons I couldn&rsquo;t used source file (Python problems during requirements installations) and the exe file returns an error during my investigation (see bellow). I had to trick the software to go forward.</p>
+<p>A good idea is to use the <code>FSEVENTS</code> plugin from <code>mac_apt</code>, according to the doc :</p>
+<blockquote>
+<p>Reads file system event logs (from .fseventsd)</p>
+</blockquote>
+<p>As we have two partitions, I run the plugin on <code>Vol4</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; ./ios_apt.exe -i APFS<span style="color:#ae81ff">\V</span>ol4<span style="color:#ae81ff">\r</span>oot -o ios_apt_output<span style="color:#ae81ff">\f</span>sevents FSEVENTS
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>In <code>ios_apt_output\fsevents</code> a file was created: <code>ios_apt.db</code>. It&rsquo;s a SQLite db:</p>
+<p>
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="/img/write-up/spotlight/event_db_1.png" alt="MacOS file system event logs view." />
+      
+    </figure>
+  
+
+</p>
+<figcaption>MacOS file system event logs view.</figcaption>
+<p><code>Filepath</code> is the key here, we can try a SQL query to find any information related to <code>Examplesteg.jpg</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> FsEvents <span style="color:#66d9ef">where</span> Filepath <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;%Examplesteg.jpg%&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Execution finished <span style="color:#66d9ef">without</span> errors.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">Result</span>: <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">rows</span> returned
+</span></span></code></pre></div><p>There is no data related to our interesting file but let&rsquo;s investigate on the second partition logs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; ./ios_apt.exe -i APFS<span style="color:#ae81ff">\D</span>ata<span style="color:#ae81ff">\r</span>oot -o ios_apt_output<span style="color:#ae81ff">\f</span>sevents FSEVENTS
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>MAIN-ERROR-Could not find iOS system version!
+</span></span><span style="display:flex;"><span>:<span style="color:#f92672">(</span> Could not find an iOS installation on path provided. Make sure you provide the path to the root folder. This folder should contain folders <span style="color:#e6db74">&#39;bin&#39;</span>, <span style="color:#e6db74">&#39;System&#39;</span>, <span style="color:#e6db74">&#39;private&#39;</span>, <span style="color:#e6db74">&#39;Library&#39;</span> and others.
+</span></span></code></pre></div><p>This is where the trick begins, it looks like a bug for exe file, as source file don&rsquo;t returns this error. The program wants <code>bin</code>, <code>System</code>, &hellip; let&rsquo;s provides them!</p>
+<p>Just copy the missing files from <code>Vol4/root</code> to <code>Data/root</code> and the tool will not trigger errors! <strong>Be carreful, in real world forensic case, this kind of manipulation can corrupt your evidences for judges or lawyers.</strong></p>
+<p>On this second db we have datas related to our file:</p>
+<p>
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="/img/write-up/spotlight/event_db_2.png" alt="MacOS file system event logs view for Examplesteg.jpg." />
+      
+    </figure>
+  
+
+</p>
+<figcaption>MacOS file system event logs view for Examplesteg.jpg.</figcaption>
+<p>Note the <code>File_ID</code> (12885043806), and search on it:</p>
+<p>
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="/img/write-up/spotlight/event_db_3.png" alt="Event logs for file id no 12885043806." />
+      
+    </figure>
+  
+
+</p>
+<figcaption>Event logs for file id no 12885043806.</figcaption>
+<p>Order the <code>LogID</code> column to get the bigger one (i.e: the most recent) in the <code>Filepath</code> you have the new file name!</p>
+<h2 id="q9-how-much-time-was-spent-on-mailzohocom-on-4202020" class="relative group">Q9. How much time was spent on mail.zoho.com on 4/20/2020? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q9-how-much-time-was-spent-on-mailzohocom-on-4202020" aria-label="Ancre">#</a></span></h2>
+<p>I didn&rsquo;t understand how the system count minutes on a given website. Using Autopsy and web history I could retrieved when user accessed to mail.zoho.com and when he leaved, but timestamp didn&rsquo;t matched with <code>RMAdminStore-Local.sqlite</code> db (see other WU). On this db, run the SCREENTIME plugin and you will find durations.</p>
+<h2 id="q10-whats-hanselapricots-password-hint-two-words" class="relative group">Q10. What&rsquo;s hansel.apricot&rsquo;s password hint? (two words) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q10-whats-hanselapricots-password-hint-two-words" aria-label="Ancre">#</a></span></h2>
+<p>Thanks to this website: <a href="https://davidkoepi.wordpress.com/2013/07/06/macforensics4/">MAC FORENSICS PART 4 (MOUNTAIN LION 10.8 – SYSTEM FILE ARTIFACTS)</a> you can find the path where this information is stored: <code>/private/var/db/dslocal/nodes/[user].plist</code>. Extract and open the pslist file and the hint is Family Opinion.</p>
+<h2 id="q11-the-main-file-that-stores-hansels-imessages-had-a-few-permissions-changes-how-many-times-did-the-permissions-change" class="relative group">Q11. The main file that stores Hansel&rsquo;s iMessages had a few permissions changes. How many times did the permissions change? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q11-the-main-file-that-stores-hansels-imessages-had-a-few-permissions-changes-how-many-times-did-the-permissions-change" aria-label="Ancre">#</a></span></h2>
+<p>As we have the <code>fsevents</code> db from <code>Data</code> partition, we can use it to count the number of permission changed event. The iMessage db file is located at <code>/Users/Mac/Library/Messages/chat.db</code>, according to a quick web search.</p>
+<p>I was unable to find this db but we don&rsquo;t need it to answer the question. We just have to search on <code>chat.db</code> and <code>permissionChanged</code> and count how many times the persmissions was changed.</p>
+<p>
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="/img/write-up/spotlight/event_db_4.png" alt="iMessages db logs." />
+      
+    </figure>
+  
+
+</p>
+<figcaption>iMessages db logs.</figcaption>
+<h2 id="q12-whats-the-uid-of-the-user-who-is-responsible-for-connecting-mobile-devices" class="relative group">Q12. What&rsquo;s the UID of the user who is responsible for connecting mobile devices? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q12-whats-the-uid-of-the-user-who-is-responsible-for-connecting-mobile-devices" aria-label="Ancre">#</a></span></h2>
+<p>Kind of tricky question because you have to know several things:</p>
+<ul>
+<li>
+<p>which kind of user is intended here? Regular one (human user), or &ldquo;machine&rdquo; user, i.e user attached to a particular task? Here it&rsquo;s the second user type; &ldquo;responsible for connecting mobile devices&rdquo; means that this is a task performed by a dedicated user, or something similar.</p>
+</li>
+<li>
+<p>where should I find this kind of information? Maybe the least difficult question to answer here, as we already browsed user informations on Q10 (<code>private/db/dslocal/nodes/Default/users/</code>).</p>
+</li>
+<li>
+<p>which user should I have to investigate on? Most difficult one to me, on the directory there is tons of users. I searched MacOS mobile devices related user but I found nothing interesting. There is a process named <code>usbmuxd</code> which looks interesting because of the &ldquo;USB&rdquo;:</p>
+</li>
+</ul>
+<blockquote>
+<p>USBMUXD is a Mac OS X process that performs USB multiplexing when synchronizing iTunes music libraries with USB music devices like iPods &amp; iPhones.</p>
+</blockquote>
+<p>It sounds good, by opening its plist file (readable in Autopsy) we can see that its UID is 213.</p>
+<h2 id="q13-find-the-flag-in-the-goodexamplejpg-image-its-hidden-with-better-tools" class="relative group">Q13. Find the flag in the GoodExample.jpg image. It&rsquo;s hidden with better tools. <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q13-find-the-flag-in-the-goodexamplejpg-image-its-hidden-with-better-tools" aria-label="Ancre">#</a></span></h2>
+<p>I followed the first tip, which is to investigate on <code>FSEVENTS</code> db (see previous questions), we can find that there is two location for <code>GoodExample.jpg</code> (second column is <code>File_ID</code>):</p>
+<pre tabindex="0"><code>Users/Shared/GoodExample.jpg    12885043806
+Users/sneaky/Downloads/GoodExample.jpg  12885043806
+</code></pre><p>Then, I searched on <code>File_ID</code>:</p>
+<pre tabindex="0"><code>Users/Shared/GoodExample.jpg
+Users/sneaky/Downloads/Example.jpg
+Users/sneaky/Downloads/Examplesteg.jpg
+Users/sneaky/Downloads/Examplesteg.jpg.download/Examplesteg.jpg
+Users/sneaky/Downloads/GoodExample.jpg
+</code></pre><p>The interesting thing to me is that most of the file are located in <code>Downloads</code> directory and have the same <code>SourceModDate</code> timestamp (2020-04-20 03:19:45). Maybe we should take a look at the users web history (Autopsy).</p>
+<p>Few hours before we can see several Google search:</p>
+<ul>
+<li>
+<p>hide information in jpg</p>
+</li>
+<li>
+<p>How to hide data within an image</p>
+</li>
+</ul>
+<p>And, two websites related to steganography:</p>
+<ul>
+<li>
+<p><a href="https://null-byte.wonderhowto.com/how-to/steganography-hide-secret-data-inside-image-audio-file-seconds-0180936/">https://null-byte.wonderhowto.com/how-to/steganography-hide-secret-data-inside-image-audio-file-seconds-0180936/</a></p>
+</li>
+<li>
+<p><a href="https://www.computerhope.com/issues/ch000861.htm">https://www.computerhope.com/issues/ch000861.htm</a></p>
+</li>
+</ul>
+<p>Obviously, the user is not familiar with steganography and he used a tool like steghide. Searching for a reverse steghide online tool, I found this website: <a href="https://futureboy.us/stegano/decinput.html">Steganographic Decoder</a>. Upload the file and you will find the answer!</p>
+<p>Conclusion: if you want to hide information, use very unusual algorithms!</p>
+<h2 id="q14-what-was-exactly-typed-in-the-spotlight-search-bar-on-4202020-020948" class="relative group">Q14. What was exactly typed in the Spotlight search bar on 4/20/2020 02:09:48 <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q14-what-was-exactly-typed-in-the-spotlight-search-bar-on-4202020-020948" aria-label="Ancre">#</a></span></h2>
+<p>Most of information found on Spotlight forensic was to find the Spotlight&rsquo;s db located at <code>~/.Spotlight-V100/</code> but this file is not in this dump. I used a recursive search to locate all the spotlight related filename:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>&gt; Get-Childitem .\APFS\ *.spotlight* -Recurse
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Directory<span style="color:#960050;background-color:#1e0010">:</span>
+</span></span><span style="display:flex;"><span>    APFS\Data\root\Users\sneaky\Library\Application
+</span></span><span style="display:flex;"><span>    Support\com.apple.spotlight
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Mode                LastWriteTime         Length Name
+</span></span><span style="display:flex;"><span>----                -------------         ------ ----
+</span></span><span style="display:flex;"><span>------        <span style="color:#ae81ff">4</span>/<span style="color:#ae81ff">20</span>/<span style="color:#ae81ff">2020</span>   <span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">44</span> AM            <span style="color:#ae81ff">687</span> com.apple.spotlight.Shortcuts
+</span></span></code></pre></div><p>There is one of my results, open this file and you will get the answer in the <code>key</code> tag:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;plist</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;dict&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;key&gt;</span>silent<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;dict&gt;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&lt;key&gt;</span>DISPLAY_NAME<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&lt;string&gt;</span>silenteye-0.4.1b-snowleopard_installer<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&lt;key&gt;</span>LAST_USED<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&lt;date&gt;</span>2020-04-20T02:44:27Z<span style="color:#f92672">&lt;/date&gt;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&lt;key&gt;</span>URL<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&lt;string&gt;</span>/Applications/silenteye-0.4.1b-snowleopard_installer.app<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;/dict&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;key&gt;</span>term<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;dict&gt;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&lt;key&gt;</span>DISPLAY_NAME<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&lt;string&gt;</span>Terminal<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&lt;key&gt;</span>LAST_USED<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&lt;date&gt;</span>2020-04-20T02:09:48Z<span style="color:#f92672">&lt;/date&gt;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&lt;key&gt;</span>URL<span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">&lt;string&gt;</span>/System/Applications/Utilities/Terminal.app<span style="color:#f92672">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&lt;/dict&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dict&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/plist&gt;</span>
+</span></span></code></pre></div><p>An another way is to recursively search on the given date and open the shortcut file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>&gt;  findstr /spin /c:<span style="color:#e6db74">&#34;4-20&#34;</span> .\APFS\*
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>.\APFS\Data\root\Users\sneaky\Library\Application Support\com.apple.spotlight\com.apple.spotlight.Shortcuts<span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">19</span><span style="color:#960050;background-color:#1e0010">:</span>                 &lt;date&gt;<span style="color:#ae81ff">2020</span>-<span style="color:#ae81ff">04</span>-20T02<span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">09</span><span style="color:#960050;background-color:#1e0010">:</span>48Z&lt;/date&gt;
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h2 id="q15-what-is-hanselapricots-open-directory-user-uuid" class="relative group">Q15. What is hansel.apricot&rsquo;s Open Directory user UUID? <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#q15-what-is-hanselapricots-open-directory-user-uuid" aria-label="Ancre">#</a></span></h2>
+<p>Apple Open Directory is the LDAP directory service model implementation from Apple according to Wikipedia. My intuition was to use the <code>generateduid</code> value located in <code>hansel.apricot.plist</code> because it match the pattern and it&rsquo;s an UID, by chance, it was the answer. Howerver, I found this topic: <a href="https://apple.stackexchange.com/questions/318388/how-is-the-uuid-for-a-user-used-by-macos">How is the UUID for a user used by macOS? - Ask Different</a>:</p>
+<blockquote>
+<p>The UUID (aka GeneratedUID, so Google that one instead) is used by Open Directory Services on macOS</p>
+</blockquote>
+<p><code>5BB00259-4F58-4FDE-BC67-C2659BA0A5A4</code></p>
+
+      </div>
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  <div class="flex">
+    
+      
+      
+        
+        <img
+          class="w-24 h-24 !mt-0 !mb-0 ltr:mr-4 rtl:ml-4 rounded-full"
+          width="96"
+          height="96"
+          alt="nathan.out"
+          src="/img/author_hu00bba01d950a59fc7877b060fc60a3bd_21567_192x192_fill_q75_box_smart1.jpg"
+        />
+      
+    
+    <div class="place-self-center">
+      
+        <div class="text-[0.6rem] leading-3 text-neutral-500 dark:text-neutral-400 uppercase">
+          Auteur
+        </div>
+        <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+          nathan.out
+        </div>
+      
+      
+      <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/nathan-out"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</a
+        >
+      
+    
+  </div>
+
+</div>
+    </div>
+  </div>
+
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group" href="/write-up/cyberdefenders-digital-forensic-african-falls/">
+              <span
+                class="mr-3 ltr:inline rtl:hidden text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 ltr:hidden rtl:inline text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Cyberdefenders · Digital Forensic · African Falls</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2023-08-12 11:22:06 &#43;0300 &#43;0300">12 août 2023</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group" href="/write-up/cyberdefenders-acoustic/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Cyberdefenders Acoustic</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2023-09-03 22:08:20 &#43;0200 CEST">3 septembre 2023</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 ltr:inline rtl:hidden text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 ltr:hidden rtl:inline text-neutral-700 dark:text-neutral group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        
+          <div
+            class="absolute top-[100vh] ltr:right-0 rtl:left-0 w-12 pointer-events-none bottom-0"
+          >
+            <a
+              href="#the-top"
+              class="w-12 h-12 sticky pointer-events-auto top-[calc(100vh-5.5rem)] bg-neutral/50 dark:bg-neutral-800/50 backdrop-blur rounded-full text-xl flex items-center justify-center text-neutral-700 dark:text-neutral hover:text-primary-600 dark:hover:text-primary-400"
+              aria-label="Faire défiler jusqu&#39;au bas de la page"
+              title="Faire défiler jusqu&#39;au bas de la page"
+            >
+              &uarr;
+            </a>
+          </div>
+        
+      </main><footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2023
+            nathan.out
+        </p>
+      
+      
+      
+    </div>
+    
+    
+      <div
+        class="text-sm cursor-pointer text-neutral-700 dark:text-neutral hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-14 rtl:ml-14"
+      >
+        <button
+          id="appearance-switcher"
+          class="w-12 h-12 "
+          type="button"
+          title="Passer au thème sombre"
+        >
+          <span class="inline dark:hidden">
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+</span>
+          <span class="hidden dark:inline">
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+</span>
+        </button>
+      </div>
+    
+  </div>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="fixed inset-0 z-50 flex flex-col p-4 sm:p-6 md:p-[10vh] lg:p-[12vh] w-screen h-screen cursor-default bg-neutral-500/50 backdrop-blur-sm dark:bg-neutral-900/50 invisible"
+  data-url="https://nathan-out.github.io/"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg border-neutral-200 top-20 bg-neutral dark:bg-neutral-800 dark:border-neutral-700"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-transparent focus:outline-2"
+          placeholder="Rechercher"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 dark:text-neutral hover:text-primary-600 dark:hover:text-primary-400"
+        title="Fermer (Esc)"
+      >
+        
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+</html>

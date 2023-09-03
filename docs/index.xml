@@ -8,6 +8,26 @@
     <language>fr-fr</language>
     <lastBuildDate>Fri, 05 Aug 2022 21:37:39 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Cyberdefenders Acoustic</title>
+      <link>https://nathan-out.github.io/write-up/cyberdefenders-acoustic/</link>
+      <pubDate>Sun, 03 Sep 2023 22:08:20 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/cyberdefenders-acoustic/</guid>
+      <description>The scenario:
+This challenge takes you into the world of voice communications on the internet.</description>
+    </item>
+    
+    <item>
+      <title>Cyberdefenders · Digital Forensic · Spotlight</title>
+      <link>https://nathan-out.github.io/write-up/cyberdefenders-spotlight/</link>
+      <pubDate>Sun, 03 Sep 2023 22:05:39 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/cyberdefenders-spotlight/</guid>
+      <description>The scenario:
+Spotlight is a MAC OS image forensics challenge where you can evaluate your DFIR skills against an OS you usually encounter in today&amp;rsquo;s case investigations as a security blue team member.</description>
+    </item>
+    
+    <item>
       <title>Cyberdefenders · Digital Forensic · African Falls</title>
       <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensic-african-falls/</link>
       <pubDate>Sat, 12 Aug 2023 11:22:06 +0300</pubDate>
