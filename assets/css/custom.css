@@ -19,3 +19,16 @@
 #TableOfContents li a:hover{
 	color:white;
 }
+
+/*cyberdefenders card*/
+.cyberdefenders-container{
+	min-width:400px;
+}
+
+.cyberdefenders-legend-item > img{
+	margin:10px;
+}
+
+.cyberdefenders-legend-item p{
+	font-size:10px;
+}
