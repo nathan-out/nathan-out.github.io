@@ -8,6 +8,15 @@
     <language>fr-fr</language>
     <lastBuildDate>Fri, 05 Aug 2022 21:37:39 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>JScript et threat intelligence : analyse d&#39;un code malveillant</title>
+      <link>https://nathan-out.github.io/posts/jscript-et-threat-intelligence/</link>
+      <pubDate>Tue, 10 Oct 2023 22:08:20 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/posts/jscript-et-threat-intelligence/</guid>
+      <description>Il y a quelques temps, j&amp;rsquo;ai résolu le challenge Obfuscated de Cyberdefenders.</description>
+    </item>
+    
+    <item>
       <title>Automatiser la détection de la manipulation de l&#39;information en cas réel</title>
       <link>https://nathan-out.github.io/posts/automatiser-la-detection-de-la-manipulation-de-linformation-en-cas-reel/</link>
       <pubDate>Mon, 10 Jul 2023 14:53:25 +0300</pubDate>
