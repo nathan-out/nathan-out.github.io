@@ -6,9 +6,9 @@ draft: false
 Etudiant en cyberdéfense, développeur, amateur de CTF et éternel curieux.
 Tombe régulièrement dans des [rabbit holes](https://en.wikipedia.org/wiki/Down_the_rabbit_hole#:~:text=%22Down%20the%20rabbit%20hole%22%20is,slowly%20entered%20the%20English%20vernacular.).
 
-
 | Site | Description |
 |------|-------------|
 |[GitHub](https://github.com/nathan-out) | Mon Github |
-|[Rootme](https://www.root-me.org/nathan-out)| Profil Rootme|
-|[TryHackMe](https://tryhackme.com/p/SieurTaurin)| Profil TryHackMe |
+|[Cyberdefenders](https://cyberdefenders.org/p/nathan.out)| Cyberdefenders |
+
+<script src="https://cyberdefenders.org/p/nathan.out/badge"></script>
