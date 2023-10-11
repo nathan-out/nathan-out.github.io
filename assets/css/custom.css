@@ -26,9 +26,13 @@
 }
 
 .cyberdefenders-legend-item > img{
-	margin:10px;
+	margin:5px;
 }
 
 .cyberdefenders-legend-item p{
 	font-size:10px!important;
+}
+
+#cyberdefenders-profile-badge .cyberdefenders-container .cyberdefenders-user-info .cyberdefenders-user-summary {
+	gap:20px;
 }
