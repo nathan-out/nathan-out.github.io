@@ -1,4 +1,8 @@
-# Analyse d'une chaîne d'infection
+---
+title: "JScript et threat intelligence : analyse d'un code malveillant"
+date: 2023-10-10T22:08:20+02:00
+draft: false
+---
 
 Il y a quelques temps, j'ai résolu le challenge [Obfuscated](https://cyberdefenders.org/blueteam-ctf-challenges/76#nav-questions) de Cyberdefenders. Cependant, le challenge s'arrête juste avant l'analyse du code qui intéragit avec le C2. J'ai donc décidé de poursuivre l'analyse afin de comprendre en détail son fonctionnement et pourquoi pas faire un peu de Threat Intelligence...
 
