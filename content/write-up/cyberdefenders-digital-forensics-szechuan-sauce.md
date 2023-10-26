@@ -102,7 +102,7 @@ Tricky question, first, you have to find the timezone set into the server. It's 
 
 The server is set on Pacific Standard Time which is UTC-7. **But** the admin set a wrong timezone on the domain controller. You can see it on NTP packets (clock unsynchronized). To retrieve the correct timezone, you can correlate two events in the network and in the DC. To see how you can do, you can check this write-up: [https://ellisstannard.medium.com/cyberdefenders-szechuan-sauce-writeup-ab172eb7666c](https://ellisstannard.medium.com/cyberdefenders-szechuan-sauce-writeup-ab172eb7666c).
 
-You will see that the system is set one hour after the correct timezone, so the answer is UTC-6.
+You will see that the system is set one hour after the correct timezone.
 
 ## Q5 What was the initial entry vector (how did they get in)?. Provide protocol name.
 
@@ -117,8 +117,6 @@ Plus, we can investigate on the network dump. A good first step is to get an ove
 ![](/img/write-up/szechuan-sauce/protocol_hierarchy.png)
 
 I highlighted RDP over UDP, this is interesting because RDP provides a graphical interface to connect to another computer over a network connection. Sometimes, RDP is used by attacker to gain access. To investigate more in depth, search on `rdp && ip.dst == 10.42.85.10` (DC IP address). The first packet contains a Cookie filled with the value `nmap`, which is a scanning tool used by attackers. Plus, the source address is `194.61.24.102`, using VirusTotal you will see that this IP ws used by pirates.
-
-The protocol name is **RDP**.
 
 ## Q6 What was the malicious process used by the malware? (one word)
 
@@ -207,7 +205,7 @@ Offset	Proto	LocalAddr	LocalPort	ForeignAddr	ForeignPort	State	PID	Owner	Created
 0x211a9560	UDPv4	0.0.0.0	0	*	0		1368	dns.exe	2020-09-19 01:22:57.000000 
 ```
 
-`coreupdater.exe` is suspicious because it uses port number 443 and its IP is tagged as malicious by Virus Total. It's surrely our malware.
+There is a suspicious process because it uses port number 443 and its IP is tagged as malicious by Virus Total. It's surrely our malware.
 
 ## Q7 Which process did malware migrate to after the initial compromise? (one word)
 
@@ -286,7 +284,7 @@ Refer to Q5 answer. Using this Wireshark filter : `rdp && ip.dst == 10.42.85.10`
 
 ## Q9 What IP Address was the malware calling to?
 
-Since Q6, we already know that `203.78.103.109` is the C2 IP.
+Since Q6, we already know the C2 address; this is the address the malware communicate with.
 
 ## Q10 Where did the malware reside on the disk?
 
@@ -300,7 +298,7 @@ Here are the results:
 
 ## Q11 What's the name of the attack tool you think this malware belongs to? (one word)
 
-Extract `coreupdater.exe`, calculate its footprint and go to VirusTotal, you will find that this program is built on Metasploit. I suppose that is you try to reverse it, you will find the tool name too.
+Extract `coreupdater.exe`, calculate its footprint and go to VirusTotal, you will find that this program is built on a famous offensive framework. I suppose that is you try to reverse it, you will find the tool name too.
 
 ## Q12 One of the involved malicious IP's is based in Thailand. What was the IP?
 
@@ -312,11 +310,11 @@ I didn't understood the question and its sens. I tried to search on this hostnam
 
 ## Q14 The attacker performed some lateral movements and accessed another system in the environment via RDP. What is the hostname of that system?
 
-We have two disk and RAM dumps, we can assume that the second system is `Desktop-SDN1RPT`, but let's prove it. Thanks to Wireshark, we can get all the outgoing RDP connexion from the DC: `rdp && ip.src == 10.42.85.10`. You can see packets from the DC to the attacker's host but also to `10.42.85.115`, thanks to Network Miner, you can find that this IP is related to `Desktop-SDN1RPT`. If you don't have Network Miner, you can resolve the hostname by searching `LLMNR` packets in Wireshark.
+We have two disk and RAM dumps, we can assume that the second system is `Desktop-SDN1RPT`, but let's prove it. Thanks to Wireshark, we can get all the outgoing RDP connexion from the DC: `rdp && ip.src == 10.42.85.10`. You can see packets from the DC to the attacker's host but also to `10.42.85.115`, thanks to Network Miner, you can find the hostname. If you don't have Network Miner, you can resolve the hostname by searching `LLMNR` packets in Wireshark.
 
 ## Q15 Other than the administrator, which user has logged into the Desktop machine? (two words)
 
-You can browse logs but when a user login for the first time, a new user is created on the host machine. Go to `C:\Users` to see all of them. I don't know which one is the intended one but it's Rick Sanchez.
+You can browse logs but when a user login for the first time, a new user is created on the host machine. Go to `C:\Users` to see all of them. I don't know which one is the intended, just try both.
 
 ## Q16 What was the password for "jerrysmith" account?
 
@@ -332,7 +330,7 @@ Then, use the Python tool to extract hashes and finally crack them with John, Ha
 
 ## Q17 What was the original filename for Beth’s secrets?
 
-We can suppose that this file has a name like `.*secret.*` or `.*beth.*`, we can search a file by its filename with Autopsy (Tools > File Search by Attributes), we will find several files related to `Beth_Secret.txt`. Plus, Autopsy can read it and give its content.
+We can suppose that this file has a name like `.*secret.*` or `.*beth.*`, we can search a file by its filename with Autopsy (Tools > File Search by Attributes), we will find several files related to a txt file. Plus, Autopsy can read it and give its content.
 
 ## Q18 What was the content of Beth’s secret file? ( six words, spaces in between)
 
