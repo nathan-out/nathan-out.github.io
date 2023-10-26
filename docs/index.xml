@@ -8,6 +8,16 @@
     <language>fr-fr</language>
     <lastBuildDate>Fri, 05 Aug 2022 21:37:39 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Cyberdefenders · Digital Forensic · Szechuan Sauce</title>
+      <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-szechuan-sauce/</link>
+      <pubDate>Thu, 26 Oct 2023 12:40:36 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-szechuan-sauce/</guid>
+      <description>The scenario:
+Your bedroom door bursts open, shattering your pleasant dreams.</description>
+    </item>
+    
+    <item>
       <title>JScript et threat intelligence : analyse d&#39;un code malveillant</title>
       <link>https://nathan-out.github.io/posts/jscript-et-threat-intelligence/</link>
       <pubDate>Tue, 10 Oct 2023 22:08:20 +0200</pubDate>
@@ -304,6 +314,15 @@ Le ComCyberGend communique beaucoup avec d&amp;rsquo;autres organismes nationaux
       
       <guid>https://nathan-out.github.io/posts/rsa-ou-comment-vos-cours-de-4eme-vous-permettent-de-proteger-vos-codes-bancaires/</guid>
       <description>Ce titre n’est (presque) pas une blague. VOUS avez le niveau pour comprendre comment vos données en ligne sont protégées.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://nathan-out.github.io/write-up/writeup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/writeup/</guid>
+      <description>Cyberdefenders · Digital Forensic · Szechuan Sauce # The scenario:</description>
     </item>
     
   </channel>

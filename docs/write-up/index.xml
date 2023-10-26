@@ -8,6 +8,16 @@
     <language>fr-fr</language>
     <lastBuildDate>Mon, 24 Apr 2023 21:10:39 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/write-up/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Cyberdefenders · Digital Forensic · Szechuan Sauce</title>
+      <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-szechuan-sauce/</link>
+      <pubDate>Thu, 26 Oct 2023 12:40:36 +0200</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-szechuan-sauce/</guid>
+      <description>The scenario:
+Your bedroom door bursts open, shattering your pleasant dreams.</description>
+    </item>
+    
+    <item>
       <title>Cyberdefenders · Digital Forensic · Acoustic</title>
       <link>https://nathan-out.github.io/write-up/cyberdefenders-acoustic/</link>
       <pubDate>Sun, 03 Sep 2023 22:08:20 +0200</pubDate>
@@ -113,6 +123,15 @@ As a member of the Security Blue team, your assignment is to analyze a memory du
       
       <guid>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-azurepot/</guid>
       <description>This is my proposed solution for the cyberdefenders&amp;rsquo;s challenge AzurePot published on April 20, 2023.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://nathan-out.github.io/write-up/writeup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/writeup/</guid>
+      <description>Cyberdefenders · Digital Forensic · Szechuan Sauce # The scenario:</description>
     </item>
     
   </channel>
