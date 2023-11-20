@@ -8,6 +8,15 @@
     <language>fr-fr</language>
     <lastBuildDate>Mon, 24 Apr 2023 21:10:39 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/write-up/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>NoBracketsCTF 2023 Write-Up Cryptotraque 1, 2 et 5</title>
+      <link>https://nathan-out.github.io/write-up/nbctf2023-cryptotraque/</link>
+      <pubDate>Mon, 20 Nov 2023 21:55:22 +0100</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/nbctf2023-cryptotraque/</guid>
+      <description>Je détaille ici les corrections des challenges que j&amp;rsquo;ai créés pour le NoBracketsCTF édition 2023.</description>
+    </item>
+    
+    <item>
       <title>Cyberdefenders · Digital Forensic · Szechuan Sauce</title>
       <link>https://nathan-out.github.io/write-up/cyberdefenders-digital-forensics-szechuan-sauce/</link>
       <pubDate>Thu, 26 Oct 2023 12:40:36 +0200</pubDate>
