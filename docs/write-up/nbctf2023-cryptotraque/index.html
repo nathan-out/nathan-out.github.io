@@ -304,15 +304,6 @@
 
     
     
-      <span class="pl-2"><span class="flex">
-  <span
-    class="ltr:ml-1 rtl:mr-1 px-1 py-[1px] text-xs font-normal border rounded-md text-primary-700 dark:text-primary-400 border-primary-400 dark:border-primary-600"
-  >
-    Brouillon
-  </span>
-</span>
-</span>
-    
   </div>
 
   
@@ -336,9 +327,11 @@
   >
     <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#cryptotraque-1">Cryptotraque 1</a></li>
+    <li><a href="#cryptotraque-2">Cryptotraque 2</a>
       <ul>
         <li><a href="#avez-un-algo-cest-quand-même-plus-rapide-">Avez un algo, c&rsquo;est quand même plus rapide !</a></li>
+        <li><a href="#complément">Complément</a></li>
       </ul>
     </li>
     <li><a href="#cryptotraque-5">Cryptotraque 5</a></li>
@@ -354,10 +347,10 @@
         <p>Je détaille ici les corrections des challenges que j&rsquo;ai créés pour le <a href="https://nobrackets.fr/">NoBracketsCTF</a> édition 2023. Cette compétition est organisée par le club étudiant <a href="https://gcc-ensibs.fr/">Galette Cidre CTF (GCC)</a>, par des étudiants des spécialités Cyberdéfense, Cybersécurité du Logiciel et Cybersécurité et Sciences des Données de l&rsquo;Ecole Nationale Supérieure d&rsquo;Ingénieur de Bretagne Sud (ENSIBS). Elle vise à initier des élève de l&rsquo;enseignement secondaire à la cybersécurité, en les confrontant à des challenges variés.</p>
 <p>Si vous souhaitez tenter de résoudre ces challenges, les fichiers sources sont disponibles sur mon Github : <a href="https://github.com/nathan-out/challs-nbctf-2023">nathan-out/challs-nbctf-2023</a>. Pour chaque challenge, le fichier <code>challenge.yml</code> comporte la consigne, les éventuels indices (hints) et la réponse (le flag). Le fichier du challenge se trouve dans <code>ressources/</code>. <strong>Les challenges sont indépendants les uns des autres.</strong></p>
 <p>A noter que les challenges Cryptotraque 3, 4 et 4.5 étaient dans la catégories OSINT et créés par Aureliof.</p>
-<p>## Cryptotraque 1</p>
+<h2 id="cryptotraque-1" class="relative group">Cryptotraque 1 <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#cryptotraque-1" aria-label="Ancre">#</a></span></h2>
 <p>Un fichier odt est comme une archive. Partant de là, il suffit d&rsquo;unzip le fichier odt (ou bien de modifier son extension par zip pour ensuite l&rsquo;ouvrir comme une archive) et d&rsquo;aller voir dans le fichier <code>meta.xml</code>. La balise <code>generator</code> contient les informations requises dans le flag : <code>LibreOffice/7.5.4.2$Linux_X86_64</code>.</p>
 <p>Flag : NBCTF{LibreOffice/7.5.4.2$Linux_X86_64}</p>
-<p>## Cryptotraque 2</p>
+<h2 id="cryptotraque-2" class="relative group">Cryptotraque 2 <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#cryptotraque-2" aria-label="Ancre">#</a></span></h2>
 <p>Chaque ligne représente une transaction. La première colonne est le wallet (portefeuille) qui a émit une transaction, la seconde est le wallet qui a reçu la transaction et la dernière colonne est le montant de la transaction.</p>
 <p>Nous savons également que le wallet qui a reçu la rançon est celui-ci : <code>9e7e75841c73a0b391a1a0485948c30a</code>.</p>
 <p>Il faut donc suivre les transactions que ce portefeuille a effectué. Par exemple, si A donne envoie à B et B envoie ensuite à C, nous savons que le portefeuille final est C. La logique est similaire ici.</p>
@@ -392,7 +385,7 @@ ligne2_valeur1,ligne2_valeur2,ligne2_valeur3
 </code></pre><p>Enfin, si le premier élément de <code>l</code> (indice <code>0</code>), qui est notre adresse source, est égal à <code>adresse_source</code>, alors <code>adresse_source</code> devient notre nouvelle adresse à suivre. Cette nouvelle adresse est <code>l[1]</code> puisque c&rsquo;est elle qui a reçu la transaction.</p>
 <p>En effet, au premier tour de boucle, <code>adresse_source</code> est l&rsquo;adresse du wallet qui a reçu la rançon, et si l&rsquo;on trouve quelque part dans le fichier que cette adresse a effectué une transaction, alors il faut suivre cette nouvelle adresse. <strong>En fait, on suit les transaction à partir du wallet qui a reçu la rançon</strong>. Lorsqu&rsquo;on a parcouru toutes les lignes du fichier, la dernière adresse qui a reçu de l&rsquo;argent est celle que nous cherchions !</p>
 <p>Flag : NBCTF{0d26d74d0daad532ac50852fd5742099}</p>
-<p>### Complément</p>
+<h3 id="complément" class="relative group">Complément <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#compl%c3%a9ment" aria-label="Ancre">#</a></span></h3>
 <p>Pour les curieux qui s&rsquo;intéressent à la façon dont j&rsquo;ai généré le fichier pour le challenge, je vous laisser aller voir ici : <a href="https://github.com/nathan-out/challs-nbctf-2023/blob/main/cryptotraque2/generateur.py">https://github.com/nathan-out/challs-nbctf-2023/blob/main/cryptotraque2/generateur.py</a>.</p>
 <p>Note : on aurait pu utiliser le package Python <code>csv</code> qui est prévu pour ouvrir et manipuler des fichiers CSV. Cependant, le traitement est relativement simple et n&rsquo;aurait rien simplifié ici.</p>
 <p>Note 2 : on ne s&rsquo;intéresse pas au montant de la transaction avec cette méthode. Les plus persipaces auront remarqué qu&rsquo;il n&rsquo;y a pas de frais sur les transactions, et qu&rsquo;il n&rsquo;y a pas non plus de découpage des fonds ; un wallet transfère toujours tout ce qu&rsquo;il contient au prochain. Je vous laisse imaginer un nouvel algorithme si maintenant le wallet qui a reçu la rançon la découpe en plus petits montants et les envoie à plusieurs portefeuilles, avant que la raçon reviennent finalement dans un unique portefeuille. On serait dans ce cas plus proche d&rsquo;un vrai mixeur mais la résolution serait bien plus difficile :).</p>
