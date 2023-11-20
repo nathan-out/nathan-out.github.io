@@ -133,4 +133,3 @@ A ce moment là, soit vous avez déjà compris qu'il s'agit d'un document Open O
 En renommant le fichier avec une extension compatible (par exemple odt), ou en ouvrant le fichier avec Open Office, vous avez accès à un tout nouveau document !
 
 A la toute fin du document qui explique la façon dont s'est déroulé le piratage, vous trouverez le flag : `que_pour_largent2023!`.
-
