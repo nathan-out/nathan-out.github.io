@@ -10,6 +10,10 @@ Si vous souhaitez tenter de résoudre ces challenges, les fichiers sources sont 
 
 A noter que les challenges Cryptotraque 3, 4 et 4.5 étaient dans la catégories OSINT et créés par Aureliof.
 
+![Logo du NoBracketsCTF.](/img/write-up/nobracketsctf_logo.png)
+
+<figcaption>Logo du NoBracketsCTF.</figcaption>
+
 ## Cryptotraque 1
 
 Un fichier odt est comme une archive. Partant de là, il suffit d'unzip le fichier odt (ou bien de modifier son extension par zip pour ensuite l'ouvrir comme une archive) et d'aller voir dans le fichier `meta.xml`. La balise `generator` contient les informations requises dans le flag : `LibreOffice/7.5.4.2$Linux_X86_64`.

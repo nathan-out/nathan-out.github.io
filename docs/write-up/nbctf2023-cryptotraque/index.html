@@ -107,7 +107,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "1168"
+    "wordCount": "1171"
   }]
   </script>
 
@@ -347,6 +347,21 @@
         <p>Je détaille ici les corrections des challenges que j&rsquo;ai créés pour le <a href="https://nobrackets.fr/">NoBracketsCTF</a> édition 2023. Cette compétition est organisée par le club étudiant <a href="https://gcc-ensibs.fr/">Galette Cidre CTF (GCC)</a>, par des étudiants des spécialités Cyberdéfense, Cybersécurité du Logiciel et Cybersécurité et Sciences des Données de l&rsquo;Ecole Nationale Supérieure d&rsquo;Ingénieur de Bretagne Sud (ENSIBS). Elle vise à initier des élève de l&rsquo;enseignement secondaire à la cybersécurité, en les confrontant à des challenges variés.</p>
 <p>Si vous souhaitez tenter de résoudre ces challenges, les fichiers sources sont disponibles sur mon Github : <a href="https://github.com/nathan-out/challs-nbctf-2023">nathan-out/challs-nbctf-2023</a>. Pour chaque challenge, le fichier <code>challenge.yml</code> comporte la consigne, les éventuels indices (hints) et la réponse (le flag). Le fichier du challenge se trouve dans <code>ressources/</code>. <strong>Les challenges sont indépendants les uns des autres.</strong></p>
 <p>A noter que les challenges Cryptotraque 3, 4 et 4.5 étaient dans la catégories OSINT et créés par Aureliof.</p>
+<p>
+
+
+
+  
+  
+  
+    <figure>
+      <img class="my-0 rounded-md" src="/img/write-up/nobracketsctf_logo.png" alt="Logo du NoBracketsCTF." />
+      
+    </figure>
+  
+
+</p>
+<figcaption>Logo du NoBracketsCTF.</figcaption>
 <h2 id="cryptotraque-1" class="relative group">Cryptotraque 1 <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#cryptotraque-1" aria-label="Ancre">#</a></span></h2>
 <p>Un fichier odt est comme une archive. Partant de là, il suffit d&rsquo;unzip le fichier odt (ou bien de modifier son extension par zip pour ensuite l&rsquo;ouvrir comme une archive) et d&rsquo;aller voir dans le fichier <code>meta.xml</code>. La balise <code>generator</code> contient les informations requises dans le flag : <code>LibreOffice/7.5.4.2$Linux_X86_64</code>.</p>
 <p>Flag : NBCTF{LibreOffice/7.5.4.2$Linux_X86_64}</p>
