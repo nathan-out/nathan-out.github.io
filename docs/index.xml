@@ -8,6 +8,15 @@
     <language>fr-fr</language>
     <lastBuildDate>Fri, 05 Aug 2022 21:37:39 +0200</lastBuildDate><atom:link href="https://nathan-out.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>NoBracketsCTF Finale 2023 Write-Up Broken Zip &amp; Cute kitten</title>
+      <link>https://nathan-out.github.io/write-up/nbctf2023-challenges-finale/</link>
+      <pubDate>Tue, 28 Nov 2023 11:49:27 +0100</pubDate>
+      
+      <guid>https://nathan-out.github.io/write-up/nbctf2023-challenges-finale/</guid>
+      <description>Je détaille ici les corrections des challenges Broken Zip et Cute Kitten que j&amp;rsquo;ai créés pour la finale du NoBracketsCTF édition 2023.</description>
+    </item>
+    
+    <item>
       <title>NoBracketsCTF 2023 Write-Up Cryptotraque 1, 2 et 5</title>
       <link>https://nathan-out.github.io/write-up/nbctf2023-cryptotraque/</link>
       <pubDate>Mon, 20 Nov 2023 21:55:22 +0100</pubDate>
