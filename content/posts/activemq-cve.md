@@ -26,7 +26,7 @@ Les investigations nous font remonter jusqu'au programme, que je tente de revers
 
 Ma méthode, lorsqu'il s'agit de dump réseau, est de commencer par une vue globale. Pour cela, j'utilise Network Miner : 
 
-![Une vue d'ensemble des appareils présents sur le réseau.](img/blog/activemq-cve/networkminer.png)
+![Une vue d'ensemble des appareils présents sur le réseau.](/img/blog/activemq-cve/networkminer.png)
 
 <figcaption>Une vue d'ensemble des appareils présents sur le réseau.</figcaption>
 
@@ -59,7 +59,7 @@ On trouve les traces de ces actions sur Wireshark. Dans ce cas, il n'y a pas bea
 - celle utilisée par l'attaquant pour envoyer l'exploit
 - celle que l'exploit contacte (C2) pour télécharger le reverse shell
 
-![Liste des paquets HTML échangés.](img/blog/activemq-cve/wireshark.png)
+![Liste des paquets HTML échangés.](/img/blog/activemq-cve/wireshark.png)
 
 <figcaption>Liste des paquets HTML échangés.</figcaption>
 
@@ -98,6 +98,6 @@ On peut écarter cette hypothèse car il n'y a pas d'autres chaînes de caractè
 
 Cet "autre chose" pourrait être un identifiant de compromission. Utilisé parfois par les attaquants, un identifiant sert à identifier la victime afin de mieux les monitorer : gardons à l'esprit la volonté d'industrialisation dans ce type d'attaque. Cette hypothèse est plus plausible car ce paramètre est proche de l'appel à `sys_connect`.
 
-![La mystérieuse chaîne de caractère ainsi que l'appel à sys_connect.<](img/blog/activemq-cve/reverse.png)
+![La mystérieuse chaîne de caractère ainsi que l'appel à sys_connect.<](/img/blog/activemq-cve/reverse.png)
 
 <figcaption>La mystérieuse chaîne de caractère ainsi que l'appel à sys_connect.</figcaption>
