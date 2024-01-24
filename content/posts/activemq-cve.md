@@ -88,6 +88,24 @@ Termine l'exécution du programme.
 
 La combinaison du syscall de création de socket et de connexion semble bien indiquer un reverse shell. De toute façon, avec 250 octets, le programme ne peut pas avoir de fonctionnalité très avancée. Cependant, il est curieux de constater qu'il n'y a pas d'appel système pour **recevoir** (recv) et exécuter la commande reçue.
 
+## Tricky ASM
+
+Petite parenthèse pour rendre honneur. Un ami plus compétent en reverse, [Matthieu Breuil](https://www.linkedin.com/in/matthieu-breuil/), m'a dit qu'il y avait bien un syscall à `sys_read`, mais il est caché. De ce que j'ai compris de la subtilité, elle se déroule en deux étapes. La première est d'appeller un le syscall `sys_connect` qui renvoie 0 si la connection a réussi.
+
+![Le syscall est appelé et si la connection se déroule sans problèmes, un 0 est renvoyé.](/img/blog/activemq-cve/trick-asm0.png)
+
+<figcaption>Le syscall est appelé et si la connection se déroule sans problèmes, un 0 est renvoyé.</figcaption>
+
+La seconde étape est d'appeller un `syscall`. Or, avec la valeur de retour du précédent `syscall`, qui est 0 si la connexion s'est bien déroulée, on retombe bien sur `sys_read`, car l'entier qui identifie ce call est 0. D'après la documentation de `sys_read`, on peut voir également les paramètres attendus par ce call, comme la taille du buffer de réception (7E).
+
+![D'après l'étape précédente, l'opération syscall appelle celui d'identifiant 0, sys_read.](/img/blog/activemq-cve/trick-asm1.png)
+
+<figcaption>D'après l'étape précédente, l'opération syscall appelle celui d'identifiant 0, sys_read.</figcaption>
+
+On observe ici que l'outil, IDA, se trompe car il identifie cet appel comme `sys_exit` alors que ça n'est pas le cas. D'après Matthieu, le seul moyen possible d'implémenter une obfuscation de ce type est de passer directement par l'assembleur. Dit autrement, il n'est pas possible de coder cela dans un langage haut niveau comme C, Python... Cela nécessite donc des connaissances importantes et un savoir-faire précis.
+
+## Capacités : hypothèses
+
 Il y a également la présence d'une valeur codée en dur : `5C15BE92BB010002`.
 
 - Hypothèse 1 : cette valeur est une clef de chiffrement/déchiffrement pour obfusquer des paramètres du programmes et chiffrer les communications avec le C2.
