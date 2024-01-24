@@ -90,7 +90,7 @@ La combinaison du syscall de création de socket et de connexion semble bien ind
 
 ## Tricky ASM
 
-Petite parenthèse pour rendre honneur. Un ami plus compétent en reverse, [Matthieu Breuil](https://www.linkedin.com/in/matthieu-breuil/), m'a dit qu'il y avait bien un syscall à `sys_read`, mais il est caché. De ce que j'ai compris de la subtilité, elle se déroule en deux étapes. La première est d'appeller un le syscall `sys_connect` qui renvoie 0 si la connection a réussi.
+Petite parenthèse pour rendre honneur. Un ami plus compétent en reverse, [Matthieu Breuil](https://www.linkedin.com/in/matthieu-breuil/), m'a dit qu'il y avait bien un syscall à `sys_read`, mais il est caché. De ce que j'ai compris de la subtilité, elle se déroule en deux étapes. La première est d'appeller le syscall `sys_connect` qui renvoie 0 si la connection a réussi.
 
 ![Le syscall est appelé et si la connection se déroule sans problèmes, un 0 est renvoyé.](/img/blog/activemq-cve/trick-asm0.png)
 
