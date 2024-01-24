@@ -6,7 +6,6 @@ theme = "congo"
 list.showSummary = true
 summaryLength = 10
 outputs.home = ["HTML", "RSS", "JSON"]
-publishDir = "docs"
 [markup]
 	[markup.goldmark]
 		[markup.goldmark.renderer]
