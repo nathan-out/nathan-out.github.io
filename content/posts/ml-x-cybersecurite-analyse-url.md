@@ -111,8 +111,8 @@ Et un exemple des labels associés `y` :
 ```python
 [
     0, # signifie "légitime"
-    0, # signifie "malveillante"
-    1,
+    0,
+    1, # signifie "malveillante"
     ...
 ]
 ```
