@@ -25,6 +25,8 @@ dont les formats sont... divers et exotiques :
 
 Tous les formats ci-dessus sont des numéros de téléphones **valides**. Je suis parti d'une hypothèse : les données à trouver sont *significativement* différentes des formats de numéros de téléphone. Par *"significativement différentes"* j'entends qu'on ne vérifie pas si les numéros ont un chiffre en trop ou en moins, si l'indicatif (+33) est correct etc...
 
+## Filtrage avec les regex
+
 Je vais appliquer des filtres (*regex* ou *expression régulière*) successifs pour supprimer les formats de numéros de téléphones et à chaque filtre appliqué, j'affiche les quelques premiers numéros restants ainsi que leur nombre. Cela me permet de vérifier que mes filtres sont valides et de détecter d'éventuels bugs dans mes regex. J'utilise la librairie `pandas` par commodité :
 
 ```python
