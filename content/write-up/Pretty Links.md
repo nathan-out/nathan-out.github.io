@@ -49,7 +49,6 @@ Analysons ce que fait le script Powershell :
 $ocounselk=[System.IO.Path]::GetFullPath($zweeki);
 $poledemy = $pwd;
 Copy-Item "$poledemy\*" -Destination $ocounselk -Recurse -Force | Out-Null;
- C:\Users\sieur\AppData\Local\Temp - Recurse -Force
 cd $ocounselk;
 ;
 .\Facture.pdf;
