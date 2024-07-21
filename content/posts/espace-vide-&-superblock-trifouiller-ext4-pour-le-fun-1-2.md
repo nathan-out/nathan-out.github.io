@@ -100,7 +100,7 @@ Le challenge en comporte en réalité deux :
 
 1. Identifier le système de fichier et le fait que la partition est chiffrée avec LUKS, la déchiffrer (je fournis le mot de passe) et la monter. Niveau facile quoique non trivial lorsqu'on ne l'a jamais fais. Le flag se trouve dans un fichier.
 
-2. Une fois la première étape passée, on explique que l'image du disque semble étrange, qu'une archive zip pourraient bien y être cachée. Il faut analyser la partition avec un éditeur hexadécimal type `GHex` et identifier que le `superblock` comporte des données dans son espace vide (slackspace). Il s'agit d'une archive qui est cachée là, avec un magic number obfusqué, on la dump avec `dd` et un fichier texte se trouve à l'intérieur avec le flag final.
+2. Une fois la première étape passée, on explique que l'image du disque semble étrange, qu'une archive zip pourrait bien y être cachée. Il faut analyser la partition avec un éditeur hexadécimal type `GHex` et identifier que le `superblock` comporte des données dans son espace vide (slackspace). Il s'agit d'une archive qui est cachée là, avec un magic number obfusqué, on la dump avec `dd` et un fichier texte se trouve à l'intérieur avec le flag final.
 
 La seconde partie est bien plus difficile. Il faut une connaissance plus fine du système de fichier et les bons outils pour lire les informations bas niveau (taille des blocks etc...). Cette partie requiert également de reconnaître le magic number d'un fichier zip. C'est pourquoi j'ajoute des hints payants qui se débloquent au fur et à mesure (le challenge est sur 100pts) :
 
