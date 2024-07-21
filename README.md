@@ -6,30 +6,15 @@ Mon blog GoHugo.
 
 ## Ajouter un article
 
-`hugo new posts/my-first-post.md`
+Mettre les fichiers Markdown sous `content`.
 
-## Build le site
+## Ajouter des images
 
-`hugo`
+Les mettre sous `static/img/`.
 
 ## Mettre à jour le site
 
-- build le site `hugo`
-- ajouter les nouveaux fichiers `git add .`
-- commit & push
-
-```
-$ hugo # génère les pages html
-$ git add .
-$ git commit -m "message de commit"
-$ git checkout master
-$ git push
-$ git checkout gh-pages
-$ git pull
-$ git add .
-$ git commit -m ""
-$ git push
-```
+Rien à faire : grâce au CI/CD tout se fait tout seul une fois les fichiers uploadés !
 
 ## Modifier le style
 
