@@ -6,7 +6,7 @@ draft: false
 
 ## Résumé
 
-Cet article est la suite de [TODO mettre lien](). Il détaille la résolution du challenge en plus d'apporter quelques éléments de compréhension des systèmes de fichiers et en particulier `ext4`. Ce challenge comporte deux parties : la première qui consiste à monter et déchiffrer une partition `LUKS`, la seconde à trouver un fichier caché dans l'espace vide (*slack space*).
+Cet article est la seconde partie de [Espace vide & superblock : trifouiller EXT4 pour le fun (1/2)](https://nathan-out.github.io/posts/espace-vide--superblock-trifouiller-ext4-pour-le-fun-1-2/). Il détaille la résolution du challenge en plus d'apporter quelques éléments de compréhension des systèmes de fichiers et en particulier `ext4`. Ce challenge comporte deux parties : la première qui consiste à monter et déchiffrer une partition `LUKS`, la seconde à trouver un fichier caché dans l'espace vide (*slack space*).
 
 Si vous êtes intéressé par la dissimulation d'information dans une partition, je vous invite à directement sauter à la partie 2. Gardez à l'esprit qu'il s'agit d'une introduction et qu'il existe bien d'autres techniques pour cacher de la donnée dans une partition. L'outil [Fishy](https://github.com/dasec/fishy), qui a été utilisé pour créé le challenge, est riche d'information à ce propos.
 
