@@ -29,7 +29,7 @@ file dump.dd
 dump.dd: LUKS encrypted file, ver 2 [, , sha256] UUID: 7c7cb115-5dbd-4019-affa-79ea508c1dd0
 ```
 
-C'est donc une image d'une partition chiffrée avec [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup), une spécification de chiffrement de support de stockage. Fort heureusement, on donne laisse sous-entendre le mot de passe de la partition : `milou13041982`.
+C'est donc une image d'une partition chiffrée avec [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup), une spécification de chiffrement de support de stockage. Fort heureusement, on donne le mot de passe de la partition : `milou13041982`.
 
 ### Déchiffrement
 
