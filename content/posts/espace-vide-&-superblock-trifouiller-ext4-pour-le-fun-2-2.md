@@ -140,7 +140,7 @@ Le concept est assez simple mais les déclinaisons sont multiples. On peut dispo
 
 Les blocks ont une taille fixe et contiennent la donnée du fichier auquel ils sont alloués. Si un block n'est pas référencé dans l'index, alors c'est qu'il peut être utilisé pour stocker de la donnée.
 
-![Schéma de fonctionnement simplifié d'un système de fichier.](img/blog/superblock-slack-space/schema_fs.png)
+![Schéma de fonctionnement simplifié d'un système de fichier.](/img/blog/superblock-slack-space/schema_fs.png)
 
 De la même manière, l'index a une taille fixe et s'il n'est pas remplit, alors de nouveaux fichiers peuvent être ajoutés. La taille de l'index est calculé par rapport à la taille de la partition.
 
@@ -170,15 +170,15 @@ Il existe d'ailleurs des papiers de recherche pour tenter de détecter ce genre 
 
 Maintenant qu'on sait tout ça, on peut retourner au challenge. En parcourant le fichier, on trouve bien l'index :
 
-![Index de la partition, on observe tous les noms des fichiers.](img/blog/superblock-slack-space/ghex1.png)
+![Index de la partition, on observe tous les noms des fichiers.](/img/blog/superblock-slack-space/ghex1.png)
 
 Si on va assez loin, on va voir des blocks de données, comme celui-ci qui est le premier alloué au fichier `operation_leviathan.pdf` : 
 
-![Le premier bloc](img/blog/superblock-slack-space/ghex2.png)
+![Le premier bloc](/img/blog/superblock-slack-space/ghex2.png)
 
 On commence généralement par l'hypothèse la plus simple : avant de chercher dans le file slack space on va plutôt regarder dans le superblock. Effectivement il y a quelque chose d'étrange :
 
-![Quelque chose d'étrange dans le superblock](img/blog/superblock-slack-space/ghex3.png)
+![Quelque chose d'étrange dans le superblock](/img/blog/superblock-slack-space/ghex3.png)
 
 Ceci ressemble à de la donnée d'un fichier. Or, cela n'a rien à faire ici, au vue de l'offset et de la taille du superblock (4096 : cf l'article précédent). On est en présence d'un fichier et le premier indice payant nous indique qu'on cherche une archive dont le magic number a été *légèrement obfusqué* (je vous avais dis de ne pas hésiter à prendre les hints !).
 
