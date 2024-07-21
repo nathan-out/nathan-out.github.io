@@ -1,6 +1,6 @@
 ---
 title: "Espace vide & superblock : trifouiller EXT4 pour le fun (2/2)"
-date: 2024-07-21T18:25:27+02:00
+date: 2024-07-21T18:27:27+02:00
 draft: false
 ---
 
