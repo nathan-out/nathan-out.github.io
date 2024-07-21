@@ -8,7 +8,7 @@ draft: false
 
 Dans cet article, je détaille la création d'un challenge cyber de forensique pour le CTF du Séminaire Facteur Humain 2024 de l'[ENSIBS](https://www-ensibs.univ-ubs.fr/fr/formations/formations/diplome-d-ingenieur-DI/sciences-technologies-sante-STS/diplome-d-ingenieur-cyberdefense-ICYB00_213.html). Il sert de prétexte au bidouillage d'une partition `ext4`. Nous allons voir comment créer une partition chiffrée avec LUKS, comment la monter, la lire, la copier puis la démonter. Cela, dans l'objectif de cacher des données dans les "espaces vides", ou `slack space`. Plus particulièrement, dans le `slack space` du `superblock`, qui est une composante du système de fichier `ext4`. Pour cela, j'utilise l'outil [Fishy](https://github.com/dasec/fishy).
 
-Cet article ne traite pas de la résolution du challenge en tant que tel mais il y a de nombreuses indications à l'intérieur. Une partie 2 suivra pour détailler la méthodologie de résolution.
+Cet article ne traite pas de la résolution du challenge en tant que tel mais il y a de nombreuses indications à l'intérieur. La partie 2 est disponible ici : [Espace vide & superblock : trifouiller EXT4 pour le fun (2/2)](https://nathan-out.github.io/posts/espace-vide--superblock-trifouiller-ext4-pour-le-fun-2-2/).
 
 ## Création du challenge
 
@@ -150,3 +150,5 @@ sudo dd bs=1 if=/dev/sda1 of=final.dd
 Ceux qui ont déjà fait du [file carving](https://en.wikipedia.org/wiki/File_carving) savent où je veux en venir : **un fichier continu en mémoire peut-il être retrouvé facilement grâce à un outil de `carving` ?** Même lorsque ce fichier ne se trouve pas à un endroit de la partition où on s'attendrait à le trouver ?
 
 La réponse est oui car un outil de `carving` se base sur les `magic number` (sorte d'identifiant de type de fichier), et en aucun cas sur les métadonnées du système de fichier. Voilà pourquoi j'ai ajouté 1 aux deux premiers octets de l'archive ; cela permet de rendre ces outils inutiles !
+
+La partie 2 est disponible ici : [Espace vide & superblock : trifouiller EXT4 pour le fun (2/2)](https://nathan-out.github.io/posts/espace-vide--superblock-trifouiller-ext4-pour-le-fun-2-2/).
