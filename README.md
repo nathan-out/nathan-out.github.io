@@ -12,6 +12,8 @@ Mettre les fichiers Markdown sous `content`.
 
 Les mettre sous `static/img/`.
 
+**Attention : dans les articles il faut que le lien de l'image commence par `/img/...`, ne pas oublier le premier slash.**
+
 ## Mettre à jour le site
 
 Rien à faire : grâce au CI/CD tout se fait tout seul une fois les fichiers uploadés !
