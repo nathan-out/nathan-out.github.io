@@ -142,6 +142,8 @@ Les blocks ont une taille fixe et contiennent la donnée du fichier auquel ils s
 
 ![Schéma de fonctionnement simplifié d'un système de fichier.](/img/blog/superblock-slack-space/schema_fs.png)
 
+<figcaption>Schéma de fonctionnement simplifié d'un système de fichier.</figcaption>
+
 De la même manière, l'index a une taille fixe et s'il n'est pas remplit, alors de nouveaux fichiers peuvent être ajoutés. La taille de l'index est calculé par rapport à la taille de la partition.
 
 ### Système de fichier : espace vide
