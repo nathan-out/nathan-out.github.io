@@ -126,6 +126,10 @@ On pourrait avoir une approche naïve et juste ajouter le fichier dans le superb
 
 Le `superblock slack space` est assez simple car le fichier est continu en mémoire et se trouve au début de la partition. Une approche plus complexe aurait été de cacher un fichier plus gros avec le `file slack space`.
 
+![Schéma de fonctionnement simplifié d'un système de fichier.](/img/blog/superblock-slack-space/schema_fs.png)
+
+<figcaption>Schéma de fonctionnement simplifié d'un système de fichier.</figcaption>
+
 Une fois l'outil installé (j'ai utilisé un environnement virtuel pour éviter de trop polluer ma machine hôte), on créé le fichier à dissimuler et on l'envoie à l'outil pour qu'il cache le flux d'octet. En effet, l'outil ne semble vouloir cacher que du texte mais on peut ruser :
 
 ```bash
