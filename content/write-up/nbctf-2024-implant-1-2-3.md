@@ -4,6 +4,12 @@ date: 2024-10-13T19:00:06+03:00
 draft: false
 ---
 
+Write-Up des 3 challenges de forensique "Implant 1, 2 et 3". Les fichiers sources sont disponibles ici :
+
+- [Part 1 - Amcache.zip](https://nathan-out.github.io/img/content/nbctf2024/Amcache.zip)
+- [Part 2 - logs.zip](https://nathan-out.github.io/img/content/nbctf2024/logs.zip)
+- [Part 3 - capture_reseau.zip](https://nathan-out.github.io/img/content/nbctf2024/capture_reseau.zip)
+
 ## Implan 1/3
 
 Rappel du challenge : 
