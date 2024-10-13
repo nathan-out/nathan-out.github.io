@@ -18,6 +18,10 @@ Les mettre sous `static/img/`.
 
 Rien à faire : grâce au CI/CD tout se fait tout seul une fois les fichiers uploadés !
 
+## Ajouter des fichiers non image
+
+Mettre sous `static/img/content`.
+
 ## Modifier le style
 
 Ma feuille de style personnalisée : `assets/css/custom.css`
