@@ -52,7 +52,7 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Check generated content
-        run: ls -l ./public
+        run: ls -lah ./public
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
