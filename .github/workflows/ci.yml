@@ -52,16 +52,14 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-page-artifact@v3
         with:
-          name: github-pages-${{ matrix.runs-on }}
+          name: github-pages
           path: ./public
-      - name: Set good perms for public folder
-        run: chmod -R a+rX ./public
 
   deploy:
     environment:
-      name: github-pages-${{ matrix.runs-on }}
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
