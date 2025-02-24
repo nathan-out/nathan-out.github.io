@@ -51,15 +51,13 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
-      - name: Check generated content
-        run: ls -lah ./public
-      - name: Vérifier les liens symboliques
-        run: find ./public -type l -exec ls -l {} \;
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
           path: ./public
+      - name: Set good perms for public folder
+        run: chmod -R a+rX ./public
 
   deploy:
     environment:
