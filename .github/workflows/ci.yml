@@ -1,9 +1,10 @@
-name: Deploy Hugo site to GitHub Pages
+name: Deploy Hugo site to Github Pages
 
 on:
   push:
     branches:
       - master
+
   workflow_dispatch:
 
 permissions:
@@ -25,50 +26,38 @@ jobs:
     env:
       HUGO_VERSION: 0.110.0
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      - name: Install Dart Sass
+        run: sudo snap install dart-sass
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
-
-      - name: Install Hugo CLI
-        run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
-          sudo dpkg -i ${{ runner.temp }}/hugo.deb
-
-      - name: Install Dart Sass
-        run: sudo snap install dart-sass
-
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
-
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-          hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
-
-      - name: Vérifier la taille du dossier public
-        run: du -sh ./public
-
-      - name: Vérifier la structure des fichiers
-        run: find ./public -exec file {} \;
-
-      - name: Vérifier les permissions des fichiers
-        run: find ./public -exec ls -lah {} \;
-
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: github-pages
+          name: github-pages-${{ matrix.runs-on }}
           path: ./public
-          if-no-files-found: error  # Échouer si aucun fichier n'est trouvé
-          retention-days: 1  # Garde l’artefact pendant 1 jour pour économiser du stockage
+      - name: Set good perms for public folder
+        run: chmod -R a+rX ./public
 
   deploy:
     environment:
@@ -80,15 +69,6 @@ jobs:
       pages: write
       id-token: write
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-          path: ./public
-
-      - name: Vérifier le contenu téléchargé
-        run: ls -lR ./public
-
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
