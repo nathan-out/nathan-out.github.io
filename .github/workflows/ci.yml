@@ -51,8 +51,8 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload artifact 
+        uses: actions/upload-pages-artifact@v3 # https://github.com/orgs/community/discussions/150738 Use upload-pages-artifact@v3 (not v2), without the name: parameter But - Upgrade to deploy-pages@v4
         with:
           name: github-pages
           path: ./public
