@@ -1,7 +1,7 @@
 ---
 title: "Shellcode en poupée russe"
 date: 2025-05-21T10:25:27+02:00
-draft: true
+draft: false
 ---
 
 ## Résumé
