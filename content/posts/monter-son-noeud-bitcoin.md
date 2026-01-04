@@ -111,7 +111,7 @@ listen=1
 
 Mon idée était de rendre tout cela plus concret en proposant une interface web accessible à tous. Le RPC n'était exposé qu'au réseau Docker, il faut donc ajouter un autre composant. C'est pourquoi j'ai codé une API en Python qui est le backend de l'interface web. 
 
-![](/img/blog/bitcoin-node/infra.png)
+![](/img/blog/monter-son-noeud-bitcoin-pour-le-fun/infra.png)
 
 <figcaption>Schéma de l'infrastructure. Le RPC n'est pas exposé directement sur Internet, l'API Python n'expose que certains endpoints RPC inoffensifs.</figcaption>
 
