@@ -1,6 +1,6 @@
 ---
 title: "Monter son noeud Bitcoin pour le fun"
-date: 2026-01-04T10:25:27+02:0
+date: 2026-01-04T10:25:27+02:00
 draft: false
 ---
 
@@ -14,9 +14,9 @@ J'ai également mis en place un site web qui expose certaines données de mon no
 <meta property="og:description" content="Je détaille ici un projet de vacances qui a pour objectif de monter un noeud Bitcoin ainsi qu'une interface web permettant de visualiser concrètement l'activité du réseau.">
 <meta property="twitter:description" content="Je détaille ici un projet de vacances qui a pour objectif de monter un noeud Bitcoin ainsi qu'une interface web permettant de visualiser concrètement l'activité du réseau.">
 
-![]()
+![](/img/blog/monter-son-noeud-bitcoin-pour-le-fun/site.png)
 
-<figcaption></figcaption>
+<figcaption>L'interface web que j'ai montée à partir des données du noeud.</figcaption>
 
 ## Vue d'ensemble du réseau
 
@@ -111,9 +111,9 @@ listen=1
 
 Mon idée était de rendre tout cela plus concret en proposant une interface web accessible à tous. Le RPC n'était exposé qu'au réseau Docker, il faut donc ajouter un autre composant. C'est pourquoi j'ai codé une API en Python qui est le backend de l'interface web. 
 
-![](/img/blog/monter-son-noeud-bitcoin-pour-le-fun/site.png)
+![](/img/blog/bitcoin-node/infra.png)
 
-<figcaption>L'interface web que j'ai montée à partir des données du noeud.</figcaption>
+<figcaption>Schéma de l'infrastructure. Le RPC n'est pas exposé directement sur Internet, l'API Python n'expose que certains endpoints RPC inoffensifs.</figcaption>
 
 Le site affiche donc l'état du noeud, à quel réseau il est connecté, à combien d'autres noeuds il est connecté, l'uptime... L'interface affiche également les 3 derniers blocks du réseau avec la plupart des informations contenues à l'intérieur.
 
@@ -156,6 +156,6 @@ def getconnectioncount():
 
 A toute fin utile, voici une amélioration du fichier de configuration `bitcoin.conf` qui vise à réduire la consommation de RAM. Notez que certains paramètres peuvent changer le comportement de votre noeud (RTFM). Si vous voulez creuser, voici deux sites qui m'ont été utiles :
 
-- [Bitcoin Stack Exchange - How to run node bitcoind in a low memory environment](Bitcoin Stack Exchange - How to run node bitcoind in a low memory environment)
+- [Bitcoin Stack Exchange - How to run node bitcoind in a low memory environment](https://nathan-out.github.io/)
 
 - [Github Bitcoin Doc - Reduce Memory](https://github.com/bitcoin/bitcoin/blob/master/doc/reduce-memory.md)
